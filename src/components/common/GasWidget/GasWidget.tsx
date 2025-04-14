@@ -60,6 +60,7 @@ export const GasWidget: FC = memo(() => {
             }
         })
 
+        window.open('https://www.blog.concero.io/blog/concero/article/concero-v2-public-testnet-tutorial', '_blank', 'noopener,noreferrer');
     }, [trackEvent, sourceChain, gas])
 
     if (!isConnected) {

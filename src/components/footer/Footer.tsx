@@ -16,6 +16,7 @@ type FooterIcon = {
     icon: React.ReactNode
     className?: string
     link?: string
+    disabled?: boolean
     trackingEvent?: {
         category: string
         action: string
@@ -49,7 +50,7 @@ const FooterItem: FC<FooterSection> = ({ heading, icons }) => {
                         key={`${heading}-link-${index}`}
                         onClick={() => handleIconClick(item)}
                     >
-                        <IconButton key={`${heading}-icon-${index}`} variant="secondary" className={item.className}>
+                        <IconButton key={`${heading}-icon-${index}`} variant="secondary" className={item.className} disabled={item.disabled}>
                             {item.icon}
                         </IconButton>
                     </a>
@@ -105,7 +106,7 @@ export const Footer: FC = () => {
             youtube: {
                 icon: <YouTubeIcon />,
                 className: 'youtube-icon-button',
-                link: 'https://www.youtube.com/@concero_io',
+                disabled: true,
                 trackingEvent: {
                     ...GuideEvents.YOUTUBE_OPENED
                 }
