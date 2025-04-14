@@ -278,7 +278,6 @@ export const transports = {
 
     //// MONAD TESTNET ////
     [monadTestnet.id]: fallback([
-        http('https://monad-testnet.drpc.org'),
         http('https://testnet-rpc.monad.xyz'),
         http()
     ], options),
