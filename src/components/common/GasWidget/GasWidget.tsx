@@ -68,14 +68,17 @@ export const GasWidget: FC = memo(() => {
 
     return (
         <div className="gas_widget">
-            <GasIcon color={uiProps.gasColor} />
-            {isLoading ? (
-                <SkeletonLoader width={28} height={22} className="loader" />
-            ) : (
-                <h5 className="gas_value">
-                    <span className="gas_value_symbol">{sourceChain?.nativeToken}</span> {format(Number(gas), 2)}
-                </h5>
-            )}
+            <div className="gas_info">
+                <GasIcon color={uiProps.gasColor} />
+                {isLoading ? (
+                    <SkeletonLoader width={28} height={22} className="loader" />
+                ) : (
+                    <h5 className="gas_value">
+                        {format(Number(gas), 2)}
+                        <span className="gas_value_symbol">{sourceChain?.nativeToken}</span> 
+                    </h5>
+                )}
+            </div>
 
             <IconButton 
                 size="s" 
