@@ -28,7 +28,6 @@ import {
 	sepolia,
 	shibariumTestnet,
 	soneiumMinato,
-	sonicBlazeTestnet,
 	unichainSepolia,
 	xLayerTestnet,
 	zircuitTestnet,
@@ -135,9 +134,6 @@ export const chains: [AppKitNetwork, ...AppKitNetwork[]] = [
 	//// SONEIUM MINATO ////
 	soneiumMinato,
 
-	//// SONIC BLAZE TESTNET ////
-	sonicBlazeTestnet,
-
 	//// UNICHAIN SEPOLIA ////
 	unichainSepolia,
 
@@ -150,29 +146,29 @@ export const chains: [AppKitNetwork, ...AppKitNetwork[]] = [
 
 export const transports = {
 	//// APECHAIN CURTIS ////
-	[curtis.id]: fallback([http('https://apechain-curtis.drpc.org'), http('https://rpc.curtis.apechain.com'), http()]),
+	[curtis.id]: fallback([http('https://rpc.curtis.apechain.com'), http(), http('https://apechain-curtis.drpc.org')]),
 
 	//// ARBITRUM SEPOLIA ////
 	[arbitrumSepolia.id]: fallback([
 		http('https://arbitrum-sepolia.gateway.tenderly.co'),
-		http('https://arbitrum-sepolia.drpc.org'),
 		http(),
+		http('https://arbitrum-sepolia.drpc.org'),
 	]),
 
 	//// AVALANCHE FUJI ////
 	[avalancheFuji.id]: fallback([
-		http('https://avalanche-fuji.drpc.org'),
 		http('https://avalanche-fuji-c-chain-rpc.publicnode.com'),
 		http('https://endpoints.omniatech.io/v1/avax/fuji/public'),
 		http(),
+		http('https://avalanche-fuji.drpc.org'),
 	]),
 
 	//// BASE SEPOLIA ////
 	[baseSepolia.id]: fallback([
 		http('https://base-sepolia.gateway.tenderly.co'),
-		http('https://base-sepolia.drpc.org'),
 		http('https://base-sepolia-rpc.publicnode.com'),
 		http(),
+		http('https://base-sepolia.drpc.org'),
 	]),
 
 	//// BITLAYER TESTNET ////
@@ -191,10 +187,10 @@ export const transports = {
 
 	/// BNB TESTNET ///
 	[bscTestnet.id]: fallback([
-		http('https://bsc-testnet.drpc.org'),
 		http('https://endpoints.omniatech.io/v1/bsc/testnet/public'),
 		http('https://public.stackup.sh/api/v1/node/bsc-testnet'),
 		http(),
+		http('https://bsc-testnet.drpc.org'), // DRPC moved to end
 	]),
 
 	//// BOTANIX TESTNET ////
@@ -202,9 +198,9 @@ export const transports = {
 
 	//// CELO ALFAJORES ////
 	[celoAlfajores.id]: fallback([
-		http('https://celo-alfajores.drpc.org'),
 		http('https://alfajores-forno.celo-testnet.org'),
 		http(),
+		http('https://celo-alfajores.drpc.org'), // DRPC moved to end
 	]),
 
 	//// CORE TESTNET ////
@@ -228,13 +224,13 @@ export const transports = {
 	[hashkeyTestnet.id]: fallback([http()]),
 
 	//// INK SEPOLIA ////
-	[inkSepolia.id]: fallback([http('https://ink-sepolia.drpc.org'), http()]),
+	[inkSepolia.id]: fallback([http(), http('https://ink-sepolia.drpc.org')]),
 
 	//// LINEA SEPOLIA ////
 	[lineaSepolia.id]: fallback([
-		http('https://linea-sepolia.drpc.org'),
 		http('https://linea-sepolia-rpc.publicnode.com'),
 		http(),
+		http('https://linea-sepolia.drpc.org'),
 	]),
 
 	//// MANTLE SEPOLIA ////
@@ -251,17 +247,14 @@ export const transports = {
 	[modeTestnet.id]: fallback([http('https://sepolia.mode.network'), http()]),
 
 	//// MONAD TESTNET ////
-	[monadTestnet.id]: fallback([
-		http('https://testnet-rpc.monad.xyz'),
-		http(),
-	]),
+	[monadTestnet.id]: fallback([http('https://testnet-rpc.monad.xyz'), http()]),
 
 	//// OPTIMISM SEPOLIA ////
 	[optimismSepolia.id]: fallback([
 		http('https://endpoints.omniatech.io/v1/op/sepolia/public'),
 		http('https://optimism-sepolia.gateway.tenderly.co'),
-		http('https://optimism-sepolia.drpc.org'),
 		http(),
+		http('https://optimism-sepolia.drpc.org'),
 	]),
 
 	//// POLYGON AMOY ////
@@ -300,23 +293,16 @@ export const transports = {
 	//// SONEIUM MINATO ////
 	[soneiumMinato.id]: fallback([
 		http('https://rpc.minato.soneium.org'),
+		http(),
 		http('https://soneium-minato.drpc.org'),
-		http(),
-	]),
-
-	//// SONIC BLAZE TESTNET ////
-	[sonicBlazeTestnet.id]: fallback([
-		http('https://rpc.blaze.soniclabs.com'),
-		http('https://sonic-testnet.drpc.org'),
-		http(),
 	]),
 
 	//// UNICHAIN SEPOLIA ////
 	[unichainSepolia.id]: fallback([
 		http('https://sepolia.unichain.org'),
 		http('https://unichain-sepolia-rpc.publicnode.com'),
-		http('https://unichain-sepolia.drpc.org'),
 		http(),
+		http('https://unichain-sepolia.drpc.org'),
 	]),
 
 	//// XLAYER SEPOLIA ////

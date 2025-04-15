@@ -13,11 +13,16 @@ export const AmountInput: FC = memo(() => {
 		[isConnected],
 	)
 
+	const inputClass = useMemo(() => {
+		const baseClass = 'amount_input_input'
+		return value && value !== '0' ? `${baseClass} amount_input_has_value` : baseClass
+	}, [value])
+
 	return (
 		<div className={containerClass}>
 			<input
 				type="text"
-				className="amount_input_input"
+				className={inputClass}
 				placeholder="0"
 				value={value}
 				onChange={onChange}

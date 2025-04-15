@@ -54,12 +54,17 @@ export const TokenWidget: FC = memo(() => {
 
 	return (
 		<div className="token_widget">
-			<TokenIcon color={uiProps.tokenColor} />
-			{isLoading ? (
-				<SkeletonLoader width={28} height={22} className="loader" />
-			) : (
-				<h5 className="native_token_value">{format(Number(nativeToken), 2)}</h5>
-			)}
+			<div className="token_info">
+				<TokenIcon color={uiProps.tokenColor} />
+				{isLoading ? (
+					<SkeletonLoader width={28} height={22} className="loader" />
+				) : (
+					<h5 className="native_token_value">
+						{format(Number(nativeToken), 2)}
+						<span className="native_token_symbol">tCERO</span>
+					</h5>
+				)}
+			</div>
 
 			<IconButton size="s" variant={uiProps.buttonVariant} onClick={openFaucetModal}>
 				<AddIcon color={uiProps.addColor} />
