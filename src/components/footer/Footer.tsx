@@ -97,7 +97,7 @@ export const Footer: FC = () => {
             mediumGuide: {
                 icon: <MediumIcon />,
                 className: 'medium-icon-button',
-                link: 'https://medium.com/@concero/guides',
+                link: 'https://www.blog.concero.io/blog/concero/article/concero-v2-public-testnet-tutorial',
                 trackingEvent: {
                     ...GuideEvents.MEDIUM_OPENED
                 }

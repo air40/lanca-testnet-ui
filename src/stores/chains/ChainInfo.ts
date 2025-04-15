@@ -80,9 +80,6 @@ export const chainLogos: Record<number, string> = {
 	//// SONEIUM MINATO ////
 	1946: '/Chains/1946.svg',
 
-	//// SONIC BLAZE ////
-	57054: '/Chains/57054.svg',
-
 	//// UNICHAIN SEPOLIA ////
 	1301: '/Chains/1301.svg',
 
@@ -174,9 +171,6 @@ export const chainCCIP: Record<number, { isCCIP: boolean }> = {
 
 	//// SONEIUM MINATO ////
 	1946: { isCCIP: true },
-
-	//// SONIC BLAZE ////
-	57054: { isCCIP: true },
 
 	//// UNICHAIN SEPOLIA ////
 	1301: { isCCIP: true },
@@ -270,9 +264,6 @@ export const chainSelectors: Record<number, bigint> = {
     //// SONEIUM MINATO ////
     1946: 686603546605904534n,
 
-    //// SONIC BLAZE ////
-    57054: 3676871237479449268n,
-
     //// UNICHAIN SEPOLIA ////
     1301: 14135854469784514356n,
 
@@ -365,9 +356,6 @@ export const hastCEROFaucet: Record<number, { hastCEROFaucet: boolean }> = {
 	//// SONEIUM MINATO ////
 	1946: { hastCEROFaucet: false },
 
-	//// SONIC BLAZE ////
-	57054: { hastCEROFaucet: false },
-
 	//// UNICHAIN SEPOLIA ////
 	1301: { hastCEROFaucet: false },
 
@@ -459,9 +447,6 @@ export const chainNames: Record<number, string> = {
 
 	//// SONEIUM MINATO ////
 	1946: 'Minato',
-
-	//// SONIC BLAZE ////
-	57054: 'Blaze',
 
 	//// UNICHAIN SEPOLIA ////
 	1301: 'Unichain',

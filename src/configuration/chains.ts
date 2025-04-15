@@ -28,7 +28,6 @@ import {
 	sepolia,
 	shibariumTestnet,
 	soneiumMinato,
-	sonicBlazeTestnet,
 	unichainSepolia,
 	xLayerTestnet,
 	zircuitTestnet,
@@ -140,9 +139,6 @@ export const chains: [AppKitNetwork, ...AppKitNetwork[]] = [
 
 	//// SONEIUM MINATO ////
 	soneiumMinato,
-
-	//// SONIC BLAZE TESTNET ////
-	sonicBlazeTestnet,
 
 	//// UNICHAIN SEPOLIA ////
 	unichainSepolia,
@@ -335,13 +331,6 @@ export const transports = {
     [soneiumMinato.id]: fallback([
         http('https://rpc.minato.soneium.org'),
         http('https://soneium-minato.drpc.org'),
-        http()
-    ], options),
-
-    //// SONIC BLAZE TESTNET ////
-    [sonicBlazeTestnet.id]: fallback([
-        http('https://rpc.blaze.soniclabs.com'),
-        http('https://sonic-testnet.drpc.org'),
         http()
     ], options),
 

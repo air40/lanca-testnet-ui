@@ -77,9 +77,6 @@ export const ccipRouters: Record<string, string> = {
 	//// SONEIUM MINATO ////
 	'1946': '0x443a1bce545d56E2c3f20ED32eA588395FFce0f4',
 
-	//// SONIC BLAZE ////
-	'57054': '0x2fBd4659774D468Db5ca5bacE37869905d8EfA34',
-
 	//// UNICHAIN SEPOLIA ////
 	'1301': '0x5b7D7CDf03871dc9Eb00830B027e70A75bd3DC95',
 
