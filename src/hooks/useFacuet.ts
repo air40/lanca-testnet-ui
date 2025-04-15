@@ -4,6 +4,7 @@ import { useAccount } from 'wagmi'
 import { useLoadBalances } from './Loadables/useLoadBalances'
 import { TokenEvents } from '@/events/events'
 import { useTrackEvent } from './useTrackEvent'
+import { chainNames } from '@/stores/chains/ChainInfo'
 
 type FaucetResponse = {
 	success: boolean
@@ -70,6 +71,7 @@ export const useFaucet = () => {
 						...TokenEvents.CLAIM_FAILED,
 						data: {
 							chainId: chainId.toString(),
+							chainName: chainNames[chainId],
 							error: response.message || 'Unknown error',
 						},
 					})
@@ -85,6 +87,7 @@ export const useFaucet = () => {
 					...TokenEvents.CLAIM_SUCCESSFUL,
 					data: {
 						chainId: chainId.toString(),
+						chainName: chainNames[chainId],
 						txHash: response.txHash,
 					},
 				})
