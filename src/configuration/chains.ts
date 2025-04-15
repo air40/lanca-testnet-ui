@@ -52,12 +52,6 @@ const coreTestnet = defineChain({
 	testnet: true,
 })
 
-const options = {
-    retryCount: 5,
-    retryDelay: 3000,
-	timeout: 10000
-}
-
 export const chains: [AppKitNetwork, ...AppKitNetwork[]] = [
 	//// APECHAIN CURTIS ////
 	curtis,
@@ -151,208 +145,177 @@ export const chains: [AppKitNetwork, ...AppKitNetwork[]] = [
 ]
 
 export const transports = {
-    //// APECHAIN CURTIS ////
-    [curtis.id]: fallback([
-        http('https://apechain-curtis.drpc.org'),
-        http('https://rpc.curtis.apechain.com'),
-        http()
-    ], options),
+	//// APECHAIN CURTIS ////
+	[curtis.id]: fallback([http('https://rpc.curtis.apechain.com'), http(), http('https://apechain-curtis.drpc.org')]),
 
-    //// ARBITRUM SEPOLIA ////
-    [arbitrumSepolia.id]: fallback([
-        http('https://arbitrum-sepolia.gateway.tenderly.co'),
-        http('https://arbitrum-sepolia.drpc.org'),
-        http()
-    ], options),
+	//// ARBITRUM SEPOLIA ////
+	[arbitrumSepolia.id]: fallback([
+		http('https://arbitrum-sepolia.gateway.tenderly.co'),
+		http(),
+		http('https://arbitrum-sepolia.drpc.org'),
+	]),
 
-    //// AVALANCHE FUJI ////
-    [avalancheFuji.id]: fallback([
-        http('https://avalanche-fuji.drpc.org'),
-        http('https://avalanche-fuji-c-chain-rpc.publicnode.com'),
-        http('https://endpoints.omniatech.io/v1/avax/fuji/public'),
-        http()
-    ], options),
+	//// AVALANCHE FUJI ////
+	[avalancheFuji.id]: fallback([
+		http('https://avalanche-fuji-c-chain-rpc.publicnode.com'),
+		http('https://endpoints.omniatech.io/v1/avax/fuji/public'),
+		http(),
+		http('https://avalanche-fuji.drpc.org'),
+	]),
 
-    //// BASE SEPOLIA ////
-    [baseSepolia.id]: fallback([
-        http('https://base-sepolia.gateway.tenderly.co'),
-        http('https://base-sepolia.drpc.org'),
-        http('https://base-sepolia-rpc.publicnode.com'),
-        http()
-    ], options),
+	//// BASE SEPOLIA ////
+	[baseSepolia.id]: fallback([
+		http('https://base-sepolia.gateway.tenderly.co'),
+		http('https://base-sepolia-rpc.publicnode.com'),
+		http(),
+		http('https://base-sepolia.drpc.org'),
+	]),
 
-    //// BITLAYER TESTNET ////
-    [bitlayerTestnet.id]: fallback([
-        http('https://testnet-rpc.bitlayer.org'),
-        http('https://rpc.ankr.com/bitlayer_testnet'),
-        http()
-    ], options),
+	//// BITLAYER TESTNET ////
+	[bitlayerTestnet.id]: fallback([
+		http('https://testnet-rpc.bitlayer.org'),
+		http('https://rpc.ankr.com/bitlayer_testnet'),
+		http(),
+	]),
 
-    //// BLAST SEPOLIA ////
-    [blastSepolia.id]: fallback([
-        http('https://sepolia.blast.io'),
-        http('https://endpoints.omniatech.io/v1/blast/sepolia/public'),
-        http()
-    ], options),
+	//// BLAST SEPOLIA ////
+	[blastSepolia.id]: fallback([
+		http('https://sepolia.blast.io'),
+		http('https://endpoints.omniatech.io/v1/blast/sepolia/public'),
+		http(),
+	]),
 
-    /// BNB TESTNET ///
-    [bscTestnet.id]: fallback([
-        http('https://bsc-testnet.drpc.org'),
-        http('https://endpoints.omniatech.io/v1/bsc/testnet/public'),
-        http('https://public.stackup.sh/api/v1/node/bsc-testnet'),
-        http()
-    ], options),
+	/// BNB TESTNET ///
+	[bscTestnet.id]: fallback([
+		http('https://endpoints.omniatech.io/v1/bsc/testnet/public'),
+		http('https://public.stackup.sh/api/v1/node/bsc-testnet'),
+		http(),
+		http('https://bsc-testnet.drpc.org'), // DRPC moved to end
+	]),
 
-    //// BOTANIX TESTNET ////
-    [botanixTestnet.id]: fallback([
-        http('https://node.botanixlabs.dev'),
-        http()
-    ], options),
+	//// BOTANIX TESTNET ////
+	[botanixTestnet.id]: fallback([http('https://node.botanixlabs.dev'), http()]),
 
-    //// CELO ALFAJORES ////
-    [celoAlfajores.id]: fallback([
-        http('https://celo-alfajores.drpc.org'),
-        http('https://alfajores-forno.celo-testnet.org'),
-        http()
-    ], options),
+	//// CELO ALFAJORES ////
+	[celoAlfajores.id]: fallback([
+		http('https://alfajores-forno.celo-testnet.org'),
+		http(),
+		http('https://celo-alfajores.drpc.org'), // DRPC moved to end
+	]),
 
-    //// CORE TESTNET ////
-    [coreTestnet.id]: fallback([
-        http()
-    ], options),
+	//// CORE TESTNET ////
+	[coreTestnet.id]: fallback([http()]),
 
-    //// CRONOS TESTNET ////
-    [cronosTestnet.id]: fallback([
-        http('https://evm-t3.cronos.org'),
-        http('https://endpoints.omniatech.io/v1/cronos/testnet/public'),
-        http()
-    ], options),
+	//// CRONOS TESTNET ////
+	[cronosTestnet.id]: fallback([
+		http('https://evm-t3.cronos.org'),
+		http('https://endpoints.omniatech.io/v1/cronos/testnet/public'),
+		http(),
+	]),
 
-    //// GNOSIS CHIADO ////
-    [gnosisChiado.id]: fallback([
-        http('https://gnosis-chiado-rpc.publicnode.com'),
-        http('https://endpoints.omniatech.io/v1/gnosis/chiado/public'),
-        http()
-    ], options),
+	//// GNOSIS CHIADO ////
+	[gnosisChiado.id]: fallback([
+		http('https://gnosis-chiado-rpc.publicnode.com'),
+		http('https://endpoints.omniatech.io/v1/gnosis/chiado/public'),
+		http(),
+	]),
 
-    //// HASHKEY TESTNET ////
-    [hashkeyTestnet.id]: fallback([
-        http()
-    ], options),
+	//// HASHKEY TESTNET ////
+	[hashkeyTestnet.id]: fallback([http()]),
 
-    //// INK SEPOLIA ////
-    [inkSepolia.id]: fallback([
-        http('https://ink-sepolia.drpc.org'),
-        http()
-    ], options),
+	//// INK SEPOLIA ////
+	[inkSepolia.id]: fallback([http(), http('https://ink-sepolia.drpc.org')]),
 
-    //// LINEA SEPOLIA ////
-    [lineaSepolia.id]: fallback([
-        http('https://linea-sepolia.drpc.org'),
-        http('https://linea-sepolia-rpc.publicnode.com'),
-        http()
-    ], options),
+	//// LINEA SEPOLIA ////
+	[lineaSepolia.id]: fallback([
+		http('https://linea-sepolia-rpc.publicnode.com'),
+		http(),
+		http('https://linea-sepolia.drpc.org'),
+	]),
 
-    //// MANTLE SEPOLIA ////
-    [mantleSepoliaTestnet.id]: fallback([
-        http('https://endpoints.omniatech.io/v1/mantle/sepolia/public'),
-        http('https://rpc.sepolia.mantle.xyz'),
-        http()
-    ], options),
+	//// MANTLE SEPOLIA ////
+	[mantleSepoliaTestnet.id]: fallback([
+		http('https://endpoints.omniatech.io/v1/mantle/sepolia/public'),
+		http('https://rpc.sepolia.mantle.xyz'),
+		http(),
+	]),
 
-    //// MEGAETH TESTNET ////
-    [megaethTestnet.id]: fallback([
-        http('https://carrot.megaeth.com/rpc'),
-        http()
-    ], options),
+	//// MEGAETH TESTNET ////
+	[megaethTestnet.id]: fallback([http('https://carrot.megaeth.com/rpc'), http()]),
 
-    //// MODE TESTNET ////
-    [modeTestnet.id]: fallback([
-        http('https://sepolia.mode.network'),
-        http()
-    ], options),
+	//// MODE TESTNET ////
+	[modeTestnet.id]: fallback([http('https://sepolia.mode.network'), http()]),
 
-    //// MONAD TESTNET ////
-    [monadTestnet.id]: fallback([
-        http('https://testnet-rpc.monad.xyz'),
-        http()
-    ], options),
+	//// MONAD TESTNET ////
+	[monadTestnet.id]: fallback([http('https://testnet-rpc.monad.xyz'), http()]),
 
-    //// OPTIMISM SEPOLIA ////
-    [optimismSepolia.id]: fallback([
-        http('https://endpoints.omniatech.io/v1/op/sepolia/public'),
-        http('https://optimism-sepolia.gateway.tenderly.co'),
-        http('https://optimism-sepolia.drpc.org'),
-        http()
-    ], options),
+	//// OPTIMISM SEPOLIA ////
+	[optimismSepolia.id]: fallback([
+		http('https://endpoints.omniatech.io/v1/op/sepolia/public'),
+		http('https://optimism-sepolia.gateway.tenderly.co'),
+		http(),
+		http('https://optimism-sepolia.drpc.org'),
+	]),
 
-    //// POLYGON AMOY ////
-    [polygonAmoy.id]: fallback([
-        http('https://polygon-amoy-bor-rpc.publicnode.com'),
-        http('https://polygon-amoy.gateway.tenderly.co'),
-        http('https://rpc-amoy.polygon.technology'),
-        http()
-    ], options),
+	//// POLYGON AMOY ////
+	[polygonAmoy.id]: fallback([
+		http('https://polygon-amoy-bor-rpc.publicnode.com'),
+		http('https://polygon-amoy.gateway.tenderly.co'),
+		http('https://rpc-amoy.polygon.technology'),
+		http(),
+	]),
 
-    //// SAIGON ////
-    [saigon.id]: fallback([
-        http()
-    ], options),
+	//// SAIGON ////
+	[saigon.id]: fallback([http()]),
 
-    //// SCROLL SEPOLIA ////
-    [scrollSepolia.id]: fallback([
-        http('https://sepolia-rpc.scroll.io'),
-        http('https://scroll-sepolia.chainstacklabs.com'),
-        http('https://scroll-public.scroll-testnet.quiknode.pro'),
-        http()
-    ], options),
+	//// SCROLL SEPOLIA ////
+	[scrollSepolia.id]: fallback([
+		http('https://sepolia-rpc.scroll.io'),
+		http('https://scroll-sepolia.chainstacklabs.com'),
+		http('https://scroll-public.scroll-testnet.quiknode.pro'),
+		http(),
+	]),
 
-    //// SEI TESTNET ////
-    [seiTestnet.id]: fallback([
-        http('https://evm-rpc-testnet.sei-apis.com'),
-        http()
-    ], options),
+	//// SEI TESTNET ////
+	[seiTestnet.id]: fallback([http('https://evm-rpc-testnet.sei-apis.com'), http()]),
 
-    //// SEPOLIA ////
-    [sepolia.id]: fallback([
-        http('https://1rpc.io/sepolia'),
-        http('https://ethereum-sepolia-rpc.publicnode.com'),
-        http('https://endpoints.omniatech.io/v1/eth/sepolia/public'),
-        http()
-    ], options),
+	//// SEPOLIA ////
+	[sepolia.id]: fallback([
+		http('https://1rpc.io/sepolia'),
+		http('https://ethereum-sepolia-rpc.publicnode.com'),
+		http('https://endpoints.omniatech.io/v1/eth/sepolia/public'),
+		http(),
+	]),
 
-    //// SHIBARIUM TESTNET ////
-    [shibariumTestnet.id]: fallback([
-        http('https://puppynet.shibrpc.com'),
-        http()
-    ], options),
+	//// SHIBARIUM TESTNET ////
+	[shibariumTestnet.id]: fallback([http('https://puppynet.shibrpc.com'), http()]),
 
-    //// SONEIUM MINATO ////
-    [soneiumMinato.id]: fallback([
-        http('https://rpc.minato.soneium.org'),
-        http('https://soneium-minato.drpc.org'),
-        http()
-    ], options),
+	//// SONEIUM MINATO ////
+	[soneiumMinato.id]: fallback([
+		http('https://rpc.minato.soneium.org'),
+		http(),
+		http('https://soneium-minato.drpc.org'),
+	]),
 
-    //// UNICHAIN SEPOLIA ////
-    [unichainSepolia.id]: fallback([
-        http('https://sepolia.unichain.org'),
-        http('https://unichain-sepolia-rpc.publicnode.com'),
-        http('https://unichain-sepolia.drpc.org'),
-        http()
-    ], options),
+	//// UNICHAIN SEPOLIA ////
+	[unichainSepolia.id]: fallback([
+		http('https://sepolia.unichain.org'),
+		http('https://unichain-sepolia-rpc.publicnode.com'),
+		http(),
+		http('https://unichain-sepolia.drpc.org'),
+	]),
 
-    //// XLAYER SEPOLIA ////
-    [xLayerTestnet.id]: fallback([
-        http('https://xlayertestrpc.okx.com'),
-        http('https://endpoints.omniatech.io/v1/xlayer/testnet/public'),
-        http()
-    ], options),
+	//// XLAYER SEPOLIA ////
+	[xLayerTestnet.id]: fallback([
+		http('https://xlayertestrpc.okx.com'),
+		http('https://endpoints.omniatech.io/v1/xlayer/testnet/public'),
+		http(),
+	]),
 
-    //// ZIRCUT TESTNET ////
-    [zircuitTestnet.id]: fallback([
-        http('https://testnet.zircuit.com'),
-        http('https://zircuit1-testnet.p2pify.com'),
-        http()
-    ], options),
+	//// ZIRCUT TESTNET ////
+	[zircuitTestnet.id]: fallback([
+		http('https://testnet.zircuit.com'),
+		http('https://zircuit1-testnet.p2pify.com'),
+		http(),
+	]),
 }

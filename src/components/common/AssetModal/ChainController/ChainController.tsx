@@ -43,7 +43,7 @@ export const ChainController: FC<ChainControllerProps> = memo(({ activeTab, setA
 				onClick={handleCcipTabClick}
 				data-testid="ccip-chains-tab"
 			>
-				CCIP: {sourceChain?.isCCIP ? ccipChains.length - 1 : ccipChains.length}
+				CCIP: {sourceChain?.isCCIP ? ccipChains.length : 0}
 			</Button>
 		</div>
 	)

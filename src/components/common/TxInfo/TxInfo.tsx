@@ -8,9 +8,8 @@ import { format } from '@/utils/format'
 import { useFormStore } from '@/stores/form/useFormStore'
 import './TxInfo.pcss'
 
-
 export const TxInfo: FC = memo((): JSX.Element => {
-	const { sourceChain } = useFormStore() 
+	const { sourceChain } = useFormStore()
 	const { formattedGas, isLoading } = useEstimateGas()
 
 	return (

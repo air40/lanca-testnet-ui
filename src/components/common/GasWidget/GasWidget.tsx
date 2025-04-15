@@ -13,84 +13,88 @@ import { useTrackEvent } from '@/hooks/useTrackEvent'
 import './GasWidget.pcss'
 
 const COLORS = {
-    PURPLE: 'var(--color-accent-600)',
-    GRAY: 'var(--color-gray-600)',
+	PURPLE: 'var(--color-accent-600)',
+	GRAY: 'var(--color-gray-600)',
 }
 
 export const GasWidget: FC = memo(() => {
-    const { isConnected } = useAccount()
-    const { sourceChain } = useFormStore()
-    const { nativeBalances, isLoading } = useBalancesStore()
-    const { trackEvent } = useTrackEvent()
+	const { isConnected } = useAccount()
+	const { sourceChain } = useFormStore()
+	const { nativeBalances, isLoading } = useBalancesStore()
+	const { trackEvent } = useTrackEvent()
 
-    const rawAmount = useMemo(() => {
-        if (!sourceChain || !nativeBalances[Number(sourceChain.id)]) {
-            return '0'
-        }
-        return nativeBalances[Number(sourceChain.id)].balance
-    }, [sourceChain, nativeBalances])
+	const rawAmount = useMemo(() => {
+		if (!sourceChain || !nativeBalances[Number(sourceChain.id)]) {
+			return '0'
+		}
+		return nativeBalances[Number(sourceChain.id)].balance
+	}, [sourceChain, nativeBalances])
 
-    const gas = useMemo(
-        () => formatTokenAmount(rawAmount, sourceChain?.decimals || 18),
-        [rawAmount, sourceChain?.decimals],
-    )
+	const gas = useMemo(
+		() => formatTokenAmount(rawAmount, sourceChain?.decimals || 18),
+		[rawAmount, sourceChain?.decimals],
+	)
 
-    const uiProps = useMemo<{
-        gasColor: string
-        addColor: string
-        buttonVariant: 'secondary' | 'secondary_color'
-    }>(() => {
-        const hasGas = !isLoading && Number(gas) > 0
+	const uiProps = useMemo<{
+		gasColor: string
+		addColor: string
+		buttonVariant: 'secondary' | 'secondary_color'
+	}>(() => {
+		const hasGas = !isLoading && Number(gas) > 0
 
-        return {
-            gasColor: hasGas || isLoading ? COLORS.PURPLE : COLORS.GRAY,
-            addColor: hasGas || isLoading ? COLORS.GRAY : COLORS.PURPLE,
-            buttonVariant: hasGas ? 'secondary' : ('secondary_color' as const),
-        }
-    }, [gas, isLoading])
+		return {
+			gasColor: hasGas || isLoading ? COLORS.PURPLE : COLORS.GRAY,
+			addColor: hasGas || isLoading ? COLORS.GRAY : COLORS.PURPLE,
+			buttonVariant: hasGas ? 'secondary' : ('secondary_color' as const),
+		}
+	}, [gas, isLoading])
 
-    const handleOpenFaucet = useCallback(() => {
-        trackEvent({
-            ...FaucetEvents.LIST_OPENED,
-            data: {
-                chainId: sourceChain?.id,
-                chainName: sourceChain?.name,
-                currentGasBalance: gas,
-                timestamp: Date.now()
-            }
-        })
+	const handleOpenFaucet = useCallback(() => {
+		trackEvent({
+			...FaucetEvents.LIST_OPENED,
+			data: {
+				chainId: sourceChain?.id,
+				chainName: sourceChain?.name,
+				currentGasBalance: gas,
+				timestamp: Date.now(),
+			},
+		})
 
-        window.open('https://docs.google.com/spreadsheets/d/1s6VH4EITpavCIdjaJUGs489cmzpDug_hGEGTnxzWYfk/edit?gid=0#gid=0&range=G:G', '_blank', 'noopener,noreferrer');
-    }, [trackEvent, sourceChain, gas])
+		window.open(
+			' https://docs.google.com/spreadsheets/d/1e0W0ZwgY_Bq-YDUk6JZHfdpcVYxqrvIS60gSCnoDeTg/edit?gid=1753051773#gid=1753051773',
+			'_blank',
+			'noopener,noreferrer',
+		)
+	}, [trackEvent, sourceChain, gas])
 
-    if (!isConnected) {
-        return null
-    }
+	if (!isConnected) {
+		return null
+	}
 
-    return (
-        <div className="gas_widget">
-            <div className="gas_info">
-                <GasIcon color={uiProps.gasColor} />
-                {isLoading ? (
-                    <SkeletonLoader width={28} height={22} className="loader" />
-                ) : (
-                    <h5 className="gas_value">
-                        {format(Number(gas), 2)}
-                        <span className="gas_value_symbol">{sourceChain?.nativeToken}</span> 
-                    </h5>
-                )}
-            </div>
+	return (
+		<div className="gas_widget">
+			<div className="gas_info">
+				<GasIcon color={uiProps.gasColor} />
+				{isLoading ? (
+					<SkeletonLoader width={28} height={22} className="loader" />
+				) : (
+					<h5 className="gas_value">
+						{format(Number(gas), 2)}
+						<span className="gas_value_symbol">{sourceChain?.nativeToken}</span>
+					</h5>
+				)}
+			</div>
 
-            <IconButton 
-                size="s" 
-                variant={uiProps.buttonVariant} 
-                onClick={handleOpenFaucet}
-                data-testid="gas-faucet-button"
-            >
-                <AddIcon color={uiProps.addColor} />
-            </IconButton>
-        </div>
-    )
+			<IconButton
+				size="s"
+				variant={uiProps.buttonVariant}
+				onClick={handleOpenFaucet}
+				data-testid="gas-faucet-button"
+			>
+				<AddIcon color={uiProps.addColor} />
+			</IconButton>
+		</div>
+	)
 })
 
 GasWidget.displayName = 'GasWidget'

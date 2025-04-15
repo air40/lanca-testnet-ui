@@ -16,73 +16,74 @@ import { TokenAddresses } from '@/configuration/addresses'
 import './AssetModal.pcss'
 
 export const AssetModal: FC<AssetModalProps> = memo(
-    ({ title, isOpen, isSrcModal, direction, onClose }): JSX.Element => {
-        const { isFaucetModalOpen, openFaucetModal } = useModalStore()
-        const { 
-            setSourceChain, 
-            setDestinationChain, 
-            setFromTokenAddress, 
-            setToTokenAddress 
-        } = useFormStore()
-        const [activeTab, setActiveTab] = useState<ActiveTab>(ActiveTab.All)
-        const [searchInput, setSearchInput] = useState<string>('')
+	({ title, isOpen, isSrcModal, direction, onClose }): JSX.Element => {
+		const { isFaucetModalOpen, openFaucetModal } = useModalStore()
+		const { setSourceChain, setDestinationChain, setFromTokenAddress, setToTokenAddress } = useFormStore()
+		const [activeTab, setActiveTab] = useState<ActiveTab>(ActiveTab.All)
+		const [searchInput, setSearchInput] = useState<string>('')
 
-	const handleSearchChange = useCallback((event: ChangeEvent<HTMLInputElement>) => {
-		setSearchInput(event.target.value)
-	}, [])
+		const handleSearchChange = useCallback((event: ChangeEvent<HTMLInputElement>) => {
+			setSearchInput(event.target.value)
+		}, [])
 
-	const handleTabChange = useCallback((tab: ActiveTab) => {
-		setActiveTab(tab)
-	}, [])
+		const handleTabChange = useCallback((tab: ActiveTab) => {
+			setActiveTab(tab)
+		}, [])
 
-	const handleChainSelect = useCallback(
-		(chain: Chain) => {
-			if (isSrcModal) {
-				setSourceChain(chain)
-				const tokenAddress = TokenAddresses[chain.id]
-				setFromTokenAddress(tokenAddress as Address)
-			} else {
-				setDestinationChain(chain)
-				const tokenAddress = TokenAddresses[chain.id]
-				setToTokenAddress(tokenAddress as Address)
-			}
-			onClose()
-		},
-		[isSrcModal, setSourceChain, setDestinationChain, setFromTokenAddress, setToTokenAddress, onClose],
-	)
+		const handleChainSelect = useCallback(
+			(chain: Chain) => {
+				if (isSrcModal) {
+					setSourceChain(chain)
+					const tokenAddress = TokenAddresses[chain.id]
+					setFromTokenAddress(tokenAddress as Address)
+				} else {
+					setDestinationChain(chain)
+					const tokenAddress = TokenAddresses[chain.id]
+					setToTokenAddress(tokenAddress as Address)
+				}
+				onClose()
+			},
+			[isSrcModal, setSourceChain, setDestinationChain, setFromTokenAddress, setToTokenAddress, onClose],
+		)
 
-	return (
-		<Modal
-			title={title}
-			isOpen={isOpen}
-			onClose={onClose}
-			backdropClassName={isFaucetModalOpen ? 'faucet_open' : ''}
-		>
-			<Input
-				placeholder="Select chain"
-				size="l"
-				icon={<SearchIcon />}
-				value={searchInput}
-				classNameWrap="input_wrap"
-				onChange={handleSearchChange}
-				data-testid="chain-search-input"
-			/>
-
-                {!isSrcModal && <ChainController activeTab={activeTab} setActiveTab={handleTabChange} />}
-                <ChainMenu activeTab={activeTab} searchInput={searchInput} onSelectChain={handleChainSelect} direction={direction}/>
-                <div className={isSrcModal ? 'gradient_blur_button' : 'gradient_blur'} />
-
-			{isSrcModal && (
-				<Button
+		return (
+			<Modal
+				title={title}
+				isOpen={isOpen}
+				onClose={onClose}
+				backdropClassName={isFaucetModalOpen ? 'faucet_open' : ''}
+			>
+				<Input
+					placeholder="Select chain"
 					size="l"
-					variant="secondary_color"
-					isFull
-					onClick={openFaucetModal}
-					data-testid="add-tokens-button"
-				>
-					Add Tokens
-				</Button>
-			)}
-		</Modal>
-	)
-})
+					icon={<SearchIcon />}
+					value={searchInput}
+					classNameWrap="input_wrap"
+					onChange={handleSearchChange}
+					data-testid="chain-search-input"
+				/>
+
+				{!isSrcModal && <ChainController activeTab={activeTab} setActiveTab={handleTabChange} />}
+				<ChainMenu
+					activeTab={activeTab}
+					searchInput={searchInput}
+					onSelectChain={handleChainSelect}
+					direction={direction}
+				/>
+				<div className={isSrcModal ? 'gradient_blur_button' : 'gradient_blur'} />
+
+				{isSrcModal && (
+					<Button
+						size="l"
+						variant="secondary_color"
+						isFull
+						onClick={openFaucetModal}
+						data-testid="add-tokens-button"
+					>
+						Add Tokens
+					</Button>
+				)}
+			</Modal>
+		)
+	},
+)

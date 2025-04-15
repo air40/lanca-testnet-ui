@@ -67,12 +67,12 @@ export const useFaucet = () => {
 				if (!response.success) {
 					setError('Error, please try again')
 					trackEvent({
-                        ...TokenEvents.CLAIM_FAILED,
-                        data: {
-                            chainId: chainId.toString(),
-                            error: response.message || 'Unknown error',
-                        }
-                    })
+						...TokenEvents.CLAIM_FAILED,
+						data: {
+							chainId: chainId.toString(),
+							error: response.message || 'Unknown error',
+						},
+					})
 					return false
 				}
 
@@ -82,12 +82,12 @@ export const useFaucet = () => {
 
 				success = true
 				trackEvent({
-                    ...TokenEvents.CLAIM_SUCCESSFUL,
-                    data: {
-                        chainId: chainId.toString(),
-                        txHash: response.txHash
-                    }
-                })
+					...TokenEvents.CLAIM_SUCCESSFUL,
+					data: {
+						chainId: chainId.toString(),
+						txHash: response.txHash,
+					},
+				})
 				await refetch()
 				return true
 			} catch (err) {
