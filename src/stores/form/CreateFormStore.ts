@@ -24,7 +24,7 @@ const defaultDestinationChain: Chain = {
 	isCCIP: true,
 	nativeToken: 'ETH',
 	decimals: 18,
-    selector: chainSelectors[84532],
+	selector: chainSelectors[84532],
 	hastCEROFaucet: true,
 }
 

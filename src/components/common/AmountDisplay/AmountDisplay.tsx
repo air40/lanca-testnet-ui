@@ -15,6 +15,11 @@ export const AmountDisplay: FC = memo(() => {
 		return formatTokenAmount(fromAmount)
 	}, [fromAmount, error])
 
+	const inputClass = useMemo(() => {
+		const baseClass = 'amount_display_input'
+		return displayAmount && displayAmount !== '0' ? `${baseClass} amount_display_has_value` : baseClass
+	}, [displayAmount])
+
 	return (
 		<div className="amount_display">
 			{isLoading ? (
@@ -22,7 +27,7 @@ export const AmountDisplay: FC = memo(() => {
 			) : (
 				<input
 					type="text"
-					className="amount_display_input"
+					className={inputClass}
 					placeholder="0"
 					value={displayAmount}
 					readOnly

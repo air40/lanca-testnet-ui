@@ -80,9 +80,6 @@ export const TokenAddresses: Record<string, string> = {
 	//// SONEIUM MINATO ////
 	'1946': '0x7e66DB991983265f60f9Bce522347D673874A706',
 
-	//// SONIC BLAZE ////
-	'57054': '0x8b4E879e98a69ea906Ef14B8b7BB54e994E611cA',
-
 	//// UNICHAIN SEPOLIA ////
 	'1301': '0xA01b176acb5beCb04711B6F28e3Beaa2ed5788ae',
 
@@ -174,9 +171,6 @@ export const ContractAddresses: Record<string, string> = {
 
 	//// SONEIUM MINATO ////
 	'1946': '0xDB48cc3027Eae0bAdD5bcF7555C07bC099C4AA21',
-
-	//// SONIC BLAZE ////
-	'57054': '0xA80a668566517BeE1ab71df78B384e6281b02625',
 
 	//// UNICHAIN SEPOLIA ////
 	'1301': '0xFc282e2E6ED03583f2ae000C401dC12A86F5F886',

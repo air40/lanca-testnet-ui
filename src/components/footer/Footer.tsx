@@ -11,11 +11,15 @@ import { routes } from '../../configuration/routes'
 import { GuideEvents } from '@/events/events'
 import { useTrackEvent } from '@/hooks/useTrackEvent'
 import './Footer.pcss'
+import { useTxProcess } from '@/hooks/useTxProcess'
+import { useTxExecutionStore } from '@/stores/tx-execution/useTxExecutionStore'
+import { Status } from '@lanca/sdk'
 
 type FooterIcon = {
     icon: React.ReactNode
     className?: string
     link?: string
+    disabled?: boolean
     trackingEvent?: {
         category: string
         action: string
@@ -31,25 +35,33 @@ type FooterSection = {
 const FooterItem: FC<FooterSection> = ({ heading, icons }) => {
     const { trackEvent } = useTrackEvent()
 
-    const handleIconClick = useCallback((icon: FooterIcon) => {
-        if (icon.trackingEvent) {
-            trackEvent(icon.trackingEvent)
-        }
-    }, [trackEvent])
+    const handleIconClick = useCallback(
+        (icon: FooterIcon) => {
+            if (icon.trackingEvent) {
+                trackEvent(icon.trackingEvent)
+            }
+        },
+        [trackEvent],
+    )
 
     return (
         <div className="footer-item">
             <h5 className="footer-item__heading">{heading}</h5>
             <div className="footer-item__actions">
                 {icons.map((item, index) => (
-                    <a 
-                        href={item.link} 
-                        target="_blank" 
-                        rel="noopener noreferrer" 
+                    <a
+                        href={item.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         key={`${heading}-link-${index}`}
                         onClick={() => handleIconClick(item)}
                     >
-                        <IconButton key={`${heading}-icon-${index}`} variant="secondary" className={item.className}>
+                        <IconButton
+                            key={`${heading}-icon-${index}`}
+                            variant="secondary"
+                            className={item.className}
+                            disabled={item.disabled}
+                        >
                             {item.icon}
                         </IconButton>
                     </a>
@@ -59,8 +71,9 @@ const FooterItem: FC<FooterSection> = ({ heading, icons }) => {
     )
 }
 
-export const Footer: FC = () => {
+export const Footer: FC = (): JSX.Element | null => {
     const { pathname } = useLocation()
+    const { txStatus } = useTxExecutionStore()
 
     const iconBase = useMemo(
         () => ({
@@ -82,7 +95,7 @@ export const Footer: FC = () => {
                 icon: <DocsIcon />,
                 link: 'https://docs.concero.io/',
             },
-			mediumSocial: {
+            mediumSocial: {
                 icon: <MediumIcon />,
                 className: 'medium-icon-button',
                 link: 'https://medium.com/@concero',
@@ -96,27 +109,30 @@ export const Footer: FC = () => {
             mediumGuide: {
                 icon: <MediumIcon />,
                 className: 'medium-icon-button',
-                link: 'https://medium.com/@concero/guides',
+                link: 'https://www.blog.concero.io/blog/concero/article/concero-v2-public-testnet-tutorial',
                 trackingEvent: {
-                    ...GuideEvents.MEDIUM_OPENED
-                }
+                    ...GuideEvents.MEDIUM_OPENED,
+                },
             },
 
             youtube: {
                 icon: <YouTubeIcon />,
                 className: 'youtube-icon-button',
-                link: 'https://www.youtube.com/@concero_io',
+                disabled: true,
                 trackingEvent: {
-                    ...GuideEvents.YOUTUBE_OPENED
-                }
+                    ...GuideEvents.YOUTUBE_OPENED,
+                },
             },
         }
     }, [])
 
-    const icons = useMemo(() => ({
-        ...iconBase,
-        ...specialIcons
-    }), [iconBase, specialIcons])
+    const icons = useMemo(
+        () => ({
+            ...iconBase,
+            ...specialIcons,
+        }),
+        [iconBase, specialIcons],
+    )
 
     const sections = useMemo(
         () => ({
@@ -126,38 +142,47 @@ export const Footer: FC = () => {
             },
             socials: {
                 heading: 'Socials',
-                icons: [icons.x, icons.discord, icons.mediumSocial]
+                icons: [icons.x, icons.discord, icons.mediumSocial],
             },
             connect: {
                 heading: 'Socials',
-                icons: [icons.x, icons.discord, icons.mediumSocial]
+                icons: [icons.x, icons.discord, icons.mediumSocial],
             },
             howToUse: {
                 heading: 'How to use',
-                icons: [icons.youtube, icons.mediumGuide]
+                icons: [icons.youtube, icons.mediumGuide],
             },
         }),
         [icons],
     )
-
-    const footerMap = useMemo(
-        () => ({
-            [routes.home]: (
-                <div className="footer">
-                    <FooterItem {...sections.docs} />
-                    <FooterItem {...sections.socials} />
-                </div>
-            ),
-            [routes.swap]: (
-                <div className="footer swap-footer">
-                    <FooterItem {...sections.howToUse} />
-                    <FooterItem {...sections.docs} />
-                    <FooterItem {...sections.connect} />
-                </div>
-            ),
-        }),
-        [sections],
-    )
+	const footerMap = useMemo(
+		() => {
+			if (txStatus !== undefined && txStatus !== Status.NOT_STARTED) {
+				return {
+					[routes.home]: null,
+					[routes.swap]: null
+				}
+			}
+			
+			// Otherwise, show the normal footer content
+			return {
+				[routes.home]: (
+					<div className="footer">
+						<FooterItem {...sections.docs} />
+						<FooterItem {...sections.socials} />
+					</div>
+				),
+				[routes.swap]: (
+					<div className="footer swap-footer">
+						<FooterItem {...sections.howToUse} />
+						<FooterItem {...sections.docs} />
+						<FooterItem {...sections.connect} />
+					</div>
+				),
+			}
+		},
+		[sections, txStatus]
+	)
 
     return footerMap[pathname] || null
 }

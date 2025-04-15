@@ -13,27 +13,27 @@ export const ModalManager: FC = memo((): JSX.Element => {
 		closeFaucetModal,
 	} = useModalStore()
 
-    return (
-        <>
-            {isSrcAssetModalOpen && (
-                <AssetModal
-                    isOpen={isSrcAssetModalOpen}
-                    title="Select From Chain"
-                    onClose={closeSrcAssetModal}
-                    isSrcModal={true}
-                    direction='from'
-                />
-            )}
+	return (
+		<>
+			{isSrcAssetModalOpen && (
+				<AssetModal
+					isOpen={isSrcAssetModalOpen}
+					title="Select From Chain"
+					onClose={closeSrcAssetModal}
+					isSrcModal={true}
+					direction="from"
+				/>
+			)}
 
-            {isDstAssetModalOpen && (
-                <AssetModal
-                    isOpen={isDstAssetModalOpen}
-                    title="Select To Chain"
-                    onClose={closeDstAssetModal}
-                    isSrcModal={false}
-                    direction='to'
-                />
-            )}
+			{isDstAssetModalOpen && (
+				<AssetModal
+					isOpen={isDstAssetModalOpen}
+					title="Select To Chain"
+					onClose={closeDstAssetModal}
+					isSrcModal={false}
+					direction="to"
+				/>
+			)}
 
 			{isFaucetModalOpen && (
 				<FaucetModal title="Select Chain to Add Token" isOpen={isFaucetModalOpen} onClose={closeFaucetModal} />
