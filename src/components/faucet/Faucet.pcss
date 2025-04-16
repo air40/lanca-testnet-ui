@@ -5,6 +5,18 @@
 	align-items: center;
 	gap: var(--space-6);
 	align-self: stretch;
+	background: linear-gradient(180deg, #fcfcfd 0%, #f3f5f6 30.31%);
+}
+
+.faucet::before {
+	content: '';
+	position: absolute;
+	top: 48px;
+	left: 0;
+	width: 100%;
+	height: 30vh;
+	background-color: var(--color-gray-50);
+	z-index: -1;
 }
 
 .faucet_interface {
@@ -43,6 +55,7 @@
 
 @media only screen and (max-width: 744px) {
 	.faucet {
+		background-color: var(--color-gray-25);
 		padding: var(--space-4) var(--space-4) var(--space-8) var(--space-4);
 		gap: var(--space-6);
 	}
