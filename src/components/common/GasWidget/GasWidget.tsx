@@ -10,7 +10,9 @@ import { SkeletonLoader } from '../SkeletonLoader/SkeletonLoader'
 import { format } from '@/utils/format'
 import { FaucetEvents } from '@/events/events'
 import { useTrackEvent } from '@/hooks/useTrackEvent'
+import { routes } from '@/configuration/routes'
 import './GasWidget.pcss'
+
 
 const COLORS = {
 	PURPLE: 'var(--color-accent-600)',
@@ -59,12 +61,7 @@ export const GasWidget: FC = memo(() => {
 				timestamp: Date.now(),
 			},
 		})
-
-		window.open(
-			' https://docs.google.com/spreadsheets/d/1e0W0ZwgY_Bq-YDUk6JZHfdpcVYxqrvIS60gSCnoDeTg/edit?gid=1753051773#gid=1753051773',
-			'_blank',
-			'noopener,noreferrer',
-		)
+		window.open(`${window.location.origin}${routes.faucet}`, '_blank', 'noopener,noreferrer')
 	}, [trackEvent, sourceChain, gas])
 
 	if (!isConnected) {
