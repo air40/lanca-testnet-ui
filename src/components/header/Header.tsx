@@ -32,6 +32,11 @@ export const Header: FC = () => {
 					<Logo />
 				</header>
 			),
+			[routes.faucet]: (
+				<header className="home-header">
+					<Logo />
+				</header>
+			),
 			[routes.swap]: isWhitelisted ? (
 				<header className="swap-header">
 					<Logo isMobile={isMobile} />

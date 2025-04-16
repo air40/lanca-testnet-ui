@@ -7,8 +7,7 @@ import './NotWhitelisted.pcss'
 
 export const NotWhitelisted: FC = memo(() => {
 	const { trackEvent } = useTrackEvent()
-	const link =
-		'https://forms.gle/LanqiU9Yw1D35kbNA'
+	const link = 'https://forms.gle/LanqiU9Yw1D35kbNA'
 
 	const handleClick = useCallback(() => {
 		trackEvent({

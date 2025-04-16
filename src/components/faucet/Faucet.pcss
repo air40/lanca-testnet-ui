@@ -1,0 +1,53 @@
+.faucet {
+	display: flex;
+	padding: var(--space-6) var(--space-6) var(--space-8) var(--space-6);
+	flex-direction: column;
+	align-items: center;
+	gap: var(--space-6);
+	align-self: stretch;
+}
+
+.faucet_interface {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: var(--space-4);
+	align-self: stretch;
+}
+
+.faucet_heading {
+	font-size: 2rem;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 36px;
+	color: var(--color-gray-700);
+}
+
+.faucet_list_grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	column-gap: var(--space-3);
+	row-gap: var(--space-3);
+	align-self: stretch;
+}
+
+@media only screen and (min-width: 744px) and (max-width: 1279px) {
+	.faucet {
+		gap: var(--space-5);
+	}
+
+	.faucet_list_grid {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
+@media only screen and (max-width: 744px) {
+	.faucet {
+		padding: var(--space-4) var(--space-4) var(--space-8) var(--space-4);
+		gap: var(--space-6);
+	}
+
+	.faucet_list_grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
