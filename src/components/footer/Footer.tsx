@@ -10,10 +10,9 @@ import { YouTubeIcon } from '@/assets/icons/socials/youtube'
 import { routes } from '../../configuration/routes'
 import { GuideEvents } from '@/events/events'
 import { useTrackEvent } from '@/hooks/useTrackEvent'
-import './Footer.pcss'
-import { useTxProcess } from '@/hooks/useTxProcess'
 import { useTxExecutionStore } from '@/stores/tx-execution/useTxExecutionStore'
 import { Status } from '@lanca/sdk'
+import './Footer.pcss'
 
 type FooterIcon = {
 	icon: React.ReactNode
@@ -89,7 +88,7 @@ export const Footer: FC = (): JSX.Element | null => {
 			},
 			file: {
 				icon: <FileIcon />,
-				link: 'https://concero.io/whitepaper.pdf',
+				disabled: true,
 			},
 			docs: {
 				icon: <DocsIcon />,
@@ -122,7 +121,7 @@ export const Footer: FC = (): JSX.Element | null => {
 				trackingEvent: {
 					...GuideEvents.YOUTUBE_OPENED,
 				},
-			},
+			}
 		}
 	}, [])
 
