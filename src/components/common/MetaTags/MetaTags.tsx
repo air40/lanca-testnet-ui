@@ -36,7 +36,7 @@ export const MetaTags = ({ title = DEFAULT_TITLE, description = DEFAULT_DESCRIPT
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
         <meta name="twitter:image" content={IMAGE} />
-        <meta name="twitter:image:alt" content="Concero Testnet - Cross-chain messaging solution" />
+        <meta name="twitter:image:alt" content="Concero" />
 
         {/* Open Graph / Facebook */}
         <meta property="og:title" content={title} />
