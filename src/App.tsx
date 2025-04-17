@@ -20,6 +20,12 @@ const SwapPage = lazy(() =>
 	})),
 )
 
+const FaucetPage = lazy(() =>
+	import('./pages/Faucet').then(module => ({
+		default: module.FaucetPage,
+	})),
+)
+
 function App() {
 	return (
 		<AppProviders>
@@ -29,6 +35,7 @@ function App() {
 					<Routes>
 						<Route path={routes.home} element={<HomePage />} />
 						<Route path={routes.swap} element={<SwapPage />} />
+						<Route path={routes.faucet} element={<FaucetPage />} />
 					</Routes>
 				</Suspense>
 				<Footer />

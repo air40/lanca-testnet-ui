@@ -11,7 +11,7 @@ import { Status } from '@lanca/sdk'
 import './ProcessCard.pcss'
 
 export const ProcessCard: FC = memo((): JSX.Element => {
-	const { currentStep,  currentStage, txStatus } = useTxProcess()
+	const { currentStep, currentStage, txStatus } = useTxProcess()
 
 	const isBridgePending = currentStep === StepType.BRIDGE && txStatus === Status.PENDING
 
