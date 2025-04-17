@@ -8,16 +8,30 @@ export const Faucet: FC = (): JSX.Element => {
     const [searchTerm, setSearchTerm] = useState<string>('')
     
     const filteredFaucets = useMemo(() => {
-        const query = searchTerm.toLowerCase()
-        return faucets.filter(faucet => 
-            faucet.chainName.toLowerCase().includes(query) || 
-            faucet.faucetName.toLowerCase().includes(query)
-        )
-    }, [searchTerm])
+        if (!searchTerm.trim()) return faucets;
+        
+        const query = searchTerm.toLowerCase().trim();
+        return faucets.filter(faucet => {
+            if (faucet.chainName.toLowerCase().includes(query) || 
+                faucet.faucetName.toLowerCase().includes(query)) {
+                return true;
+            }
+            
+            if (faucet.searchKeywords && 
+                faucet.searchKeywords.some(keyword => 
+                    keyword.toLowerCase().includes(query)
+                )) {
+                return true;
+            }
+            
+            return false;
+        });
+    }, [searchTerm]);
 
     const handleFaucetClick = useCallback((url: string) => {
         window.open(url, '_blank', 'noopener,noreferrer')
     }, [])
+
 
     return (
         <div className="faucet">
