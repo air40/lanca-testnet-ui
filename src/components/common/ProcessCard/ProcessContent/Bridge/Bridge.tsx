@@ -20,7 +20,7 @@ export const Bridge: FC = memo((): JSX.Element => {
 					data-testid="source-chain-logo"
 				/>
 			</div>
-			<div className='bridge_content_arrow'>
+			<div className="bridge_content_arrow">
 				<RightIcon />
 			</div>
 			<div className="bridge_content_to">

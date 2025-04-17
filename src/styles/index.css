@@ -13,8 +13,13 @@ html {
 	font-family: var(--font-family-primary);
 	height: 100%;
 	width: 100vw;
+	scrollbar-width: none;
+	-ms-overflow-style: none;
 }
 
+html::-webkit-scrollbar {
+	display: none;
+}
 ul[role='list'],
 ol[role='list'] {
 	list-style: none;

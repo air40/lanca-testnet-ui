@@ -1,0 +1,62 @@
+.faucet_item {
+	display: flex;
+	padding: var(--space-4);
+	flex-direction: column;
+	align-items: center;
+	gap: var(--space-3);
+	flex: 1 0 0;
+	background-color: var(--color-gray-25);
+	border-radius: var(--space-4);
+	transition:
+		color 0.2s ease-in-out,
+		background-color 0.2s ease-in-out,
+		transform 0.2s ease-in-out;
+	cursor: pointer;
+}
+
+.faucet_item:hover {
+	background-color: var(--color-gray-50);
+}
+
+.faucet_item:hover {
+	transform: translateY(-2px);
+}
+
+.faucet_item:active {
+	background-color: var(--color-gray-100);
+	transform: translateY(0); 
+}
+
+.faucet_item_heading {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 22px;
+	gap: var(--space-2);
+	align-self: stretch;
+}
+
+.faucet_item_title {
+	font-size: 1.125rem;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 22px;
+	color: var(--color-gray-700);
+	text-align: center;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	max-width: 100%;
+}
+
+.faucet_item_logo {
+	width: 64px;
+	height: 64px;
+}
+
+.faucet_item_action {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	align-self: stretch;
+}
