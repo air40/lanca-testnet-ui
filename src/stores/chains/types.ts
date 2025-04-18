@@ -5,6 +5,7 @@ export type Chain = {
 	id: string
 	name: string
 	logoURL: string
+	disabledLogoURL: string
 	explorerURL: string
 	isCCIP: boolean
 	nativeToken: string

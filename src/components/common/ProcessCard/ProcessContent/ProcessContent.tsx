@@ -1,37 +1,100 @@
 import type { FC } from 'react'
-import { memo, useMemo } from 'react'
+import { memo, useMemo, useRef } from 'react'
 import { Approval } from './Approval/Approval'
 import { Bridge } from './Bridge/Bridge'
 import { Failure } from './Failure/Failure'
 import { Success } from './Success/Success'
 import { useTxProcess } from '@/hooks/useTxProcess'
 import { Status, StepType } from '@lanca/sdk'
+import { useTrackEvent } from '@/hooks/useTrackEvent'
+import { BridgeEvents } from '@/events/events'
+import { useIsCCIPLane } from '@/hooks/useIsCCIPLane'
+import { useTxExecutionStore } from '@/stores/tx-execution/useTxExecutionStore'
+import { useFormStore } from '@/stores/form/useFormStore'
 import './ProcessContent.pcss'
 
+const trackedEvents = {
+  SUCCESS: false,
+  FAILED: false,
+  REJECTED: false
+};
+
 export const ProcessContent: FC = memo((): JSX.Element | null => {
-	const { txStatus, currentStep } = useTxProcess()
+    const { txStatus, currentStep, executionTime } = useTxProcess()
+    const { sourceChain, destinationChain, fromTokenAddress, toTokenAddress } = useFormStore()
+    const { srcHash, dstHash } = useTxExecutionStore()
+    const { isCCIPLane } = useIsCCIPLane()
+    const { trackEvent: tracker } = useTrackEvent()
 
-	const content = useMemo(() => {
-		switch (txStatus) {
-			case Status.FAILED:
-			case Status.REJECTED:
-				return <Failure />
-			case Status.SUCCESS:
-				return <Success />
-			case Status.PENDING:
-				if (currentStep === StepType.ALLOWANCE) return <Approval />
-				if (currentStep === StepType.BRIDGE) return <Bridge />
-				return null
-			default:
-				return null
-		}
-	}, [txStatus, currentStep])
+	const trackEvent = (eventType: string, eventData: any) => {
+        if (trackedEvents[eventType as keyof typeof trackedEvents]) {
+            return;
+        }
+        trackedEvents[eventType as keyof typeof trackedEvents] = true;
+        tracker(eventData);
+    }
 
-	return (
-		<div className="process_content" data-testid="process-content">
-			{content}
-		</div>
-	)
+    const content = useMemo(() => {
+        switch (txStatus) {
+            case Status.FAILED:
+                trackEvent('FAILED', {
+                    ...BridgeEvents.FAILED,
+                    data: {
+                        srcChainId: sourceChain?.id,
+                        dstChainId: destinationChain?.id,
+                        fromToken: fromTokenAddress,
+                        toToken: toTokenAddress,
+                        isCCIPLane,
+                        srcHash,
+                    },
+                });
+                return <Failure />
+                
+            case Status.REJECTED:
+                trackEvent('REJECTED', {
+                    ...BridgeEvents.REJECTED,
+                    data: {
+                        srcChainId: sourceChain?.id,
+                        dstChainId: destinationChain?.id,
+                        fromToken: fromTokenAddress,
+                        toToken: toTokenAddress,
+                        isCCIPLane,
+                        srcHash,
+                    },
+                });
+                return <Failure />
+                
+            case Status.SUCCESS:
+                trackEvent('SUCCESS', {
+                    ...BridgeEvents.SUCCESSFUL,
+                    data: {
+                        srcChainId: sourceChain?.id,
+                        dstChainId: destinationChain?.id,
+                        fromToken: fromTokenAddress,
+                        toToken: toTokenAddress,
+                        isCCIPLane,
+                        srcHash,
+                        dstHash,
+                        executionTime,
+                    },
+                });
+                return <Success />
+                
+            case Status.PENDING:
+                if (currentStep === StepType.ALLOWANCE) return <Approval />
+                if (currentStep === StepType.BRIDGE) return <Bridge />
+                return null
+                
+            default:
+                return null
+        }
+    }, [txStatus, currentStep])
+
+    return (
+        <div className="process_content" data-testid="process-content">
+            {content}
+        </div>
+    )
 })
 
 ProcessContent.displayName = 'ProcessContent'

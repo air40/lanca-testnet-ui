@@ -90,6 +90,98 @@ export const chainLogos: Record<number, string> = {
 	48899: '/Chains/48899.svg',
 }
 
+export const chainLogosDisabled: Record<number, string> = {
+	//// APECHAIN CURTIS ////
+	33111: '',
+
+	//// ARBITRUM SEPOLIA ////
+	421614: '/Chains/Disabled/421614.svg',
+
+	//// AVALANCHE FUJI ////
+	43113: '/Chains/Disabled/43113.svg',
+
+	//// BASE SEPOLIA ////
+	84532: '/Chains/Disabled/84532.svg',
+
+	//// BITLAYER TESTNET ////
+	200810: '',
+
+	//// BLAST SEPOLIA ////
+	168587773: '',
+
+	//// BNB TESTNET ////
+	97: '',
+
+	//// BOTANIX TESTNET ////
+	3636: '',
+
+	//// CELO ALFAJORES ////
+	44787: '/Chains/Disabled/44787.svg',
+
+	//// CORE TESTNET ////
+	1114: '',
+
+	//// CRONOS TESTNET ////
+	338: '',
+
+	//// GNOSIS CHIADO ////
+	10200: '',
+
+	//// HASHKEY TESTNET ////
+	133: '',
+
+	//// INK SEPOLIA ////
+	763373: '',
+
+	//// LINEA SEPOLIA ////
+	59141: '',
+
+	//// MANTLE SEPOLIA ////
+	5003: '',
+
+	//// MEGAETH TESTNET ////
+	6342: '/Chains/Disabled/6342.svg',
+
+	/// MODE TESTNET ////
+	919: '',
+
+	//// MONAD TESTNET ////
+	10143: '',
+
+	//// OPTIMISM SEPOLIA ////
+	11155420: '/Chains/Disabled/11155420.svg',
+
+	//// POLYGON AMOY ////
+	80002: '/Chains/Disabled/80002.svg',
+
+	//// RONIN SAIGON ////
+	2021: '',
+
+	//// SCROLL SEPOLIA ////
+	534351: '',
+
+	//// SEI TESTNET ////
+	1328: '',
+
+	//// SEPOLIA ////
+	11155111: '/Chains/Disabled/11155111.svg',
+
+	//// SHIBARIUM PUPPYNET ////
+	157: '',
+
+	//// SONEIUM MINATO ////
+	1946: '',
+
+	//// UNICHAIN SEPOLIA ////
+	1301: '',
+
+	//// XLAYER SEPOLIA ////
+	195: '',
+
+	//// ZIRCUIT TESTNET ////
+	48899: '',
+}
+
 export const chainCCIP: Record<number, { isCCIP: boolean }> = {
 	//// APECHAIN CURTIS ////
 	33111: { isCCIP: true },

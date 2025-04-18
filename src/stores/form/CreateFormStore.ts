@@ -14,6 +14,7 @@ const defaultSourceChain: Chain = {
 	decimals: 18,
 	selector: chainSelectors[421614],
 	hastCEROFaucet: true,
+	disabledLogoURL: '/Chains/Disabled/421614.svg',
 }
 
 const defaultDestinationChain: Chain = {
@@ -26,6 +27,7 @@ const defaultDestinationChain: Chain = {
 	decimals: 18,
 	selector: chainSelectors[84532],
 	hastCEROFaucet: true,
+	disabledLogoURL: '/Chains/Disabled/84532.svg',
 }
 
 const initialState: FormState = {
