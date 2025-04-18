@@ -121,7 +121,7 @@ export const Footer: FC = (): JSX.Element | null => {
 				trackingEvent: {
 					...GuideEvents.YOUTUBE_OPENED,
 				},
-			}
+			},
 		}
 	}, [])
 

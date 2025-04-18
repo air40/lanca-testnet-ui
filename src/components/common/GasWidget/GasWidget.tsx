@@ -13,7 +13,6 @@ import { useTrackEvent } from '@/hooks/useTrackEvent'
 import { routes } from '@/configuration/routes'
 import './GasWidget.pcss'
 
-
 const COLORS = {
 	PURPLE: 'var(--color-accent-600)',
 	GRAY: 'var(--color-gray-600)',
