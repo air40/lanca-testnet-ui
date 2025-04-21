@@ -5,29 +5,29 @@ import { chainSelectors } from '../chains/ChainInfo'
 import { createWithEqualityFn } from 'zustand/traditional'
 
 const defaultSourceChain: Chain = {
-	id: '421614',
-	name: 'Arbitrum',
-	logoURL: '/Chains/421614.svg',
-	explorerURL: 'https://sepolia.arbiscan.io',
+	id: '10143',
+	name: 'Monad',
+	logoURL: '/Chains/10143.svg',
+	explorerURL: 'https://testnet.monadexplorer.com',
 	isCCIP: true,
-	nativeToken: 'ETH',
+	nativeToken: 'MON',
 	decimals: 18,
-	selector: chainSelectors[421614],
-	hastCEROFaucet: true,
-	disabledLogoURL: '/Chains/Disabled/421614.svg',
+	selector: chainSelectors[10143],
+	hastCEROFaucet: false,
+	disabledLogoURL: '',
 }
 
 const defaultDestinationChain: Chain = {
-	id: '84532',
-	name: 'Base',
-	logoURL: '/Chains/84532.svg',
-	explorerURL: 'https://sepolia.basescan.org',
-	isCCIP: true,
-	nativeToken: 'ETH',
+	id: '6342',
+	name: 'MegaETH',
+	logoURL: '/Chains/6342.svg',
+	explorerURL: 'https://www.megaexplorer.xyz/',
+	isCCIP: false,
+	nativeToken: 'MegaETH',
 	decimals: 18,
-	selector: chainSelectors[84532],
+	selector: chainSelectors[6342],
 	hastCEROFaucet: true,
-	disabledLogoURL: '/Chains/Disabled/84532.svg',
+	disabledLogoURL: '/Chains/Disabled/6342.svg',
 }
 
 const initialState: FormState = {
