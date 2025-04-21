@@ -35,7 +35,7 @@ export const TxInfo: FC = memo((): JSX.Element => {
 					<p className="tx_info_item_text">ETA</p>
 				</div>
 				<div className="tx_info_item_value">
-					<p className="tx_info_item_text_value">20s</p>
+					<p className="tx_info_item_text_value">15s</p>
 				</div>
 			</div>
 		</div>
