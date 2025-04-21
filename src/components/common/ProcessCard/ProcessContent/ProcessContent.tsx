@@ -41,7 +41,9 @@ export const ProcessContent: FC = memo((): JSX.Element | null => {
 					...BridgeEvents.FAILED,
 					data: {
 						srcChainId: sourceChain?.id,
+						srcChainName: sourceChain?.name,
 						dstChainId: destinationChain?.id,
+						dstChainName: destinationChain?.name,
 						fromToken: fromTokenAddress,
 						toToken: toTokenAddress,
 						isCCIPLane,
@@ -55,7 +57,9 @@ export const ProcessContent: FC = memo((): JSX.Element | null => {
 					...BridgeEvents.REJECTED,
 					data: {
 						srcChainId: sourceChain?.id,
+						srcChainName: sourceChain?.name,
 						dstChainId: destinationChain?.id,
+						dstChainName: destinationChain?.name,
 						fromToken: fromTokenAddress,
 						toToken: toTokenAddress,
 						isCCIPLane,
@@ -69,7 +73,9 @@ export const ProcessContent: FC = memo((): JSX.Element | null => {
 					...BridgeEvents.SUCCESSFUL,
 					data: {
 						srcChainId: sourceChain?.id,
+						srcChainName: sourceChain?.name,
 						dstChainId: destinationChain?.id,
+						dstChainName: destinationChain?.name,
 						fromToken: fromTokenAddress,
 						toToken: toTokenAddress,
 						isCCIPLane,
