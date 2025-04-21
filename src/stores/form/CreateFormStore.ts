@@ -34,8 +34,8 @@ const initialState: FormState = {
 	sourceChain: defaultSourceChain,
 	destinationChain: defaultDestinationChain,
 	fromAmount: '',
-	fromTokenAddress: '0x2cEAF3Dc8F19FE2addb5461258a2F6bf3Ab35A28',
-	toTokenAddress: '0x8f71b09A17e870b256E95aF13c6751384e8Cec30',
+	fromTokenAddress: '0xa0AC414648590044d782ED0A5C6CBc5De1290aE5',
+	toTokenAddress: '0xa0AC414648590044d782ED0A5C6CBc5De1290aE5',
 	isLoading: false,
 	error: null,
 }
