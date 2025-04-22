@@ -52,6 +52,12 @@ const coreTestnet = defineChain({
 	testnet: true,
 })
 
+const options = {
+	retryCount: 5,
+	retryDelay: 15000, 
+	timeout: 30000
+}
+
 export const chains: [AppKitNetwork, ...AppKitNetwork[]] = [
 	//// APECHAIN CURTIS ////
 	curtis,
@@ -190,7 +196,7 @@ export const transports = {
 		http('https://endpoints.omniatech.io/v1/bsc/testnet/public'),
 		http('https://public.stackup.sh/api/v1/node/bsc-testnet'),
 		http(),
-		http('https://bsc-testnet.drpc.org'), // DRPC moved to end
+		http('https://bsc-testnet.drpc.org'),
 	]),
 
 	//// BOTANIX TESTNET ////
@@ -200,7 +206,7 @@ export const transports = {
 	[celoAlfajores.id]: fallback([
 		http('https://alfajores-forno.celo-testnet.org'),
 		http(),
-		http('https://celo-alfajores.drpc.org'), // DRPC moved to end
+		http('https://celo-alfajores.drpc.org'),
 	]),
 
 	//// CORE TESTNET ////
@@ -247,7 +253,13 @@ export const transports = {
 	[modeTestnet.id]: fallback([http('https://sepolia.mode.network'), http()]),
 
 	//// MONAD TESTNET ////
-	[monadTestnet.id]: fallback([http('https://testnet-rpc.monad.xyz'), http()]),
+	[monadTestnet.id]: fallback(
+		[
+			http(),
+			http('https://monad-testnet.drpc.org'),
+		],
+		options
+	),
 
 	//// OPTIMISM SEPOLIA ////
 	[optimismSepolia.id]: fallback([
