@@ -1,10 +1,7 @@
 import type { FC } from 'react'
 import { Button } from '@concero/ui-kit'
-import { useEffect, useMemo } from 'react'
+import { useMemo } from 'react'
 import { useAppKit } from '@reown/appkit/react'
-import { useAccount } from 'wagmi'
-import { useNavigate } from 'react-router-dom'
-import { routes } from '@/configuration/routes'
 import './Hero.pcss'
 
 const Heading: FC = (): JSX.Element => {
@@ -22,17 +19,9 @@ const Subheading: FC = (): JSX.Element => {
 
 export const Hero: FC = () => {
 	const { open } = useAppKit()
-	const { isConnected } = useAccount()
 
-	const navigate = useNavigate()
 	const heading = useMemo(() => <Heading />, [])
 	const subheading = useMemo(() => <Subheading />, [])
-
-	useEffect(() => {
-		if (isConnected) {
-			navigate(routes.swap, { replace: true })
-		}
-	}, [isConnected])
 
 	return (
 		<div className="hero">
