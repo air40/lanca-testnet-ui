@@ -2,6 +2,7 @@ import '@concero/ui-kit/styles/concero/index.css'
 import './styles/App.css'
 import { AppProviders } from './providers/AppProviders'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { ConnectedRoutesGuard, DisconnectedRoutesGuard } from '@/components/common/RouteGuards/RouteGuards'
 import { routes } from './configuration/routes'
 import { Header } from './components/header/Header'
 import { Footer } from './components/footer/Footer'
@@ -33,8 +34,12 @@ function App() {
 				<Header />
 				<Suspense fallback={<ScreenLoader />}>
 					<Routes>
-						<Route path={routes.home} element={<HomePage />} />
-						<Route path={routes.swap} element={<SwapPage />} />
+						<Route element={<DisconnectedRoutesGuard />}>
+							<Route path={routes.home} element={<HomePage />} />
+						</Route>
+						<Route element={<ConnectedRoutesGuard />}>
+							<Route path={routes.swap} element={<SwapPage />} />
+						</Route>
 						<Route path={routes.faucet} element={<FaucetPage />} />
 					</Routes>
 				</Suspense>

@@ -9,51 +9,59 @@ import { useIsWhitelisted } from '@/hooks/useIsWhitelisted'
 import './Header.pcss'
 
 type LogoProps = {
-	isMobile?: boolean
+    isMobile?: boolean
 }
 
 const Logo: FC<LogoProps> = memo(({ isMobile }) => {
-	const logoSrc = isMobile ? '/Header/ConceroShortLogo.svg' : '/Header/ConceroLogo.svg'
-	return <img src={logoSrc} alt="Concero" className="header__logo" />
+    const logoSrc = isMobile ? '/Header/ConceroShortLogo.svg' : '/Header/ConceroLogo.svg'
+    return (
+        <a 
+            href={`https://testnet.concero.io${routes.home}`}
+            target="_blank" 
+            rel="noopener noreferrer"
+        >
+            <img src={logoSrc} alt="Concero" className="header__logo" />
+        </a>
+    )
 })
 
 export const Header: FC = () => {
-	const { pathname } = useLocation()
-	const { isWhitelisted, isLoading } = useIsWhitelisted()
+    const { pathname } = useLocation()
+    const { isWhitelisted, isLoading } = useIsWhitelisted()
 
-	const isMobile = useIsMobile()
-	const isDesktop = useIsDesktop()
-	const isWidgetVisible = isDesktop && !isLoading && isWhitelisted
+    const isMobile = useIsMobile()
+    const isDesktop = useIsDesktop()
+    const isWidgetVisible = isDesktop && !isLoading && isWhitelisted
 
-	const headerMap = useMemo(
-		() => ({
-			[routes.home]: (
-				<header className="home-header">
-					<Logo />
-				</header>
-			),
-			[routes.faucet]: (
-				<header className="home-header">
-					<Logo />
-				</header>
-			),
-			[routes.swap]: isWhitelisted ? (
-				<header className="swap-header">
-					<Logo isMobile={isMobile} />
-					<div className="swap-header__actions">
-						{isWidgetVisible && <TokenWidget />}
-						{isWidgetVisible && <GasWidget />}
-						<WalletButton />
-					</div>
-				</header>
-			) : (
-				<header className=" home-header header-not-whitelist">
-					<Logo />
-				</header>
-			),
-		}),
-		[isMobile, isWhitelisted, isDesktop],
-	)
+    const headerMap = useMemo(
+        () => ({
+            [routes.home]: (
+                <header className="home-header">
+                    <Logo />
+                </header>
+            ),
+            [routes.faucet]: (
+                <header className="home-header">
+                    <Logo />
+                </header>
+            ),
+            [routes.swap]: isWhitelisted ? (
+                <header className="swap-header">
+                    <Logo isMobile={isMobile} />
+                    <div className="swap-header__actions">
+                        {isWidgetVisible && <TokenWidget />}
+                        {isWidgetVisible && <GasWidget />}
+                        <WalletButton />
+                    </div>
+                </header>
+            ) : (
+                <header className=" home-header header-not-whitelist">
+                    <Logo />
+                </header>
+            ),
+        }),
+        [isMobile, isWhitelisted, isDesktop],
+    )
 
-	return headerMap[pathname] || null
+    return headerMap[pathname] || null
 }

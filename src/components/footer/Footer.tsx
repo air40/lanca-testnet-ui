@@ -88,7 +88,7 @@ export const Footer: FC = (): JSX.Element | null => {
 			},
 			file: {
 				icon: <FileIcon />,
-				disabled: true,
+				link: 'https://concero.io/v2_whitepaper.pdf',
 			},
 			docs: {
 				icon: <DocsIcon />,
@@ -155,14 +155,13 @@ export const Footer: FC = (): JSX.Element | null => {
 		[icons],
 	)
 	const footerMap = useMemo(() => {
-		if (txStatus !== undefined && txStatus !== Status.NOT_STARTED) {
+		if (txStatus && txStatus !== Status.NOT_STARTED) {
 			return {
 				[routes.home]: null,
 				[routes.swap]: null,
 			}
 		}
 
-		// Otherwise, show the normal footer content
 		return {
 			[routes.home]: (
 				<div className="footer">
