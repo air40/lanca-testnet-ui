@@ -164,8 +164,8 @@ export const transports = {
 
 	//// AVALANCHE FUJI ////
 	[avalancheFuji.id]: fallback([
+		http('https://ava-testnet.public.blastapi.io/ext/bc/C/rpc'),
 		http('https://avalanche-fuji-c-chain-rpc.publicnode.com'),
-		http('https://endpoints.omniatech.io/v1/avax/fuji/public'),
 		http(),
 		http('https://avalanche-fuji.drpc.org'),
 	]),
