@@ -5,7 +5,7 @@ import { StoreProvider } from '@/stores/StoreProvider'
 import { InitializeLoadables } from '@/hooks/useInitialize'
 import { SDKProvider } from './SDKProvider/SDKProvider'
 import { HelmetProvider } from 'react-helmet-async'
-import { ThemeProvider } from '@concero/ui-kit'
+import { ThemeProvider } from './ThemeProvider/ThemeProvider'
 
 export const AppProviders: FC<PropsWithChildren<{}>> = ({ children }) => {
 	return (

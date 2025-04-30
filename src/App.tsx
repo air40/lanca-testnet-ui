@@ -30,7 +30,6 @@ const FaucetPage = lazy(() =>
 function App() {
 	return (
 		<AppProviders>
-			<div className="wrapper-content">
 				<BrowserRouter>
 					<Header />
 					<Suspense fallback={<ScreenLoader />}>
@@ -46,7 +45,6 @@ function App() {
 					</Suspense>
 					<Footer />
 				</BrowserRouter>
-			</div>
 		</AppProviders>
 	)
 }
