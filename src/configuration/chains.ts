@@ -201,7 +201,7 @@ export const transports = {
 	]),
 
 	//// BOTANIX TESTNET ////
-	[botanixTestnet.id]: fallback([http('https://node.botanixlabs.dev'), http()]),
+	[botanixTestnet.id]: fallback([http('https://https://rpc.ankr.com/botanix_testnet.botanixlabs.dev'), http()]),
 
 	//// CELO ALFAJORES ////
 	[celoAlfajores.id]: fallback([
