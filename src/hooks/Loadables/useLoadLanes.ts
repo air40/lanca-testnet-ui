@@ -1,106 +1,115 @@
 import { useCallback, useEffect } from 'react'
-import { Address } from 'viem'
+import { Address, parseAbi } from 'viem'
 import { useQuery } from '@tanstack/react-query'
 import { useChainsStore } from '@/stores/chains/useChainsStore'
 import { useFormStore } from '@/stores/form/useFormStore'
 import { useLanesStore } from '@/stores/lanes/useLanesStore'
 import { getPublicClient } from '@/utils/client'
-import { CCIPRouter } from '@/assets/abi/CCIPRouter'
-import { ccipRouters } from '@/configuration/ccip'
+import { ContractAddresses } from '@/configuration/addresses'
 
 export const useLoadLanes = () => {
-	const { chains } = useChainsStore()
-	const { sourceChain } = useFormStore()
-	const { setLane, resetLanes } = useLanesStore()
+    const { chains } = useChainsStore()
+    const { sourceChain } = useFormStore()
+    const { setLane, resetLanes } = useLanesStore()
 
-	const fetchSrcChainLanes = useCallback(async () => {
-		if (!sourceChain?.id || !sourceChain.isCCIP) {
-			return {}
-		}
+    const fetchLanes = useCallback(async () => {
+        if (!sourceChain?.id || !sourceChain.isCCIP) {
+            return {}
+        }
 
-		const sourceId = sourceChain.id
-		const client = getPublicClient(Number(sourceId))
-		const routerAddress = ccipRouters[sourceId]
+        const srcId = sourceChain.id
+        const client = getPublicClient(Number(srcId))
+        const contract = ContractAddresses[srcId]
 
-		if (!client || !routerAddress) {
-			return {}
-		}
+        if (!client || !contract) {
+            return {}
+        }
 
-		const destChains = Object.values(chains).filter(
-			chain => chain.id !== sourceId && chain.isCCIP && chain.selector,
-		)
+        resetLanes()
 
-		resetLanes()
+        const selectors: bigint[] = []
+        const chainMap: Record<number, string> = {}
+        let index = 0
+        
+        for (const chain of Object.values(chains)) {
+            if (chain.id !== srcId && chain.isCCIP && chain.selector) {
+                selectors.push(chain.selector)
+                chainMap[index++] = chain.id
+            }
+        }
+        
+        if (selectors.length === 0) {
+            return {}
+        }
 
-		const lanePromises = destChains.map(async destChain => {
-			if (!destChain.isCCIP || !destChain.selector) {
-				setLane(destChain.id, false)
-				return { chainId: destChain.id, supported: false }
-			}
+        const abi = parseAbi([
+            'function isCcipLanes(uint64[] memory chainSelectors) external view returns (bool[] memory)'
+        ])
 
-			try {
-				const supported = await client.readContract({
-					address: routerAddress as Address,
-					abi: CCIPRouter,
-					functionName: 'isChainSupported',
-					args: [destChain.selector],
-				})
+        try {
+            const results = await client.readContract({
+                address: contract as Address,
+                abi,
+                functionName: 'isCcipLanes',
+                args: [selectors],
+            })
+            
+            const lanes: Record<string, boolean> = {}
+            
+            if (Array.isArray(results)) {
+                for (let i = 0; i < results.length; i++) {
+                    const chainId = chainMap[i]
+                    if (chainId) {
+                        const isSupported = Boolean(results[i])
+                        setLane(chainId, isSupported)
+                        lanes[chainId] = isSupported
+                    }
+                }
+            }
+            
+            return lanes
+        } catch (error) {
+            const lanes: Record<string, boolean> = {}
+            for (const chainId of Object.values(chainMap)) {
+                setLane(chainId, false)
+                lanes[chainId] = false
+            }
+            
+            return lanes
+        }
+    }, [sourceChain, chains, setLane, resetLanes])
 
-				const isSupported = !!supported
-				setLane(destChain.id, isSupported)
+    const queryEnabled = !!sourceChain?.id && !!sourceChain?.isCCIP
+    
+    const {
+        data: lanes,
+        isLoading,
+        error,
+        refetch,
+    } = useQuery({
+        queryKey: ['ccip-lanes', sourceChain?.id],
+        queryFn: fetchLanes,
+        enabled: queryEnabled,
+        staleTime: 60 * 60 * 1000, // 1 hour
+        gcTime: 24 * 60 * 60 * 1000, // 24 hours
+        refetchOnWindowFocus: false,
+        refetchOnReconnect: false,
+    })
 
-				return { chainId: destChain.id, supported: isSupported }
-			} catch (error) {
-				console.error(`Error checking lane ${sourceChain.name} → ${destChain.name}:`, error)
-				setLane(destChain.id, false)
-				return { chainId: destChain.id, supported: false }
-			}
-		})
+    useEffect(() => {
+        if (sourceChain) {
+            if (sourceChain.isCCIP && sourceChain.id) {
+                refetch()
+            } else {
+                resetLanes()
+            }
+        }
+    }, [sourceChain, refetch, resetLanes])
 
-		const results = await Promise.all(lanePromises)
-
-		const lanesMap = results.reduce(
-			(acc, { chainId, supported }) => {
-				acc[chainId] = supported
-				return acc
-			},
-			{} as Record<string, boolean>,
-		)
-
-		return lanesMap
-	}, [sourceChain, chains, setLane, resetLanes])
-
-	const {
-		data: lanes,
-		isLoading,
-		error,
-		refetch,
-	} = useQuery({
-		queryKey: ['ccip-lanes', sourceChain?.id],
-		queryFn: fetchSrcChainLanes,
-		enabled: !!sourceChain?.id && !!sourceChain?.isCCIP,
-		staleTime: 60 * 60 * 1000,
-		gcTime: 24 * 60 * 60 * 1000,
-		refetchOnWindowFocus: false,
-		refetchOnReconnect: false,
-	})
-
-	useEffect(() => {
-		if (sourceChain?.id && sourceChain.isCCIP) {
-			refetch()
-		}
-	}, [sourceChain?.id, refetch])
-
-	useEffect(() => {
-		if (sourceChain && !sourceChain.isCCIP) {
-			resetLanes()
-		}
-	}, [sourceChain, resetLanes])
-
-	return {
-		isLoading,
-		error,
-		refetch,
-		lanes,
-	}
+    return {
+        isLoading,
+        error,
+        refetch,
+        lanes,
+    }
 }
