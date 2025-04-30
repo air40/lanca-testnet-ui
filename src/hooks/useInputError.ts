@@ -26,7 +26,6 @@ export const useInputError = () => {
 			const nativeBal = BigInt(balanceData.nativeBal)
 
 			if (gasCost > nativeBal) {
-				setFromAmount('')
 				setError('Insufficient gas')
 				return false
 			}
@@ -47,7 +46,6 @@ export const useInputError = () => {
 				const tokenBal = BigInt(balanceData.tokenBal)
 
 				if (inAmount > tokenBal) {
-					setFromAmount('')
 					setError('Insufficient tCERO balance')
 					return false
 				}
