@@ -16,7 +16,7 @@ export const ModalHeader: FC<ModalHeaderProps> = memo(({ title, onClose }) => {
 	return (
 		<div className="modal_header">
 			<IconButton onClick={handleClose} variant="secondary" size="m" aria-label="Close modal">
-				<LeftIcon />
+				<LeftIcon color="var(--color-gray-700)" />
 			</IconButton>
 			<h4 className="modal_header_title">{title}</h4>
 		</div>
