@@ -108,7 +108,7 @@ export const Footer: FC = (): JSX.Element | null => {
 			mediumGuide: {
 				icon: <MediumIcon />,
 				className: 'medium-icon-button',
-				link: 'https://www.blog.concero.io/blog/concero/article/concero-v2-public-testnet-tutorial',
+				link: 'https://medium.com/@concero/concero-messaging-v2-a-step-by-step-tutorial-to-the-public-testnet-a93890d3073c',
 				trackingEvent: {
 					...GuideEvents.MEDIUM_OPENED,
 				},
