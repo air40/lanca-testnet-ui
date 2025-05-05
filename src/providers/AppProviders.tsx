@@ -15,7 +15,7 @@ export const AppProviders: FC<PropsWithChildren<{}>> = ({ children }) => {
 					<StoreProvider>
 						<SDKProvider>
 							<InitializeLoadables />
-							<ThemeProvider>{children}</ThemeProvider>
+							<ThemeProvider useSystemTheme>{children}</ThemeProvider>
 						</SDKProvider>
 					</StoreProvider>
 				</Web3Provider>
