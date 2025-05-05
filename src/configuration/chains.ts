@@ -10,7 +10,7 @@ import {
 	blastSepolia,
 	bscTestnet,
 	botanixTestnet,
-	celoAlfajores,
+	// celoAlfajores,
 	cronosTestnet,
 	gnosisChiado,
 	hashkeyTestnet,
@@ -84,7 +84,7 @@ export const chains: [AppKitNetwork, ...AppKitNetwork[]] = [
 	botanixTestnet,
 
 	//// CELO ALFAJORES ////
-	celoAlfajores,
+	// celoAlfajores,
 
 	//// CORE TESTNET ////
 	coreTestnet,
@@ -204,11 +204,11 @@ export const transports = {
 	[botanixTestnet.id]: fallback([http('https://https://rpc.ankr.com/botanix_testnet.botanixlabs.dev'), http()]),
 
 	//// CELO ALFAJORES ////
-	[celoAlfajores.id]: fallback([
-		http('https://alfajores-forno.celo-testnet.org'),
-		http(),
-		http('https://celo-alfajores.drpc.org'),
-	]),
+	// [celoAlfajores.id]: fallback([
+	// 	http('https://alfajores-forno.celo-testnet.org'),
+	// 	http(),
+	// 	http('https://celo-alfajores.drpc.org'),
+	// ]),
 
 	//// CORE TESTNET ////
 	[coreTestnet.id]: fallback([http()]),

@@ -24,7 +24,7 @@ export const chainLogos: Record<number, string> = {
 	3636: '/Chains/3636.svg',
 
 	//// CELO ALFAJORES ////
-	44787: '/Chains/44787.svg',
+	// 44787: '/Chains/44787.svg',
 
 	//// CORE TESTNET ////
 	1114: '/Chains/1114.svg',
@@ -116,7 +116,7 @@ export const chainLogosDisabled: Record<number, string> = {
 	3636: '',
 
 	//// CELO ALFAJORES ////
-	44787: '/Chains/Disabled/44787.svg',
+	// 44787: '/Chains/Disabled/44787.svg',
 
 	//// CORE TESTNET ////
 	1114: '',
@@ -208,7 +208,7 @@ export const chainCCIP: Record<number, { isCCIP: boolean }> = {
 	3636: { isCCIP: true },
 
 	//// CELO ALFAJORES ////
-	44787: { isCCIP: true },
+	// 44787: { isCCIP: true },
 
 	//// CORE TESTNET ////
 	1114: { isCCIP: true },
@@ -300,7 +300,7 @@ export const chainSelectors: Record<number, bigint> = {
 	3636: 1467223411771711614n,
 
 	//// CELO ALFAJORES ////
-	44787: 3552045678561919002n,
+	// 44787: 3552045678561919002n,
 
 	//// CORE TESTNET ////
 	1114: 4264732132125536123n,
@@ -392,7 +392,7 @@ export const hastCEROFaucet: Record<number, { hastCEROFaucet: boolean }> = {
 	3636: { hastCEROFaucet: false },
 
 	//// CELO ALFAJORES ////
-	44787: { hastCEROFaucet: true },
+	// 44787: { hastCEROFaucet: true },
 
 	//// CORE TESTNET ////
 	1114: { hastCEROFaucet: false },
@@ -484,7 +484,7 @@ export const chainNames: Record<number, string> = {
 	3636: 'Botanix',
 
 	//// CELO ALFAJORES ////
-	44787: 'Alfajores',
+	// 44787: 'Alfajores',
 
 	//// CORE TESTNET ////
 	1114: 'Core',
