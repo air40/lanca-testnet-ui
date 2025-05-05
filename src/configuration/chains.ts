@@ -294,9 +294,9 @@ export const transports = {
 
 	//// SEPOLIA ////
 	[sepolia.id]: fallback([
-		http('https://1rpc.io/sepolia'),
 		http('https://ethereum-sepolia-rpc.publicnode.com'),
 		http('https://endpoints.omniatech.io/v1/eth/sepolia/public'),
+		http('https://1rpc.io/sepolia'),
 		http(),
 	]),
 
@@ -320,8 +320,9 @@ export const transports = {
 
 	//// XLAYER SEPOLIA ////
 	[xLayerTestnet.id]: fallback([
-		http('https://xlayertestrpc.okx.com'),
+		http('https://rpc.ankr.com/xlayer_testnet'),
 		http('https://endpoints.omniatech.io/v1/xlayer/testnet/public'),
+		http('https://xlayertestrpc.okx.com'),
 		http(),
 	]),
 
