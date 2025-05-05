@@ -4,7 +4,6 @@ import { SwapWidget } from '../common/SwapWidget/SwapWidget'
 import { useAccount } from 'wagmi'
 import { ScreenLoader } from '../common/ScreenLoader/ScreenLoader'
 import { useIsWhitelisted } from '@/hooks/useIsWhitelisted'
-import { useHasTestTokens } from '@/hooks/useHasTestTokens'
 import { useIsDesktop } from '@/hooks/useMediaQuery'
 import { TokenWidget } from '../common/TokenWidget/TokenWidget'
 import { GasWidget } from '../common/GasWidget/GasWidget'
@@ -19,20 +18,13 @@ const NotWhitelisted = lazy(() =>
 	})),
 )
 
-const GetTokens = lazy(() =>
-	import('../common/GetTokens/GetTokens').then(module => ({
-		default: module.GetTokens,
-	})),
-)
-
 export const Swap: FC = () => {
 	const { isConnecting, isConnected } = useAccount()
 	const { isWhitelisted, isLoading: isWhitelistLoading } = useIsWhitelisted()
-	const { hasTokens, isLoading: isCheckLoading } = useHasTestTokens()
 	const { txStatus } = useTxProcess()
 
 	const isDesktop = useIsDesktop()
-	const isLoading = isConnecting || isCheckLoading || isWhitelistLoading
+	const isLoading = isConnecting || isWhitelistLoading
 	const isWidgetVisible = !isDesktop && txStatus === Status.NOT_STARTED && isWhitelisted
 
 	if (isLoading) {
@@ -43,9 +35,7 @@ export const Swap: FC = () => {
 
 	if (!isWhitelisted && isConnected) {
 		content = <NotWhitelisted />
-	} else if (isWhitelisted && !hasTokens && isConnected) {
-		content = <GetTokens />
-	}
+	} 
 
 	return (
 		<div className="swap">
