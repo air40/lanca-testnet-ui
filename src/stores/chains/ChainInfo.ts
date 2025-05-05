@@ -24,7 +24,7 @@ export const chainLogos: Record<number, string> = {
 	3636: '/Chains/3636.svg',
 
 	//// CELO ALFAJORES ////
-	44787: '/Chains/44787.svg',
+	// 44787: '/Chains/44787.svg',
 
 	//// CORE TESTNET ////
 	1114: '/Chains/1114.svg',
@@ -54,7 +54,7 @@ export const chainLogos: Record<number, string> = {
 	919: '/Chains/919.svg',
 
 	//// MONAD TESTNET ////
-	10143: '/Chains/10143.svg',
+	// 10143: '/Chains/10143.svg',
 
 	//// OPTIMISM SEPOLIA ////
 	11155420: '/Chains/11155420.svg',
@@ -116,7 +116,7 @@ export const chainLogosDisabled: Record<number, string> = {
 	3636: '',
 
 	//// CELO ALFAJORES ////
-	44787: '/Chains/Disabled/44787.svg',
+	// 44787: '/Chains/Disabled/44787.svg',
 
 	//// CORE TESTNET ////
 	1114: '',
@@ -146,7 +146,7 @@ export const chainLogosDisabled: Record<number, string> = {
 	919: '',
 
 	//// MONAD TESTNET ////
-	10143: '',
+	// 10143: '',
 
 	//// OPTIMISM SEPOLIA ////
 	11155420: '/Chains/Disabled/11155420.svg',
@@ -208,7 +208,7 @@ export const chainCCIP: Record<number, { isCCIP: boolean }> = {
 	3636: { isCCIP: true },
 
 	//// CELO ALFAJORES ////
-	44787: { isCCIP: true },
+	// 44787: { isCCIP: true },
 
 	//// CORE TESTNET ////
 	1114: { isCCIP: true },
@@ -238,7 +238,7 @@ export const chainCCIP: Record<number, { isCCIP: boolean }> = {
 	919: { isCCIP: true },
 
 	//// MONAD TESTNET ////
-	10143: { isCCIP: true },
+	// 10143: { isCCIP: true },
 
 	//// OPTIMISM SEPOLIA ////
 	11155420: { isCCIP: true },
@@ -300,7 +300,7 @@ export const chainSelectors: Record<number, bigint> = {
 	3636: 1467223411771711614n,
 
 	//// CELO ALFAJORES ////
-	44787: 3552045678561919002n,
+	// 44787: 3552045678561919002n,
 
 	//// CORE TESTNET ////
 	1114: 4264732132125536123n,
@@ -330,7 +330,7 @@ export const chainSelectors: Record<number, bigint> = {
 	919: 829525985033418733n,
 
 	//// MONAD TESTNET ////
-	10143: 2183018362218727504n,
+	// 10143: 2183018362218727504n,
 
 	//// OPTIMISM SEPOLIA ////
 	11155420: 5224473277236331295n,
@@ -392,7 +392,7 @@ export const hastCEROFaucet: Record<number, { hastCEROFaucet: boolean }> = {
 	3636: { hastCEROFaucet: false },
 
 	//// CELO ALFAJORES ////
-	44787: { hastCEROFaucet: true },
+	// 44787: { hastCEROFaucet: true },
 
 	//// CORE TESTNET ////
 	1114: { hastCEROFaucet: false },
@@ -422,10 +422,10 @@ export const hastCEROFaucet: Record<number, { hastCEROFaucet: boolean }> = {
 	919: { hastCEROFaucet: false },
 
 	//// MONAD TESTNET ////
-	10143: { hastCEROFaucet: false },
+	// 10143: { hastCEROFaucet: false },
 
 	//// OPTIMISM SEPOLIA ////
-	11155420: { hastCEROFaucet: true },
+	11155420: { hastCEROFaucet: false },
 
 	//// POLYGON AMOY ////
 	80002: { hastCEROFaucet: true },
@@ -484,7 +484,7 @@ export const chainNames: Record<number, string> = {
 	3636: 'Botanix',
 
 	//// CELO ALFAJORES ////
-	44787: 'Alfajores',
+	// 44787: 'Alfajores',
 
 	//// CORE TESTNET ////
 	1114: 'Core',
@@ -514,7 +514,7 @@ export const chainNames: Record<number, string> = {
 	919: 'Mode',
 
 	//// MONAD TESTNET ////
-	10143: 'Monad',
+	// 10143: 'Monad',
 
 	//// OPTIMISM SEPOLIA ////
 	11155420: 'Optimism',
