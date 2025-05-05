@@ -1,5 +1,5 @@
 import type { FC } from 'react'
-import { Button } from '@concero/ui-kit'
+import { Button, useTheme } from '@concero/ui-kit'
 import { useMemo } from 'react'
 import { useAppKit } from '@reown/appkit/react'
 import './Hero.pcss'
@@ -19,7 +19,8 @@ const Subheading: FC = (): JSX.Element => {
 
 export const Hero: FC = () => {
 	const { open } = useAppKit()
-
+	const { theme } = useTheme()
+	const isDarkTheme = theme == 'dark'
 	const heading = useMemo(() => <Heading />, [])
 	const subheading = useMemo(() => <Subheading />, [])
 
@@ -40,9 +41,13 @@ export const Hero: FC = () => {
 			>
 				Connect wallet
 			</Button>
-			<img src={'/Hero/Welcome_Frame_6.webp'} alt="" className="illustration-one" />
-			<img src={'/Hero/Welcome_Frame_7.webp'} alt="" className="illustration-two" />
-			<img src={'/Hero/Welcome_tablet_frame_6.webp'} alt="" className="illustration-tablet" />
+			<img src={`/Hero/${isDarkTheme ? 'dark_' : ''}Welcome_Frame_6.webp`} alt="" className="illustration-one" />
+			<img src={`/Hero/${isDarkTheme ? 'dark_' : ''}Welcome_Frame_7.webp`} alt="" className="illustration-two" />
+			<img
+				src={`/Hero/${isDarkTheme ? 'dark_' : ''}Welcome_tablet_frame_6.webp`}
+				alt=""
+				className="illustration-tablet"
+			/>
 		</div>
 	)
 }
