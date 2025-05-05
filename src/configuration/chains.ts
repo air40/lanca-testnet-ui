@@ -19,7 +19,7 @@ import {
 	mantleSepoliaTestnet,
 	megaethTestnet,
 	modeTestnet,
-	monadTestnet,
+	// monadTestnet,
 	optimismSepolia,
 	polygonAmoy,
 	saigon,
@@ -114,7 +114,7 @@ export const chains: [AppKitNetwork, ...AppKitNetwork[]] = [
 	modeTestnet,
 
 	//// MONAD TESTNET ////
-	monadTestnet,
+	// monadTestnet,
 
 	//// OPTIMISM SEPOLIA ////
 	optimismSepolia,
@@ -254,13 +254,13 @@ export const transports = {
 	[modeTestnet.id]: fallback([http('https://sepolia.mode.network'), http()]),
 
 	//// MONAD TESTNET ////
-	[monadTestnet.id]: fallback(
-		[
-			http(),
-			http('https://monad-testnet.drpc.org'),
-		],
-		options
-	),
+	// [monadTestnet.id]: fallback(
+	// 	[
+	// 		http(),
+	// 		http('https://monad-testnet.drpc.org'),
+	// 	],
+	// 	options
+	// ),
 
 	//// OPTIMISM SEPOLIA ////
 	[optimismSepolia.id]: fallback([
