@@ -30,21 +30,21 @@ const FaucetPage = lazy(() =>
 function App() {
 	return (
 		<AppProviders>
-			<BrowserRouter>
-				<Header />
-				<Suspense fallback={<ScreenLoader />}>
-					<Routes>
-						<Route element={<DisconnectedRoutesGuard />}>
-							<Route path={routes.home} element={<HomePage />} />
-						</Route>
-						<Route element={<ConnectedRoutesGuard />}>
-							<Route path={routes.swap} element={<SwapPage />} />
-						</Route>
-						<Route path={routes.faucet} element={<FaucetPage />} />
-					</Routes>
-				</Suspense>
-				<Footer />
-			</BrowserRouter>
+				<BrowserRouter>
+					<Header />
+					<Suspense fallback={<ScreenLoader />}>
+						<Routes>
+							<Route element={<DisconnectedRoutesGuard />}>
+								<Route path={routes.home} element={<HomePage />} />
+							</Route>
+							<Route element={<ConnectedRoutesGuard />}>
+								<Route path={routes.swap} element={<SwapPage />} />
+							</Route>
+							<Route path={routes.faucet} element={<FaucetPage />} />
+						</Routes>
+					</Suspense>
+					<Footer />
+				</BrowserRouter>
 		</AppProviders>
 	)
 }

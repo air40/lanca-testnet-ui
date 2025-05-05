@@ -5,19 +5,6 @@ import { chainSelectors } from '../chains/ChainInfo'
 import { createWithEqualityFn } from 'zustand/traditional'
 
 const defaultSourceChain: Chain = {
-	id: '10143',
-	name: 'Monad',
-	logoURL: '/Chains/10143.svg',
-	explorerURL: 'https://testnet.monadexplorer.com',
-	isCCIP: true,
-	nativeToken: 'MON',
-	decimals: 18,
-	selector: chainSelectors[10143],
-	hastCEROFaucet: false,
-	disabledLogoURL: '',
-}
-
-const defaultDestinationChain: Chain = {
 	id: '6342',
 	name: 'MegaETH',
 	logoURL: '/Chains/6342.svg',
@@ -28,6 +15,19 @@ const defaultDestinationChain: Chain = {
 	selector: chainSelectors[6342],
 	hastCEROFaucet: true,
 	disabledLogoURL: '/Chains/Disabled/6342.svg',
+}
+
+const defaultDestinationChain: Chain = {
+	id: '421614',
+	name: 'Arbitrum',
+	logoURL: '/Chains/421614.svg',
+	explorerURL: 'https://sepolia.arbiscan.io',
+	isCCIP: true,
+	nativeToken: 'ETH',
+	decimals: 18,
+	selector: chainSelectors[421614],
+	hastCEROFaucet: true,
+	disabledLogoURL: '/Chains/Disabled/421614.svg',
 }
 
 const initialState: FormState = {
