@@ -46,7 +46,6 @@ export const ProcessContent: FC = memo((): JSX.Element | null => {
 						dstChainName: destinationChain?.name,
 						fromToken: fromTokenAddress,
 						toToken: toTokenAddress,
-						error: error,
 						isCCIPLane,
 						srcHash,
 					},
