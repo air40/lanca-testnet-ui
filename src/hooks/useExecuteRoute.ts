@@ -4,8 +4,10 @@ import { adapter } from '@/configuration/wagmi'
 import { IExecutionConfig, IRouteType } from '@lanca/sdk'
 import { useSDK } from './useSDK'
 import { useExecutionListener } from './useExecutionListener'
+import { useTxExecutionStore } from '@/stores/tx-execution/useTxExecutionStore'
 
 export const useExecuteRoute = (route: IRouteType | null) => {
+	const { setError } = useTxExecutionStore()
 	const sdk = useSDK()
 	const updateHandler = useExecutionListener()
 
@@ -24,8 +26,8 @@ export const useExecuteRoute = (route: IRouteType | null) => {
 			// @ts-ignore
 			return await sdk.executeRoute(route, client, configRef.current)
 		} catch (error) {
-			console.error('Error executing route:', error)
+			setError(error)
 			throw error
 		}
-	}, [route, sdk, updateHandler])
+	}, [route, sdk, updateHandler, setError])
 }

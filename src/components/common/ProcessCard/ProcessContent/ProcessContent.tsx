@@ -22,7 +22,7 @@ const trackedEvents = {
 export const ProcessContent: FC = memo((): JSX.Element | null => {
 	const { txStatus, currentStep, executionTime } = useTxProcess()
 	const { sourceChain, destinationChain, fromTokenAddress, toTokenAddress } = useFormStore()
-	const { srcHash, dstHash } = useTxExecutionStore()
+	const { srcHash, dstHash, error } = useTxExecutionStore()
 	const { isCCIPLane } = useIsCCIPLane()
 	const { trackEvent: tracker } = useTrackEvent()
 
@@ -46,6 +46,7 @@ export const ProcessContent: FC = memo((): JSX.Element | null => {
 						dstChainName: destinationChain?.name,
 						fromToken: fromTokenAddress,
 						toToken: toTokenAddress,
+						error: error,
 						isCCIPLane,
 						srcHash,
 					},
