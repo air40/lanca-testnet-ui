@@ -31,6 +31,34 @@ import {
 	unichainSepolia,
 	xLayerTestnet,
 	zircuitTestnet,
+	// Berachain
+	berachainBepolia, // 80069
+	// OP BNB
+	opBNBTestnet, // 5611
+	// aurora
+	auroraTestnet, //1313161555 
+	//worldchain
+	worldchainSepolia, // 4801
+	// bob sepolia
+	bobSepolia, // 808813
+	// cronos zkEVM
+	cronoszkEVMTestnet, // 282
+	// flow
+	flowTestnet, // 545
+	// fraxtal
+	fraxtalTestnet, // 2522
+	// metis
+	metisSepolia, // 59902
+	// kava
+	kavaTestnet, // 2221
+	// filecoin
+	filecoinCalibration, // 314_159
+	// morph holesky
+	morphHolesky, // 2810
+	// abstract sepolia
+	abstractTestnet, // 11_124
+	// oasis sapphire
+	oasisTestnet // 4090
 } from '@reown/appkit/networks'
 
 const coreTestnet = defineChain({
@@ -51,6 +79,172 @@ const coreTestnet = defineChain({
 	},
 	testnet: true,
 })
+
+const wemixTestnet = defineChain({
+	id: 1112,
+	name: 'WEMIX_Testnet',
+	nativeCurrency: {
+		decimals: 18,
+		name: 'tWEMIX',
+		symbol: 'tWEMIX',
+	},
+	rpcUrls: {
+		default: {
+			http: ['https://api.test.wemix.com'],
+		},
+	},
+	blockExplorers: {
+		default: { name: 'WEMIX Explorer', url: 'https://explorer.test.wemix.com/' },
+	},
+	testnet: true,
+});
+
+const irysTestnet = defineChain({
+	id: 1270,
+	name: 'Irys Testnet',
+	nativeCurrency: {
+		decimals: 18,
+		name: 'mIRYS',
+		symbol: 'IRYS',
+	},
+	rpcUrls: {
+		default: {
+			http: ['https://testnet-rpc.irys.xyz/v1/execution-rpc'],
+		},
+	},
+	blockExplorers: {
+		default: { name: 'Irys Explorer', url: 'https://testnet-explorer.irys.xyz' },
+	},
+	testnet: true,
+});
+
+const expchainTestnet = defineChain({
+	id: 18880,
+	name: 'EXPchain Testnet',
+	nativeCurrency: {
+		decimals: 18,
+		name: 'tZKJ',
+		symbol: 'tZKJ',
+	},
+	rpcUrls: {
+		default: {
+			http: ['https://expchain.polyhedra.network/rpc0-testnet'],
+		},
+	},
+	blockExplorers: {
+		default: { name: 'EXPchain Explorer', url: 'https://expchain.polyhedra.network/blockscout-testnet' },
+	},
+	testnet: true,
+});
+
+const b2Testnet = defineChain({
+	id: 1123,
+	name: 'B2 Testnet',
+	nativeCurrency: {
+		decimals: 18,
+		name: 'BTC',
+		symbol: 'BTC',
+	},
+	rpcUrls: {
+		default: {
+			http: [
+				'https://b2-testnet.alt.technology',
+				'https://rpc.ankr.com/b2_testnet',
+				'https://testnet-rpc.bsquared.network'
+			],
+		},
+	},
+	blockExplorers: {
+		default: { name: 'B2 Testnet Explorer', url: 'https://explorer.bsquared.network' },
+	},
+	testnet: true,
+});
+
+
+const taikoHekla = defineChain({
+	id: 167009,
+	name: 'Taiko Hekla Testnet',
+	nativeCurrency: {
+		decimals: 18,
+		name: 'Ether',
+		symbol: 'ETH',
+	},
+	rpcUrls: {
+		default: {
+			http: ['https://rpc.hekla.taiko.xyz'],
+		},
+	},
+	blockExplorers: {
+		default: { 
+			name: 'Taikoscan', 
+			url: 'https://hekla.taikoscan.io' 
+		},
+	},
+	testnet: true,
+});
+
+
+const pulsechainTestnet = defineChain({
+	id: 940,
+	name: 'PulseChain Testnet',
+	nativeCurrency: {
+		decimals: 18,
+		name: 'tPLS',
+		symbol: 'tPLS',
+	},
+	rpcUrls: {
+		default: {
+			http: ['https://rpc.v2.testnet.pulsechain.com/'],
+		},
+	},
+	blockExplorers: {
+		default: { name: 'PulseChain Explorer', url: 'https://scan.v2.testnet.pulsechain.com/' },
+	},
+	testnet: true,
+});
+
+const kaiaKairos = defineChain({
+	id: 1001,
+	name: 'Kaia Kairos Testnet',
+	nativeCurrency: {
+		decimals: 18,
+		name: 'KAIA',
+		symbol: 'KAIA',
+	},
+	rpcUrls: {
+		default: {
+			http: [
+				'https://public-en-kairos.node.kaia.io',
+				'https://kaia-kairos.blockpi.network/v1/rpc/public',
+				'https://responsive-green-emerald.kaia-kairos.quiknode.pro/'
+			],
+		},
+	},
+	blockExplorers: {
+		default: { name: 'Kairos Scope', url: 'https://kairos.kaiascope.com' },
+	},
+	testnet: true,
+});
+
+const mantaPacificSepoliaTestnet = defineChain({
+	id: 3441006,
+	name: 'Manta Pacific Sepolia Testnet',
+	nativeCurrency: {
+		decimals: 18,
+		name: 'Ether',
+		symbol: 'ETH',
+	},
+	rpcUrls: {
+		default: {
+			http: ['https://pacific-rpc.sepolia-testnet.manta.network/http'],
+			webSocket: ['wss://pacific-rpc.sepolia-testnet.manta.network/ws'],
+		},
+	},
+	blockExplorers: {
+		default: { name: 'Manta Pacific Sepolia Explorer', url: 'https://pacific-explorer.sepolia-testnet.manta.network' },
+	},
+	testnet: true,
+});
 
 const options = {
 	retryCount: 5,
@@ -331,5 +525,153 @@ export const transports = {
 		http('https://testnet.zircuit.com'),
 		http('https://zircuit1-testnet.p2pify.com'),
 		http(),
+	]),
+
+	//// BERACHAIN BEPOLIA ////
+	[berachainBepolia.id]: fallback([
+		http('https://bepolia.rpc.berachain.com'),
+		http('https://berachain-bepolia.drpc.org'),
+		http()
+	]),
+
+	//// OP BNB TESTNET ////
+	[opBNBTestnet.id]: fallback([
+		http('https://opbnb-testnet.nodereal.io/v1/64a9df0874fb4a93b9d0a3849de012d3'),
+		http('https://opbnb-testnet.nodereal.io/v1/e9a36765eb8a40b9bd12e680a1fd2bc5'),
+		http()
+	]),
+
+	//// AURORA TESTNET ////
+	[auroraTestnet.id]: fallback([
+		http('https://testnet.aurora.dev'),
+		http('https://aurora-testnet.drpc.org'),
+		http()
+	]),
+
+	//// WORLDCHAIN SEPOLIA ////
+	[worldchainSepolia.id]: fallback([
+		http('https://worldchain-sepolia.g.alchemy.com/public'),
+		http('https://worldchain-sepolia.drpc.org'),
+		http()
+	]),
+
+	//// BOB SEPOLIA ////
+	[bobSepolia.id]: fallback([
+		http('https://bob-sepolia.rpc.gobob.xyz'),
+		http('https://bob-testnet.drpc.org')
+	]),
+
+	//// CRONOS ZKEVM TESTNET ////
+	[cronoszkEVMTestnet.id]: fallback([
+		http('https://testnet.zkevm.cronos.org'),
+		http()
+	]),
+
+	//// FLOW TESTNET ////
+	[flowTestnet.id]: fallback([
+		http('https://testnet.evm.nodes.onflow.org'),
+		http()
+	]),
+
+	//// FRAXTAL TESTNET ////
+	[fraxtalTestnet.id]: fallback([
+		http('https://fraxtal-holesky-rpc.publicnode.com'),
+		http('https://rpc.testnet.frax.com'),
+		http()
+	]),
+
+
+	//// METIS SEPOLIA ////
+	[metisSepolia.id]: fallback([
+		http('https://metis-sepolia.gateway.tenderly.co'),
+		http('https://metis-sepolia-rpc.publicnode.com'),
+		http()
+	]),
+
+	//// KAVA TESTNET ////
+	[kavaTestnet.id]: fallback([
+		http('https://evm.testnet.kava.io'),
+		http('https://kava-testnet.drpc.org'),
+		http()
+	]),
+
+	//// FILECOIN CALIBRATION ////
+	[filecoinCalibration.id]: fallback([
+		http('https://api.calibration.node.glif.io/rpc/v1'),
+		http('https://rpc.ankr.com/filecoin_testnet'),
+		http()
+	]),
+
+	//// MORPH HOLESKY ////
+	[morphHolesky.id]: fallback([
+		http('https://rpc-holesky.morphl2.io'),
+		http('https://rpc-quicknode-holesky.morphl2.io'),
+		http()
+	]),
+
+	//// ABSTRACT SEPOLIA ////
+	[abstractTestnet.id]: fallback([
+		http('https://api.testnet.abs.xyz'),
+		http()
+	]),
+
+	//// OASIS SAPPHIRE ////
+	[oasisTestnet.id]: fallback([
+		http('https://rpc1.oasis.bahamutchain.com'),
+		http()
+	]),
+
+	//// WEMIX TESTNET ////
+	[wemixTestnet.id]: fallback([
+		http('https://wemix-testnet.drpc.org'),
+		http()
+	]),
+
+	//// IRYS TESTNET ////
+	[irysTestnet.id]: fallback([
+		http('https://testnet-rpc.irys.xyz/v1/execution-rpc'),
+		http()
+	]),
+
+	//// EXPCHAIN TESTNET ////
+	[expchainTestnet.id]: fallback([
+		http('https://rpc1-testnet.expchain.ai'),
+		http()
+	]),
+
+	//// B2 TESTNET ////
+	[b2Testnet.id]: fallback([
+		http('https://b2-testnet.alt.technology'),
+		http('https://rpc.ankr.com/b2_testnet'),
+		http(),
+	]),
+
+	//// TAIKO HEKLA ////
+	[taikoHekla.id]: fallback([
+		http('https://rpc.ankr.com/taiko_hekla'),
+		http('https://taiko-hekla.gateway.tenderly.co'),
+		http('https://rpc.hekla.taiko.xyz'),
+		http()
+	]),
+
+	//// PULSECHAIN TESTNET ////
+	[pulsechainTestnet.id]: fallback([
+		http('https://rpc.v2.testnet.pulsechain.com/'),
+		http()
+	]),
+
+	//// KAIA KAIROS ////
+	[kaiaKairos.id]: fallback([
+		http('https://rpc.ankr.com/kaia_testnet'),
+		http('https://public-en-kairos.node.kaia.io'),
+		http('https://kaia-kairos.blockpi.network/v1/rpc/public'),
+		http()
+	]),
+
+	//// MANTA PACIFIC SEPOLIA ////
+	[mantaPacificSepoliaTestnet.id]: fallback([
+		http('https://pacific-rpc.sepolia-testnet.manta.network/http'),
+		http('https://endpoints.omniatech.io/v1/manta-pacific/sepolia/public'),
+		http()
 	]),
 }
