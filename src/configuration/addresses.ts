@@ -90,70 +90,70 @@ export const TokenAddresses: Record<string, string> = {
     '48899': '0xa0AC414648590044d782ED0A5C6CBc5De1290aE5',
 
     //// BERACHAIN BEPOLIA ////
-    '80069': '',
+    '80069': '0xdABb912B72AEb2E1E8045392E06ad6Fa5972bB27',
 
     //// OP BNB TESTNET ////
-    '5611': '',
+    '5611': '0xe040812bFB023f53AE928647635a863d8309C7ec',
 
     //// AURORA TESTNET ////
-    '1313161555': '',
+    '1313161555': '0x32ddD46559DB869f0186590546Af04334576A8C9',
 
     //// BOB SEPOLIA ////
-    '808813': '',
+    '808813': '0x8b4E879e98a69ea906Ef14B8b7BB54e994E611cA',
 
     //// FLOW TESTNET ////
-    '545': '',
+    '545': '0x7BEDD684D82c9340F98836007D5B3C515457539a',
 
     //// FRAXTAL TESTNET ////
-    '2522': '',
+    '2522': '0xc85044418e314b3a3d27AE207325b96ce10B5273',
 
     //// METIS SEPOLIA ////
-    '59902': '',
+    '59902': '0xC20d28C10b8862c758cf87e1d237107DdE23623f',
 
     //// KAVA TESTNET ////
-    '2221': '',
+    '2221': '0xc85044418e314b3a3d27AE207325b96ce10B5273',
 
     //// MORPH HOLESKY ////
-    '2810': '',
+    '2810': '0xc85044418e314b3a3d27AE207325b96ce10B5273',
 
     //// ABSTRACT TESTNET ////
-    '11124': '',
+    '11124': '0x8b4E879e98a69ea906Ef14B8b7BB54e994E611cA',
 
     //// OASIS TESTNET ////
-    '4090': '',
+    '4090': '0xEdb56CeF6f3dA311ADB98DcB63940a71944d40a0',
 
     //// WEMIX TESTNET ////
-    '1112': '',
+    '1112': '0x32ddD46559DB869f0186590546Af04334576A8C9',
 
     //// IRYS TESTNET ////
-    '1270': '',
+    '1270': '0x70cB4B30b99a42E3C4e9a853D6A79D414dEFA9Bb',
 
     //// EXPCHAIN TESTNET ////
-    '18880': '',
+    '18880': '0x7e66DB991983265f60f9Bce522347D673874A706',
 
     //// B2 TESTNET ////
-    '1123': '',
+    '1123': '0x0323Ed3A6EB29b8ccE9DC976b13a57Bc27fF12A4',
 
     //// TAIKO HEKLA ////
-    '167009': '',
+    '167009': '0x32ddD46559DB869f0186590546Af04334576A8C9',
 
     //// PULSECHAIN TESTNET ////
-    '940': '',
+    '940': '0xc85044418e314b3a3d27AE207325b96ce10B5273',
 
     //// KAIA KAIROS ////
-    '1001': '',
+    '1001': '0xc85044418e314b3a3d27AE207325b96ce10B5273',
 
     //// MANTA PACIFIC SEPOLIA ////
-    '3441006': '',
+    '3441006': '0xc85044418e314b3a3d27AE207325b96ce10B5273',
 
     //// SONIC BLAZE TESTNET ////
-    '57054': '',
+    '57054': '0x8b4E879e98a69ea906Ef14B8b7BB54e994E611cA',
 
     //// SEISMIC DEVNET ////
-    '5124': '',
+    '5124': '0xc85044418e314b3a3d27AE207325b96ce10B5273',
 
     //// ASTAR SHIBUYA ////
-    '81': '',
+    '81': '0x24Cdd159418f847F501DE02D30c87C180046200f',
 } as const
 
 export const ContractAddresses: Record<string, string> = {
