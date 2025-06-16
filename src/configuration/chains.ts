@@ -2,51 +2,48 @@ import type { AppKitNetwork } from '@reown/appkit/networks'
 import { http, fallback } from 'viem'
 import { defineChain } from 'viem'
 import {
-	curtis,
-	arbitrumSepolia,
-	avalancheFuji,
-	baseSepolia,
-	bitlayerTestnet,
-	blastSepolia,
-	bscTestnet,
-	botanixTestnet,
-	celoAlfajores,
-	cronosTestnet,
-	gnosisChiado,
-	hashkeyTestnet,
-	inkSepolia,
-	lineaSepolia,
-	mantleSepoliaTestnet,
-	megaethTestnet,
-	modeTestnet,
-	monadTestnet,
-	optimismSepolia,
-	polygonAmoy,
-	saigon,
-	scrollSepolia,
-	seiTestnet,
-	sepolia,
-	shibariumTestnet,
-	soneiumMinato,
-	unichainSepolia,
-	xLayerTestnet,
-	zircuitTestnet,
-	berachainBepolia,
-	opBNBTestnet,
-	auroraTestnet,
-	worldchainSepolia,
-	bobSepolia,
-	cronoszkEVMTestnet,
-	flowTestnet,
-	fraxtalTestnet,
-	metisSepolia,
-	kavaTestnet,
-	filecoinCalibration,
-	morphHolesky,
-	abstractTestnet,
-	oasisTestnet,
-	sonicBlazeTestnet,
-	seismicDevnet,
+    curtis,
+    arbitrumSepolia,
+    avalancheFuji,
+    baseSepolia,
+    bitlayerTestnet,
+    blastSepolia,
+    bscTestnet,
+    botanixTestnet,
+    celoAlfajores,
+    cronosTestnet,
+    gnosisChiado,
+    hashkeyTestnet,
+    inkSepolia,
+    lineaSepolia,
+    mantleSepoliaTestnet,
+    megaethTestnet,
+    modeTestnet,
+    monadTestnet,
+    optimismSepolia,
+    polygonAmoy,
+    saigon,
+    scrollSepolia,
+    seiTestnet,
+    sepolia,
+    shibariumTestnet,
+    soneiumMinato,
+    unichainSepolia,
+    xLayerTestnet,
+    zircuitTestnet,
+    berachainBepolia,
+    opBNBTestnet,
+    auroraTestnet,
+    bobSepolia,
+    flowTestnet,
+    fraxtalTestnet,
+    metisSepolia,
+    kavaTestnet,
+    morphHolesky,
+    abstractTestnet,
+    oasisTestnet,
+    sonicBlazeTestnet,
+    seismicDevnet,
 } from '@reown/appkit/networks'
 
 const coreTestnet = defineChain({
@@ -264,171 +261,163 @@ const options = {
 }
 
 export const chains: [AppKitNetwork, ...AppKitNetwork[]] = [
-	//// APECHAIN CURTIS ////
-	curtis,
+    //// APECHAIN CURTIS ////
+    curtis,
 
-	//// ARBITRUM SEPOLIA ////
-	arbitrumSepolia,
+    //// ARBITRUM SEPOLIA ////
+    arbitrumSepolia,
 
-	//// AVALANCHE FUJI ////
-	avalancheFuji,
+    //// AVALANCHE FUJI ////
+    avalancheFuji,
 
-	//// BASE SEPOLIA ////
-	baseSepolia,
+    //// BASE SEPOLIA ////
+    baseSepolia,
 
-	//// BITLAYER TESTNET ////
-	bitlayerTestnet,
+    //// BITLAYER TESTNET ////
+    bitlayerTestnet,
 
-	//// BLAST SEPOLIA ////
-	blastSepolia,
+    //// BLAST SEPOLIA ////
+    blastSepolia,
 
-	//// BNB TESTNET ////
-	bscTestnet,
+    //// BNB TESTNET ////
+    bscTestnet,
 
-	//// BOTANIX TESTNET ////
-	botanixTestnet,
+    //// BOTANIX TESTNET ////
+    botanixTestnet,
 
-	//// CELO ALFAJORES ////
-	celoAlfajores,
+    //// CELO ALFAJORES ////
+    celoAlfajores,
 
-	//// CORE TESTNET ////
-	coreTestnet,
+    //// CORE TESTNET ////
+    coreTestnet,
 
-	//// CRONOS TESTNET ////
-	cronosTestnet,
+    //// CRONOS TESTNET ////
+    cronosTestnet,
 
-	//// GNOSIS CHIADO ////
-	gnosisChiado,
+    //// GNOSIS CHIADO ////
+    gnosisChiado,
 
-	//// HASHKEY TESTNET ////
-	hashkeyTestnet,
+    //// HASHKEY TESTNET ////
+    hashkeyTestnet,
 
-	//// INK SEPOLIA ////
-	inkSepolia,
+    //// INK SEPOLIA ////
+    inkSepolia,
 
-	//// LINEA SEPOLIA ////
-	lineaSepolia,
+    //// LINEA SEPOLIA ////
+    lineaSepolia,
 
-	//// MANTLE SEPOLIA ////
-	mantleSepoliaTestnet,
+    //// MANTLE SEPOLIA ////
+    mantleSepoliaTestnet,
 
-	//// MEGAETH TESTNET ////
-	megaethTestnet,
+    //// MEGAETH TESTNET ////
+    megaethTestnet,
 
-	//// MODE TESTNET ////
-	modeTestnet,
+    //// MODE TESTNET ////
+    modeTestnet,
 
-	//// MONAD TESTNET ////
-	monadTestnet,
+    //// MONAD TESTNET ////
+    monadTestnet,
 
-	//// OPTIMISM SEPOLIA ////
-	optimismSepolia,
+    //// OPTIMISM SEPOLIA ////
+    optimismSepolia,
 
-	//// POLYGON AMOY ////
-	polygonAmoy,
+    //// POLYGON AMOY ////
+    polygonAmoy,
 
-	//// SAIGON ////
-	saigon,
+    //// SAIGON ////
+    saigon,
 
-	//// SCROLL SEPOLIA ////
-	scrollSepolia,
+    //// SCROLL SEPOLIA ////
+    scrollSepolia,
 
-	//// SEI TESTNET ////
-	seiTestnet,
+    //// SEI TESTNET ////
+    seiTestnet,
 
-	//// SEPOLIA ////
-	sepolia,
+    //// SEPOLIA ////
+    sepolia,
 
-	//// SHIBARIUM TESTNET ////
-	shibariumTestnet,
+    //// SHIBARIUM TESTNET ////
+    shibariumTestnet,
 
-	//// SONEIUM MINATO ////
-	soneiumMinato,
+    //// SONEIUM MINATO ////
+    soneiumMinato,
 
-	//// UNICHAIN SEPOLIA ////
-	unichainSepolia,
+    //// UNICHAIN SEPOLIA ////
+    unichainSepolia,
 
-	//// XLAYER SEPOLIA ////
-	xLayerTestnet,
+    //// XLAYER SEPOLIA ////
+    xLayerTestnet,
 
-	//// ZIRCUT TESTNET ////
-	zircuitTestnet,
+    //// ZIRCUT TESTNET ////
+    zircuitTestnet,
 
-	//// BERACHAIN BEPOLIA ////
-	berachainBepolia,
+    //// BERACHAIN BEPOLIA ////
+    berachainBepolia,
 
-	//// OP BNB TESTNET ////
-	opBNBTestnet,
+    //// OP BNB TESTNET ////
+    opBNBTestnet,
 
-	//// AURORA TESTNET ////
-	auroraTestnet,
+    //// AURORA TESTNET ////
+    auroraTestnet,
 
-	//// WORLDCHAIN SEPOLIA ////
-	worldchainSepolia,
+    //// BOB SEPOLIA ////
+    bobSepolia,
 
-	//// BOB SEPOLIA ////
-	bobSepolia,
+    //// FLOW TESTNET ////
+    flowTestnet,
 
-	//// CRONOS ZKEVM TESTNET ////
-	cronoszkEVMTestnet,
+    //// FRAXTAL TESTNET ////
+    fraxtalTestnet,
 
-	//// FLOW TESTNET ////
-	flowTestnet,
+    //// METIS SEPOLIA ////
+    metisSepolia,
 
-	//// FRAXTAL TESTNET ////
-	fraxtalTestnet,
+    //// KAVA TESTNET ////
+    kavaTestnet,
 
-	//// METIS SEPOLIA ////
-	metisSepolia,
+    //// MORPH HOLESKY ////
+    morphHolesky,
 
-	//// KAVA TESTNET ////
-	kavaTestnet,
+    //// ABSTRACT SEPOLIA ////
+    abstractTestnet,
 
-	//// FILECOIN CALIBRATION ////
-	filecoinCalibration,
+    //// OASIS SAPPHIRE ////
+    oasisTestnet,
 
-	//// MORPH HOLESKY ////
-	morphHolesky,
+    //// WEMIX TESTNET ////
+    wemixTestnet,
 
-	//// ABSTRACT SEPOLIA ////
-	abstractTestnet,
+    //// IRYS TESTNET ////
+    irysTestnet,
 
-	//// OASIS SAPPHIRE ////
-	oasisTestnet,
+    //// EXPCHAIN TESTNET ////
+    expchainTestnet,
 
-	//// WEMIX TESTNET ////
-	wemixTestnet,
+    //// B2 TESTNET ////
+    b2Testnet,
 
-	//// IRYS TESTNET ////
-	irysTestnet,
+    //// TAIKO HEKLA ////
+    taikoHekla,
 
-	//// EXPCHAIN TESTNET ////
-	expchainTestnet,
+    //// PULSECHAIN TESTNET ////
+    pulsechainTestnet,
 
-	//// B2 TESTNET ////
-	b2Testnet,
+    //// KAIA KAIROS ////
+    kaiaKairos,
 
-	//// TAIKO HEKLA ////
-	taikoHekla,
+    //// MANTA PACIFIC SEPOLIA ////
+    mantaPacificSepoliaTestnet,
 
-	//// PULSECHAIN TESTNET ////
-	pulsechainTestnet,
+    //// SONIC BLAZE TESTNET ////
+    sonicBlazeTestnet,
 
-	//// KAIA KAIROS ////
-	kaiaKairos,
+    //// SEISMIC DEVNET ////
+    seismicDevnet,
 
-	//// MANTA PACIFIC SEPOLIA ////
-	mantaPacificSepoliaTestnet,
-
-	//// SONIC BLAZE TESTNET ////
-	sonicBlazeTestnet,
-
-	//// SEISMIC DEVNET ////
-	seismicDevnet,
-
-	//// ASTAR SHIBUYA ////
-	astarShibuya,
+    //// ASTAR SHIBUYA ////
+    astarShibuya,
 ]
+
 
 export const transports = {
 	//// APECHAIN CURTIS ////
@@ -624,18 +613,9 @@ export const transports = {
 	//// AURORA TESTNET ////
 	[auroraTestnet.id]: fallback([http('https://testnet.aurora.dev'), http('https://aurora-testnet.drpc.org'), http()]),
 
-	//// WORLDCHAIN SEPOLIA ////
-	[worldchainSepolia.id]: fallback([
-		http('https://worldchain-sepolia.g.alchemy.com/public'),
-		http('https://worldchain-sepolia.drpc.org'),
-		http(),
-	]),
 
 	//// BOB SEPOLIA ////
 	[bobSepolia.id]: fallback([http('https://bob-sepolia.rpc.gobob.xyz'), http('https://bob-testnet.drpc.org')]),
-
-	//// CRONOS ZKEVM TESTNET ////
-	[cronoszkEVMTestnet.id]: fallback([http('https://testnet.zkevm.cronos.org'), http()]),
 
 	//// FLOW TESTNET ////
 	[flowTestnet.id]: fallback([http('https://testnet.evm.nodes.onflow.org'), http()]),
@@ -656,13 +636,6 @@ export const transports = {
 
 	//// KAVA TESTNET ////
 	[kavaTestnet.id]: fallback([http('https://evm.testnet.kava.io'), http('https://kava-testnet.drpc.org'), http()]),
-
-	//// FILECOIN CALIBRATION ////
-	[filecoinCalibration.id]: fallback([
-		http('https://api.calibration.node.glif.io/rpc/v1'),
-		http('https://rpc.ankr.com/filecoin_testnet'),
-		http(),
-	]),
 
 	//// MORPH HOLESKY ////
 	[morphHolesky.id]: fallback([

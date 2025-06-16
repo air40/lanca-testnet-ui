@@ -98,14 +98,8 @@ export const chainLogos: Record<number, string> = {
 	//// AURORA TESTNET ////
 	1313161555: '/Chains/1313161555.svg',
 
-	//// WORLDCHAIN SEPOLIA ////
-	4801: '/Chains/4801.svg',
-
 	//// BOB SEPOLIA ////
 	808813: '/Chains/808813.svg',
-
-	//// CRONOS ZKEVM TESTNET ////
-	282: '/Chains/282.svg',
 
 	//// FLOW TESTNET ////
 	545: '/Chains/545.svg',
@@ -118,9 +112,6 @@ export const chainLogos: Record<number, string> = {
 
 	//// KAVA TESTNET ////
 	2221: '/Chains/2221.svg',
-
-	//// FILECOIN CALIBRATION ////
-	314159: '/Chains/314159.svg',
 
 	//// MORPH HOLESKY ////
 	2810: '/Chains/2810.svg',
@@ -265,14 +256,8 @@ export const chainLogosDisabled: Record<number, string> = {
 	//// AURORA TESTNET ////
 	1313161555: '',
 
-	//// WORLDCHAIN SEPOLIA ////
-	4801: '',
-
 	//// BOB SEPOLIA ////
 	808813: '',
-
-	//// CRONOS ZKEVM TESTNET ////
-	282: '',
 
 	//// FLOW TESTNET ////
 	545: '',
@@ -285,9 +270,6 @@ export const chainLogosDisabled: Record<number, string> = {
 
 	//// KAVA TESTNET ////
 	2221: '',
-
-	//// FILECOIN CALIBRATION ////
-	314159: '',
 
 	//// MORPH HOLESKY ////
 	2810: '',
@@ -432,14 +414,8 @@ export const chainCCIP: Record<number, { isCCIP: boolean }> = {
 	//// AURORA TESTNET ////
 	1313161555: { isCCIP: false },
 
-	//// WORLDCHAIN SEPOLIA ////
-	4801: { isCCIP: true },
-
 	//// BOB SEPOLIA ////
 	808813: { isCCIP: true },
-
-	//// CRONOS ZKEVM TESTNET ////
-	282: { isCCIP: true },
 
 	//// FLOW TESTNET ////
 	545: { isCCIP: false },
@@ -452,9 +428,6 @@ export const chainCCIP: Record<number, { isCCIP: boolean }> = {
 
 	//// KAVA TESTNET ////
 	2221: { isCCIP: false },
-
-	//// FILECOIN CALIBRATION ////
-	314159: { isCCIP: false },
 
 	//// MORPH HOLESKY ////
 	2810: { isCCIP: false },
@@ -599,14 +572,8 @@ export const chainSelectors: Record<number, bigint> = {
 	//// AURORA TESTNET ////
 	1313161555: 0n,
 
-	//// WORLDCHAIN SEPOLIA ////
-	4801: 0n,
-
 	//// BOB SEPOLIA ////
 	808813: 0n,
-
-	//// CRONOS ZKEVM TESTNET ////
-	282: 0n,
 
 	//// FLOW TESTNET ////
 	545: 0n,
@@ -619,9 +586,6 @@ export const chainSelectors: Record<number, bigint> = {
 
 	//// KAVA TESTNET ////
 	2221: 0n,
-
-	//// FILECOIN CALIBRATION ////
-	314159: 0n,
 
 	//// MORPH HOLESKY ////
 	2810: 0n,
@@ -766,14 +730,8 @@ export const hastCEROFaucet: Record<number, { hastCEROFaucet: boolean }> = {
 	//// AURORA TESTNET ////
 	1313161555: { hastCEROFaucet: false },
 
-	//// WORLDCHAIN SEPOLIA ////
-	4801: { hastCEROFaucet: false },
-
 	//// BOB SEPOLIA ////
 	808813: { hastCEROFaucet: false },
-
-	//// CRONOS ZKEVM TESTNET ////
-	282: { hastCEROFaucet: false },
 
 	//// FLOW TESTNET ////
 	545: { hastCEROFaucet: false },
@@ -786,9 +744,6 @@ export const hastCEROFaucet: Record<number, { hastCEROFaucet: boolean }> = {
 
 	//// KAVA TESTNET ////
 	2221: { hastCEROFaucet: false },
-
-	//// FILECOIN CALIBRATION ////
-	314159: { hastCEROFaucet: false },
 
 	//// MORPH HOLESKY ////
 	2810: { hastCEROFaucet: false },
@@ -933,14 +888,8 @@ export const chainNames: Record<number, string> = {
 	//// AURORA TESTNET ////
 	1313161555: 'Aurora',
 
-	//// WORLDCHAIN SEPOLIA ////
-	4801: 'Worldchain',
-
 	//// BOB SEPOLIA ////
 	808813: 'Bob',
-
-	//// CRONOS ZKEVM TESTNET ////
-	282: 'Cronos zkEVM',
 
 	//// FLOW TESTNET ////
 	545: 'Flow',
@@ -953,9 +902,6 @@ export const chainNames: Record<number, string> = {
 
 	//// KAVA TESTNET ////
 	2221: 'Kava',
-
-	//// FILECOIN CALIBRATION ////
-	314159: 'Filecoin',
 
 	//// MORPH HOLESKY ////
 	2810: 'Morph',
@@ -999,3 +945,5 @@ export const chainNames: Record<number, string> = {
     //// ASTAR SHIBUYA ////
     81: 'Shibuya',
 }
+
+
