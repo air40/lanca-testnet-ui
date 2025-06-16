@@ -150,7 +150,7 @@ export const TokenAddresses: Record<string, string> = {
     '57054': '',
 
     //// SEISMIC DEVNET ////
-    '7225878': '',
+    '5124': '',
 
     //// ASTAR SHIBUYA ////
     '81': '',
@@ -308,7 +308,7 @@ export const ContractAddresses: Record<string, string> = {
     '57054': '0xA80a668566517BeE1ab71df78B384e6281b02625',
 
     //// SEISMIC DEVNET ////
-    '7225878': '0xA80a668566517BeE1ab71df78B384e6281b02625',
+    '5124': '0xA80a668566517BeE1ab71df78B384e6281b02625',
 
     //// ASTAR SHIBUYA ////
 	'81': '0x73b8Bbbb33f6F7aC8D0b5d1f27685a6106783328',

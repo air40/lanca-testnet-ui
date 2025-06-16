@@ -150,7 +150,7 @@ export const chainLogos: Record<number, string> = {
     57054: '/Chains/57054.svg',
     
     //// SEISMIC DEVNET ////
-    7225878: '/Chains/7225878.svg',
+    5124: '/Chains/7225878.svg',
     
     //// ASTAR SHIBUYA ////
     81: '/Chains/81.svg',
@@ -308,7 +308,7 @@ export const chainLogosDisabled: Record<number, string> = {
     57054: '',
     
     //// SEISMIC DEVNET ////
-    7225878: '',
+    5124: '',
     
     //// ASTAR SHIBUYA ////
     81: '',
@@ -466,7 +466,7 @@ export const chainCCIP: Record<number, { isCCIP: boolean }> = {
     57054: { isCCIP: true },
     
     //// SEISMIC DEVNET ////
-    7225878: { isCCIP: false },
+    5124: { isCCIP: false },
     
     //// ASTAR SHIBUYA ////
     81: { isCCIP: true },
@@ -624,7 +624,7 @@ export const chainSelectors: Record<number, bigint> = {
     57054: 0n,
     
     //// SEISMIC DEVNET ////
-    7225878: 0n,
+    5124: 0n,
     
     //// ASTAR SHIBUYA ////
     81: 0n,
@@ -782,7 +782,7 @@ export const hastCEROFaucet: Record<number, { hastCEROFaucet: boolean }> = {
     57054: { hastCEROFaucet: false },
     
     //// SEISMIC DEVNET ////
-    7225878: { hastCEROFaucet: false },
+    5124: { hastCEROFaucet: false },
     
     //// ASTAR SHIBUYA ////
     81: { hastCEROFaucet: false },
@@ -940,7 +940,7 @@ export const chainNames: Record<number, string> = {
     57054: 'Sonic Blaze',
     
     //// SEISMIC DEVNET ////
-    7225878: 'Seismic Devnet',
+    5124: 'Seismic Devnet',
     
     //// ASTAR SHIBUYA ////
     81: 'Shibuya',
