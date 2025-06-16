@@ -35,7 +35,7 @@ export const Swap: FC = () => {
 
 	if (!isWhitelisted && isConnected) {
 		content = <NotWhitelisted />
-	} 
+	}
 
 	return (
 		<div className="swap">
