@@ -21,6 +21,7 @@ export const useExecuteRoute = (route: IRouteType | null) => {
 		if (!client) throw new Error('Wallet client not available')
 
 		try {
+			// @ts-ignore
 			return await sdk.executeRoute(route, client, configRef.current)
 		} catch (error) {
 			setError(error)

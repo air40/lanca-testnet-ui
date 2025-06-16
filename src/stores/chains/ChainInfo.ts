@@ -150,7 +150,7 @@ export const chainLogos: Record<number, string> = {
     57054: '/Chains/57054.svg',
     
     //// SEISMIC DEVNET ////
-    5124: '/Chains/7225878.svg',
+    5124: '/Chains/5124.svg',
     
     //// ASTAR SHIBUYA ////
     81: '/Chains/81.svg',
