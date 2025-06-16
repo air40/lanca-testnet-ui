@@ -154,6 +154,15 @@ export const chainLogos: Record<number, string> = {
 
 	//// MANTA PACIFIC SEPOLIA ////
 	3441006: '/Chains/3441006.svg',
+
+    //// SONIC BLAZE TESTNET ////
+    57054: '/Chains/57054.svg',
+    
+    //// SEISMIC DEVNET ////
+    7225878: '/Chains/7225878.svg',
+    
+    //// ASTAR SHIBUYA ////
+    81: '/Chains/81.svg',
 }
 
 export const chainLogosDisabled: Record<number, string> = {
@@ -312,6 +321,15 @@ export const chainLogosDisabled: Record<number, string> = {
 
 	//// MANTA PACIFIC SEPOLIA ////
 	3441006: '',
+
+    //// SONIC BLAZE TESTNET ////
+    57054: '',
+    
+    //// SEISMIC DEVNET ////
+    7225878: '',
+    
+    //// ASTAR SHIBUYA ////
+    81: '',
 }
 
 export const chainCCIP: Record<number, { isCCIP: boolean }> = {
@@ -470,6 +488,15 @@ export const chainCCIP: Record<number, { isCCIP: boolean }> = {
 
 	//// MANTA PACIFIC SEPOLIA ////
 	3441006: { isCCIP: false },
+
+     //// SONIC BLAZE TESTNET ////
+    57054: { isCCIP: true },
+    
+    //// SEISMIC DEVNET ////
+    7225878: { isCCIP: false },
+    
+    //// ASTAR SHIBUYA ////
+    81: { isCCIP: true },
 }
 
 export const chainSelectors: Record<number, bigint> = {
@@ -628,6 +655,15 @@ export const chainSelectors: Record<number, bigint> = {
 
 	//// MANTA PACIFIC SEPOLIA ////
 	3441006: 0n,
+
+    //// SONIC BLAZE TESTNET ////
+    57054: 0n,
+    
+    //// SEISMIC DEVNET ////
+    7225878: 0n,
+    
+    //// ASTAR SHIBUYA ////
+    81: 0n,
 }
 
 export const hastCEROFaucet: Record<number, { hastCEROFaucet: boolean }> = {
@@ -656,7 +692,7 @@ export const hastCEROFaucet: Record<number, { hastCEROFaucet: boolean }> = {
 	3636: { hastCEROFaucet: false },
 
 	//// CELO ALFAJORES ////
-	// 44787: { hastCEROFaucet: true },
+	44787: { hastCEROFaucet: false },
 
 	//// CORE TESTNET ////
 	1114: { hastCEROFaucet: false },
@@ -786,6 +822,15 @@ export const hastCEROFaucet: Record<number, { hastCEROFaucet: boolean }> = {
 
 	//// MANTA PACIFIC SEPOLIA ////
 	3441006: { hastCEROFaucet: false },
+
+    //// SONIC BLAZE TESTNET ////
+    57054: { hastCEROFaucet: false },
+    
+    //// SEISMIC DEVNET ////
+    7225878: { hastCEROFaucet: false },
+    
+    //// ASTAR SHIBUYA ////
+    81: { hastCEROFaucet: false },
 }
 
 export const chainNames: Record<number, string> = {
@@ -814,7 +859,7 @@ export const chainNames: Record<number, string> = {
 	3636: 'Botanix',
 
 	//// CELO ALFAJORES ////
-	// 44787: 'Alfajores',
+	44787: 'Alfajores',
 
 	//// CORE TESTNET ////
 	1114: 'Core',
@@ -944,4 +989,13 @@ export const chainNames: Record<number, string> = {
 
 	//// MANTA PACIFIC SEPOLIA ////
 	3441006: 'Manta Pacific',
+
+    //// SONIC BLAZE TESTNET ////
+    57054: 'Sonic Blaze',
+    
+    //// SEISMIC DEVNET ////
+    7225878: 'Seismic Devnet',
+    
+    //// ASTAR SHIBUYA ////
+    81: 'Shibuya',
 }

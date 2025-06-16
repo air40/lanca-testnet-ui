@@ -24,7 +24,7 @@ export const TokenAddresses: Record<string, string> = {
 	'3636': '0xa0AC414648590044d782ED0A5C6CBc5De1290aE5',
 
 	//// CELO ALFAJORES ////
-	// '44787': '0xA01b176acb5beCb04711B6F28e3Beaa2ed5788ae',
+	'44787': '0xA01b176acb5beCb04711B6F28e3Beaa2ed5788ae',
 
 	//// CORE TESTNET ////
 	'1114': '0xa0AC414648590044d782ED0A5C6CBc5De1290aE5',
@@ -154,6 +154,15 @@ export const TokenAddresses: Record<string, string> = {
 
 	//// MANTA PACIFIC SEPOLIA ////
 	'3441006': '',
+
+    //// SONIC BLAZE TESTNET ////
+    '57054': '',
+
+    //// SEISMIC DEVNET ////
+    '7225878': '',
+
+    //// ASTAR SHIBUYA ////
+	'81': '',
 } as const
 
 export const ContractAddresses: Record<string, string> = {
@@ -182,7 +191,7 @@ export const ContractAddresses: Record<string, string> = {
 	'3636': '0x2F76a32Fa252E57c45e245aeCe84B40A55a904D7',
 
 	//// CELO ALFAJORES ////
-	// '44787': '0x2F76a32Fa252E57c45e245aeCe84B40A55a904D7',
+	'44787': '0x2F76a32Fa252E57c45e245aeCe84B40A55a904D7',
 
 	//// CORE TESTNET ////
 	'1114': '0xFc282e2E6ED03583f2ae000C401dC12A86F5F886',
@@ -312,4 +321,13 @@ export const ContractAddresses: Record<string, string> = {
 
 	//// MANTA PACIFIC SEPOLIA ////
 	'3441006': '',
+
+	//// SONIC BLAZE TESTNET ////
+    '57054': '',
+
+    //// SEISMIC DEVNET ////
+    '7225878': '',
+
+    //// ASTAR SHIBUYA ////
+	'81': '',
 }
