@@ -138,7 +138,7 @@ export const chainLogos: Record<number, string> = {
 	167009: '/Chains/167009.svg',
 
 	//// PULSECHAIN TESTNET ////
-	940: '/Chains/940.svg',
+	943: '/Chains/943.svg',
 
 	//// KAIA KAIROS ////
 	1001: '/Chains/1001.svg',
@@ -154,6 +154,9 @@ export const chainLogos: Record<number, string> = {
 
 	//// ASTAR SHIBUYA ////
 	81: '/Chains/81.svg',
+
+	//// XO MARKET CHAIN ////
+	1000101: '/Chains/1000101.svg', 
 }
 
 export const chainLogosDisabled: Record<number, string> = {
@@ -296,7 +299,7 @@ export const chainLogosDisabled: Record<number, string> = {
 	167009: '',
 
 	//// PULSECHAIN TESTNET ////
-	940: '',
+	943: '',
 
 	//// KAIA KAIROS ////
 	1001: '',
@@ -312,6 +315,9 @@ export const chainLogosDisabled: Record<number, string> = {
 
 	//// ASTAR SHIBUYA ////
 	81: '',
+
+	//// XO MARKET CHAIN ////
+	1000101: '', 
 }
 
 export const chainCCIP: Record<number, { isCCIP: boolean }> = {
@@ -454,7 +460,7 @@ export const chainCCIP: Record<number, { isCCIP: boolean }> = {
 	167009: { isCCIP: true },
 
 	//// PULSECHAIN TESTNET ////
-	940: { isCCIP: false },
+	943: { isCCIP: false },
 
 	//// KAIA KAIROS ////
 	1001: { isCCIP: false },
@@ -470,6 +476,9 @@ export const chainCCIP: Record<number, { isCCIP: boolean }> = {
 
 	//// ASTAR SHIBUYA ////
 	81: { isCCIP: true },
+
+	//// XO MARKET CHAIN ////
+	1000101: { isCCIP: false }, 
 }
 
 export const chainSelectors: Record<number, bigint> = {
@@ -612,7 +621,7 @@ export const chainSelectors: Record<number, bigint> = {
 	167009: 7248756420937879088n,
 
 	//// PULSECHAIN TESTNET ////
-	940: 6942164603179768848n,
+	943: 6942164603179768848n,
 
 	//// KAIA KAIROS ////
 	1001: 17542921423464794163n,
@@ -628,6 +637,9 @@ export const chainSelectors: Record<number, bigint> = {
 
 	//// ASTAR SHIBUYA ////
 	81: 6955638871347136141n,
+
+	//// XO MARKET CHAIN ////
+	1000101: 12983201633334648746n, 
 }
 
 export const hastCEROFaucet: Record<number, { hastCEROFaucet: boolean }> = {
@@ -770,7 +782,7 @@ export const hastCEROFaucet: Record<number, { hastCEROFaucet: boolean }> = {
 	167009: { hastCEROFaucet: false },
 
 	//// PULSECHAIN TESTNET ////
-	940: { hastCEROFaucet: false },
+	943: { hastCEROFaucet: false },
 
 	//// KAIA KAIROS ////
 	1001: { hastCEROFaucet: false },
@@ -786,6 +798,9 @@ export const hastCEROFaucet: Record<number, { hastCEROFaucet: boolean }> = {
 
 	//// ASTAR SHIBUYA ////
 	81: { hastCEROFaucet: false },
+
+	//// XO MARKET CHAIN ////
+	1000101: { hastCEROFaucet: false }, 
 }
 
 export const chainNames: Record<number, string> = {
@@ -928,7 +943,7 @@ export const chainNames: Record<number, string> = {
 	167009: 'Taiko',
 
 	//// PULSECHAIN TESTNET ////
-	940: 'PulseChain',
+	943: 'PulseChain',
 
 	//// KAIA KAIROS ////
 	1001: 'Kaia',
@@ -944,4 +959,7 @@ export const chainNames: Record<number, string> = {
 
 	//// ASTAR SHIBUYA ////
 	81: 'Shibuya',
+
+	//// XO MARKET CHAIN ////
+	1000101: 'XO Market', 
 }
