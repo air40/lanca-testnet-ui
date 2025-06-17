@@ -50,7 +50,7 @@ export const useFaucet = () => {
 	const [isLoading, setIsLoading] = useState<boolean>(false)
 	const [txHash, setTxHash] = useState<string | null>(null)
 	const [error, setError] = useState<string | null>(null)
-	const { refetch } = useLoadBalances()
+	const { refetchChains } = useLoadBalances()
 
 	const { trackEvent } = useTrackEvent()
 
@@ -91,19 +91,16 @@ export const useFaucet = () => {
 						txHash: response.txHash,
 					},
 				})
-				await refetch()
+				await refetchChains([chainId])
 				return true
 			} catch (err) {
 				setError('Error, please try again')
 				return false
 			} finally {
-				if (success) {
-					await refetch()
-				}
 				setIsLoading(false)
 			}
 		},
-		[address, refetch],
+		[address, refetchChains],
 	)
 
 	return {
