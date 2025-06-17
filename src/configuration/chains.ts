@@ -145,6 +145,22 @@ const b2Testnet = defineChain({
 	testnet: true,
 })
 
+const xoMarketTestnet = defineChain({
+	id: 1000101,
+	name: 'XO Market Testnet',
+	nativeCurrency: {
+		decimals: 18,
+		name: 'ETH',
+		symbol: 'ETH',
+	},
+	rpcUrls: {
+		default: {
+			http: ["https://dev-testnet-rpc.xo.market"],
+		},
+	},
+	testnet: true,
+})
+
 // const taikoHekla = defineChain({
 // 	id: 167009,
 // 	name: 'Taiko Hekla Testnet',
@@ -168,7 +184,7 @@ const b2Testnet = defineChain({
 // })
 
 const pulsechainTestnet = defineChain({
-  id: 940,
+  id: 943,
   name: 'PulseChain Testnet',
   nativeCurrency: {
     decimals: 18,
@@ -421,6 +437,9 @@ export const chains: [AppKitNetwork, ...AppKitNetwork[]] = [
 
 	//// ASTAR SHIBUYA ////
 	astarShibuya,
+
+	//// XO MARKET TESTNET ////
+	xoMarketTestnet
 ]
 
 export const transports = {
@@ -711,4 +730,7 @@ export const transports = {
 		http('https://shibuya.public.blastapi.io'),
 		http(),
 	]),
+
+	//// XO MARKET TESTNET ////
+	[xoMarketTestnet.id]: fallback([http("https://dev-testnet-rpc.xo.market"), http()])
 }

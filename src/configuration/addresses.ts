@@ -138,7 +138,7 @@ export const TokenAddresses: Record<string, string> = {
 	'167009': '0x32ddD46559DB869f0186590546Af04334576A8C9',
 
 	//// PULSECHAIN TESTNET ////
-	'940': '0xc85044418e314b3a3d27AE207325b96ce10B5273',
+	'943': '0xc85044418e314b3a3d27AE207325b96ce10B5273',
 
 	//// KAIA KAIROS ////
 	'1001': '0xc85044418e314b3a3d27AE207325b96ce10B5273',
@@ -154,6 +154,9 @@ export const TokenAddresses: Record<string, string> = {
 
 	//// ASTAR SHIBUYA ////
 	'81': '0x24Cdd159418f847F501DE02D30c87C180046200f',
+
+	//// OX MARKET TESTNET ////
+	'1000101': '0xe040812bFB023f53AE928647635a863d8309C7ec'
 } as const
 
 export const ContractAddresses: Record<string, string> = {
@@ -296,7 +299,7 @@ export const ContractAddresses: Record<string, string> = {
 	'167009': '0x5e164d9bfce0B1B374c23a44f4e187448Ee86535',
 
 	//// PULSECHAIN TESTNET ////
-	'940': '0x2BdfD3b25AD6f2796BFD44039b29f6BAA41e9B3c',
+	'943': '0x2BdfD3b25AD6f2796BFD44039b29f6BAA41e9B3c',
 
 	//// KAIA KAIROS ////
 	'1001': '0x2BdfD3b25AD6f2796BFD44039b29f6BAA41e9B3c',
@@ -312,4 +315,7 @@ export const ContractAddresses: Record<string, string> = {
 
 	//// ASTAR SHIBUYA ////
 	'81': '0x73b8Bbbb33f6F7aC8D0b5d1f27685a6106783328',
+
+	//// OX MARKET TESTNET ////
+	'1000101': '0x2BdfD3b25AD6f2796BFD44039b29f6BAA41e9B3c'
 }
