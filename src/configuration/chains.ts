@@ -328,7 +328,7 @@ export const chains: [AppKitNetwork, ...AppKitNetwork[]] = [
 	lineaSepolia,
 
 	//// MANTLE SEPOLIA ////
-	mantleSepoliaTestnet,
+	// mantleSepoliaTestnet,
 
 	//// MEGAETH TESTNET ////
 	megaethTestnet,
@@ -533,11 +533,11 @@ export const transports = {
 	]),
 
 	//// MANTLE SEPOLIA ////
-	[mantleSepoliaTestnet.id]: fallback([
-		http('https://endpoints.omniatech.io/v1/mantle/sepolia/public'),
-		http('https://rpc.sepolia.mantle.xyz'),
-		http(),
-	]),
+	// [mantleSepoliaTestnet.id]: fallback([
+	// 	http('https://endpoints.omniatech.io/v1/mantle/sepolia/public'),
+	// 	http('https://rpc.sepolia.mantle.xyz'),
+	// 	http(),
+	// ]),
 
 	//// MEGAETH TESTNET ////
 	[megaethTestnet.id]: fallback([http('https://carrot.megaeth.com/rpc'), http()]),
