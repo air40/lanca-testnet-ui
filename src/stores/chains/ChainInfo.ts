@@ -24,7 +24,7 @@ export const chainLogos: Record<number, string> = {
 	3636: '/Chains/3636.svg',
 
 	//// CELO ALFAJORES ////
-	// 44787: '/Chains/44787.svg',
+	44787: '/Chains/44787.svg',
 
 	//// CORE TESTNET ////
 	1114: '/Chains/1114.svg',
@@ -88,6 +88,72 @@ export const chainLogos: Record<number, string> = {
 
 	//// ZIRCUIT TESTNET ////
 	48899: '/Chains/48899.svg',
+
+	//// BERACHAIN BEPOLIA ////
+	80069: '/Chains/80069.svg',
+
+	//// OP BNB TESTNET ////
+	5611: '/Chains/5611.svg',
+
+	//// AURORA TESTNET ////
+	1313161555: '/Chains/1313161555.svg',
+
+	//// BOB SEPOLIA ////
+	808813: '/Chains/808813.svg',
+
+	//// FLOW TESTNET ////
+	545: '/Chains/545.svg',
+
+	//// FRAXTAL TESTNET ////
+	2522: '/Chains/2522.svg',
+
+	//// METIS SEPOLIA ////
+	59902: '/Chains/59902.svg',
+
+	//// KAVA TESTNET ////
+	2221: '/Chains/2221.svg',
+
+	//// MORPH HOLESKY ////
+	2810: '/Chains/2810.svg',
+
+	//// ABSTRACT TESTNET ////
+	11124: '/Chains/11124.svg',
+
+	//// OASIS TESTNET ////
+	4090: '/Chains/4090.svg',
+
+	//// WEMIX TESTNET ////
+	1112: '/Chains/1112.svg',
+
+	//// IRYS TESTNET ////
+	1270: '/Chains/1270.svg',
+
+	//// EXPCHAIN TESTNET ////
+	18880: '/Chains/18880.svg',
+
+	//// B2 TESTNET ////
+	1123: '/Chains/1123.svg',
+
+	//// TAIKO HEKLA ////
+	167009: '/Chains/167009.svg',
+
+	//// PULSECHAIN TESTNET ////
+	940: '/Chains/940.svg',
+
+	//// KAIA KAIROS ////
+	1001: '/Chains/1001.svg',
+
+	//// MANTA PACIFIC SEPOLIA ////
+	3441006: '/Chains/3441006.svg',
+
+	//// SONIC BLAZE TESTNET ////
+	57054: '/Chains/57054.svg',
+
+	//// SEISMIC DEVNET ////
+	5124: '/Chains/5124.svg',
+
+	//// ASTAR SHIBUYA ////
+	81: '/Chains/81.svg',
 }
 
 export const chainLogosDisabled: Record<number, string> = {
@@ -116,7 +182,7 @@ export const chainLogosDisabled: Record<number, string> = {
 	3636: '',
 
 	//// CELO ALFAJORES ////
-	// 44787: '/Chains/Disabled/44787.svg',
+	44787: '/Chains/Disabled/44787.svg',
 
 	//// CORE TESTNET ////
 	1114: '',
@@ -180,6 +246,72 @@ export const chainLogosDisabled: Record<number, string> = {
 
 	//// ZIRCUIT TESTNET ////
 	48899: '',
+
+	//// BERACHAIN BEPOLIA ////
+	80069: '',
+
+	//// OP BNB TESTNET ////
+	5611: '',
+
+	//// AURORA TESTNET ////
+	1313161555: '',
+
+	//// BOB SEPOLIA ////
+	808813: '',
+
+	//// FLOW TESTNET ////
+	545: '',
+
+	//// FRAXTAL TESTNET ////
+	2522: '',
+
+	//// METIS SEPOLIA ////
+	59902: '',
+
+	//// KAVA TESTNET ////
+	2221: '',
+
+	//// MORPH HOLESKY ////
+	2810: '',
+
+	//// ABSTRACT TESTNET ////
+	11124: '',
+
+	//// OASIS TESTNET ////
+	4090: '',
+
+	//// WEMIX TESTNET ////
+	1112: '',
+
+	//// IRYS TESTNET ////
+	1270: '',
+
+	//// EXPCHAIN TESTNET ////
+	18880: '',
+
+	//// B2 TESTNET ////
+	1123: '',
+
+	//// TAIKO HEKLA ////
+	167009: '',
+
+	//// PULSECHAIN TESTNET ////
+	940: '',
+
+	//// KAIA KAIROS ////
+	1001: '',
+
+	//// MANTA PACIFIC SEPOLIA ////
+	3441006: '',
+
+	//// SONIC BLAZE TESTNET ////
+	57054: '',
+
+	//// SEISMIC DEVNET ////
+	5124: '',
+
+	//// ASTAR SHIBUYA ////
+	81: '',
 }
 
 export const chainCCIP: Record<number, { isCCIP: boolean }> = {
@@ -208,7 +340,7 @@ export const chainCCIP: Record<number, { isCCIP: boolean }> = {
 	3636: { isCCIP: true },
 
 	//// CELO ALFAJORES ////
-	// 44787: { isCCIP: true },
+	44787: { isCCIP: true },
 
 	//// CORE TESTNET ////
 	1114: { isCCIP: true },
@@ -272,6 +404,72 @@ export const chainCCIP: Record<number, { isCCIP: boolean }> = {
 
 	//// ZIRCUIT TESTNET ////
 	48899: { isCCIP: true },
+
+	//// BERACHAIN BEPOLIA ////
+	80069: { isCCIP: false },
+
+	//// OP BNB TESTNET ////
+	5611: { isCCIP: true },
+
+	//// AURORA TESTNET ////
+	1313161555: { isCCIP: false },
+
+	//// BOB SEPOLIA ////
+	808813: { isCCIP: true },
+
+	//// FLOW TESTNET ////
+	545: { isCCIP: false },
+
+	//// FRAXTAL TESTNET ////
+	2522: { isCCIP: true },
+
+	//// METIS SEPOLIA ////
+	59902: { isCCIP: true },
+
+	//// KAVA TESTNET ////
+	2221: { isCCIP: false },
+
+	//// MORPH HOLESKY ////
+	2810: { isCCIP: false },
+
+	//// ABSTRACT TESTNET ////
+	11124: { isCCIP: true },
+
+	//// OASIS TESTNET ////
+	4090: { isCCIP: false },
+
+	//// WEMIX TESTNET ////
+	1112: { isCCIP: true },
+
+	//// IRYS TESTNET ////
+	1270: { isCCIP: false },
+
+	//// EXPCHAIN TESTNET ////
+	18880: { isCCIP: false },
+
+	//// B2 TESTNET ////
+	1123: { isCCIP: false },
+
+	//// TAIKO HEKLA ////
+	167009: { isCCIP: true },
+
+	//// PULSECHAIN TESTNET ////
+	940: { isCCIP: false },
+
+	//// KAIA KAIROS ////
+	1001: { isCCIP: false },
+
+	//// MANTA PACIFIC SEPOLIA ////
+	3441006: { isCCIP: false },
+
+	//// SONIC BLAZE TESTNET ////
+	57054: { isCCIP: true },
+
+	//// SEISMIC DEVNET ////
+	5124: { isCCIP: false },
+
+	//// ASTAR SHIBUYA ////
+	81: { isCCIP: true },
 }
 
 export const chainSelectors: Record<number, bigint> = {
@@ -300,7 +498,7 @@ export const chainSelectors: Record<number, bigint> = {
 	3636: 1467223411771711614n,
 
 	//// CELO ALFAJORES ////
-	// 44787: 3552045678561919002n,
+	44787: 3552045678561919002n,
 
 	//// CORE TESTNET ////
 	1114: 4264732132125536123n,
@@ -364,6 +562,72 @@ export const chainSelectors: Record<number, bigint> = {
 
 	//// ZIRCUIT TESTNET ////
 	48899: 4562743618362911021n,
+
+	//// BERACHAIN BEPOLIA ////
+	80069: 8999465244383784164n,
+
+	//// OP BNB TESTNET ////
+	5611: 13274425992935471758n,
+
+	//// AURORA TESTNET ////
+	1313161555: 2423439954949692961n,
+
+	//// BOB SEPOLIA ////
+	808813: 5535534526963509396n,
+
+	//// FLOW TESTNET ////
+	545: 2923838690159598195n,
+
+	//// FRAXTAL TESTNET ////
+	2522: 8901520481741771655n,
+
+	//// METIS SEPOLIA ////
+	59902: 3777822886988675105n,
+
+	//// KAVA TESTNET ////
+	2221: 3489955287534459598n,
+
+	//// MORPH HOLESKY ////
+	2810: 16923020334711810860n,
+
+	//// ABSTRACT TESTNET ////
+	11124: 16235373811196386733n,
+
+	//// OASIS TESTNET ////
+	4090: 6820271662581780079n,
+
+	//// WEMIX TESTNET ////
+	1112: 9284632837123596123n,
+
+	//// IRYS TESTNET ////
+	1270: 6393869027227765543n,
+
+	//// EXPCHAIN TESTNET ////
+	18880: 15488549578632718812n,
+
+	//// B2 TESTNET ////
+	1123: 1948510578179542068n,
+
+	//// TAIKO HEKLA ////
+	167009: 7248756420937879088n,
+
+	//// PULSECHAIN TESTNET ////
+	940: 6942164603179768848n,
+
+	//// KAIA KAIROS ////
+	1001: 17542921423464794163n,
+
+	//// MANTA PACIFIC SEPOLIA ////
+	3441006: 10653773128464360165n,
+
+	//// SONIC BLAZE TESTNET ////
+	57054: 3676871237479449268n,
+
+	//// SEISMIC DEVNET ////
+	5124: 18110729759240501441n,
+
+	//// ASTAR SHIBUYA ////
+	81: 6955638871347136141n,
 }
 
 export const hastCEROFaucet: Record<number, { hastCEROFaucet: boolean }> = {
@@ -392,7 +656,7 @@ export const hastCEROFaucet: Record<number, { hastCEROFaucet: boolean }> = {
 	3636: { hastCEROFaucet: false },
 
 	//// CELO ALFAJORES ////
-	// 44787: { hastCEROFaucet: true },
+	44787: { hastCEROFaucet: false },
 
 	//// CORE TESTNET ////
 	1114: { hastCEROFaucet: false },
@@ -456,6 +720,72 @@ export const hastCEROFaucet: Record<number, { hastCEROFaucet: boolean }> = {
 
 	//// ZIRCUIT TESTNET ////
 	48899: { hastCEROFaucet: false },
+
+	//// BERACHAIN BEPOLIA ////
+	80069: { hastCEROFaucet: false },
+
+	//// OP BNB TESTNET ////
+	5611: { hastCEROFaucet: false },
+
+	//// AURORA TESTNET ////
+	1313161555: { hastCEROFaucet: false },
+
+	//// BOB SEPOLIA ////
+	808813: { hastCEROFaucet: false },
+
+	//// FLOW TESTNET ////
+	545: { hastCEROFaucet: false },
+
+	//// FRAXTAL TESTNET ////
+	2522: { hastCEROFaucet: false },
+
+	//// METIS SEPOLIA ////
+	59902: { hastCEROFaucet: false },
+
+	//// KAVA TESTNET ////
+	2221: { hastCEROFaucet: false },
+
+	//// MORPH HOLESKY ////
+	2810: { hastCEROFaucet: false },
+
+	//// ABSTRACT TESTNET ////
+	11124: { hastCEROFaucet: false },
+
+	//// OASIS TESTNET ////
+	4090: { hastCEROFaucet: false },
+
+	//// WEMIX TESTNET ////
+	1112: { hastCEROFaucet: false },
+
+	//// IRYS TESTNET ////
+	1270: { hastCEROFaucet: false },
+
+	//// EXPCHAIN TESTNET ////
+	18880: { hastCEROFaucet: false },
+
+	//// B2 TESTNET ////
+	1123: { hastCEROFaucet: false },
+
+	//// TAIKO HEKLA ////
+	167009: { hastCEROFaucet: false },
+
+	//// PULSECHAIN TESTNET ////
+	940: { hastCEROFaucet: false },
+
+	//// KAIA KAIROS ////
+	1001: { hastCEROFaucet: false },
+
+	//// MANTA PACIFIC SEPOLIA ////
+	3441006: { hastCEROFaucet: false },
+
+	//// SONIC BLAZE TESTNET ////
+	57054: { hastCEROFaucet: false },
+
+	//// SEISMIC DEVNET ////
+	5124: { hastCEROFaucet: false },
+
+	//// ASTAR SHIBUYA ////
+	81: { hastCEROFaucet: false },
 }
 
 export const chainNames: Record<number, string> = {
@@ -484,7 +814,7 @@ export const chainNames: Record<number, string> = {
 	3636: 'Botanix',
 
 	//// CELO ALFAJORES ////
-	// 44787: 'Alfajores',
+	44787: 'Alfajores',
 
 	//// CORE TESTNET ////
 	1114: 'Core',
@@ -548,4 +878,70 @@ export const chainNames: Record<number, string> = {
 
 	//// ZIRCUIT TESTNET ////
 	48899: 'Zircuit',
+
+	//// BERACHAIN BEPOLIA ////
+	80069: 'Bepolia',
+
+	//// OP BNB TESTNET ////
+	5611: 'OP BNB',
+
+	//// AURORA TESTNET ////
+	1313161555: 'Aurora',
+
+	//// BOB SEPOLIA ////
+	808813: 'Bob',
+
+	//// FLOW TESTNET ////
+	545: 'Flow',
+
+	//// FRAXTAL TESTNET ////
+	2522: 'Fraxtal',
+
+	//// METIS SEPOLIA ////
+	59902: 'Metis',
+
+	//// KAVA TESTNET ////
+	2221: 'Kava',
+
+	//// MORPH HOLESKY ////
+	2810: 'Morph',
+
+	//// ABSTRACT TESTNET ////
+	11124: 'Abstract',
+
+	//// OASIS TESTNET ////
+	4090: 'Oasis',
+
+	//// WEMIX TESTNET ////
+	1112: 'WEMIX',
+
+	//// IRYS TESTNET ////
+	1270: 'Irys',
+
+	//// EXPCHAIN TESTNET ////
+	18880: 'EXPchain',
+
+	//// B2 TESTNET ////
+	1123: 'B2',
+
+	//// TAIKO HEKLA ////
+	167009: 'Taiko',
+
+	//// PULSECHAIN TESTNET ////
+	940: 'PulseChain',
+
+	//// KAIA KAIROS ////
+	1001: 'Kaia',
+
+	//// MANTA PACIFIC SEPOLIA ////
+	3441006: 'Manta Pacific',
+
+	//// SONIC BLAZE TESTNET ////
+	57054: 'Sonic Blaze',
+
+	//// SEISMIC DEVNET ////
+	5124: 'Seismic Devnet',
+
+	//// ASTAR SHIBUYA ////
+	81: 'Shibuya',
 }
