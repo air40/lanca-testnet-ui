@@ -5,9 +5,9 @@ import { CardSwitcher } from '../CardSwitcher/CardSwitcher'
 import { SwapCard } from './SwapCard/SwapCard'
 import { ProcessCard } from '../ProcessCard/ProcessCard'
 import { useTxExecutionStore } from '@/stores/tx-execution/useTxExecutionStore'
-import './SwapWidget.pcss'
 import { Status } from '@lanca/sdk'
 import { RewardWidget } from '../RewardWidget/RewardWidget'
+import './SwapWidget.pcss'
 
 export const SwapWidget: FC = memo(() => {
 	const { txStatus } = useTxExecutionStore()
