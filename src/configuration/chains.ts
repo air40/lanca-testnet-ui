@@ -41,7 +41,7 @@ import {
 	kavaTestnet,
 	morphHolesky,
 	abstractTestnet,
-	oasisTestnet,
+	// oasisTestnet,
 	sonicBlazeTestnet,
 	seismicDevnet,
 } from '@reown/appkit/networks'
@@ -145,46 +145,51 @@ const b2Testnet = defineChain({
 	testnet: true,
 })
 
-const taikoHekla = defineChain({
-	id: 167009,
-	name: 'Taiko Hekla Testnet',
-	nativeCurrency: {
-		decimals: 18,
-		name: 'Ether',
-		symbol: 'ETH',
-	},
-	rpcUrls: {
-		default: {
-			http: ['https://rpc.hekla.taiko.xyz'],
-		},
-	},
-	blockExplorers: {
-		default: {
-			name: 'Taikoscan',
-			url: 'https://hekla.taikoscan.io',
-		},
-	},
-	testnet: true,
-})
+// const taikoHekla = defineChain({
+// 	id: 167009,
+// 	name: 'Taiko Hekla Testnet',
+// 	nativeCurrency: {
+// 		decimals: 18,
+// 		name: 'Ether',
+// 		symbol: 'ETH',
+// 	},
+// 	rpcUrls: {
+// 		default: {
+// 			http: ['https://rpc.hekla.taiko.xyz'],
+// 		},
+// 	},
+// 	blockExplorers: {
+// 		default: {
+// 			name: 'Taikoscan',
+// 			url: 'https://hekla.taikoscan.io',
+// 		},
+// 	},
+// 	testnet: true,
+// })
 
 const pulsechainTestnet = defineChain({
-	id: 940,
-	name: 'PulseChain Testnet',
-	nativeCurrency: {
-		decimals: 18,
-		name: 'tPLS',
-		symbol: 'tPLS',
-	},
-	rpcUrls: {
-		default: {
-			http: ['https://rpc.v2.testnet.pulsechain.com/'],
-		},
-	},
-	blockExplorers: {
-		default: { name: 'PulseChain Explorer', url: 'https://scan.v2.testnet.pulsechain.com/' },
-	},
-	testnet: true,
+  id: 940,
+  name: 'PulseChain Testnet',
+  nativeCurrency: {
+    decimals: 18,
+    name: 'tPLS',
+    symbol: 'tPLS',
+  },
+  rpcUrls: {
+    default: {
+      http: [
+		'https://pulsechain-testnet-v4.rpc.thirdweb.com/',
+		'https://pulsechain-testnet.publicnode.com',
+        'https://rpc.v2.testnet.pulsechain.com/',
+      ],
+    },
+  },
+  blockExplorers: {
+    default: { name: 'PulseChain Explorer', url: 'https://scan.v2.testnet.pulsechain.com/' },
+  },
+  testnet: true,
 })
+
 
 const kaiaKairos = defineChain({
 	id: 1001,
@@ -382,7 +387,7 @@ export const chains: [AppKitNetwork, ...AppKitNetwork[]] = [
 	abstractTestnet,
 
 	//// OASIS SAPPHIRE ////
-	oasisTestnet,
+	// oasisTestnet,
 
 	//// WEMIX TESTNET ////
 	wemixTestnet,
@@ -397,7 +402,7 @@ export const chains: [AppKitNetwork, ...AppKitNetwork[]] = [
 	b2Testnet,
 
 	//// TAIKO HEKLA ////
-	taikoHekla,
+	// taikoHekla,
 
 	//// PULSECHAIN TESTNET ////
 	pulsechainTestnet,
@@ -646,7 +651,7 @@ export const transports = {
 	[abstractTestnet.id]: fallback([http('https://api.testnet.abs.xyz'), http()]),
 
 	//// OASIS SAPPHIRE ////
-	[oasisTestnet.id]: fallback([http()]),
+	// [oasisTestnet.id]: fallback([http()]),
 
 	//// WEMIX TESTNET ////
 	[wemixTestnet.id]: fallback([http('https://wemix-testnet.drpc.org'), http()]),
@@ -665,12 +670,12 @@ export const transports = {
 	]),
 
 	//// TAIKO HEKLA ////
-	[taikoHekla.id]: fallback([
-		http('https://rpc.ankr.com/taiko_hekla'),
-		http('https://taiko-hekla.gateway.tenderly.co'),
-		http('https://rpc.hekla.taiko.xyz'),
-		http(),
-	]),
+	// [taikoHekla.id]: fallback([
+	// 	http('https://rpc.ankr.com/taiko_hekla'),
+	// 	http('https://taiko-hekla.gateway.tenderly.co'),
+	// 	http('https://rpc.hekla.taiko.xyz'),
+	// 	http(),
+	// ]),
 
 	//// PULSECHAIN TESTNET ////
 	[pulsechainTestnet.id]: fallback([http()]),
