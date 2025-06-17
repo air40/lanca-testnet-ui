@@ -5,7 +5,6 @@ import { WalletButton } from '../common/WalletButton/WalletButton'
 import { routes } from '../../configuration/routes'
 import { useIsDesktop, useIsMobile } from '@/hooks/useMediaQuery'
 import { TokenWidget } from '../common/TokenWidget/TokenWidget'
-import { useIsWhitelisted } from '@/hooks/useIsWhitelisted'
 import './Header.pcss'
 import { useTheme } from '@concero/ui-kit'
 
@@ -28,11 +27,10 @@ const Logo: FC<LogoProps> = memo(({ isMobile }) => {
 
 export const Header: FC = () => {
 	const { pathname } = useLocation()
-	const { isWhitelisted, isLoading } = useIsWhitelisted()
 
 	const isMobile = useIsMobile()
 	const isDesktop = useIsDesktop()
-	const isWidgetVisible = isDesktop && !isLoading && isWhitelisted
+	const isWidgetVisible = isDesktop
 
 	const headerMap = useMemo(
 		() => ({
@@ -46,7 +44,7 @@ export const Header: FC = () => {
 					<Logo />
 				</header>
 			),
-			[routes.swap]: isWhitelisted ? (
+			[routes.swap]: (
 				<header className="swap-header">
 					<Logo isMobile={isMobile} />
 					<div className="swap-header__actions">
@@ -55,13 +53,9 @@ export const Header: FC = () => {
 						<WalletButton />
 					</div>
 				</header>
-			) : (
-				<header className=" home-header header-not-whitelist">
-					<Logo />
-				</header>
 			),
 		}),
-		[isMobile, isWhitelisted, isDesktop],
+		[isMobile, isDesktop],
 	)
 
 	return headerMap[pathname] || null
