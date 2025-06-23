@@ -13,91 +13,108 @@ import { useFormStore } from '@/stores/form/useFormStore'
 
 const SYMBOL = 'tCERO'
 const DECIMALS = 18
+
 export const useLoadBalances = () => {
-	const { address } = useAccount()
-	const { chains } = useChainsStore()
-	const { setBalances, setLoading, setBalance } = useBalancesStore()
-	const { sourceChain, destinationChain } = useFormStore()
-	const { txStatus } = useTxExecutionStore()
+    const { address } = useAccount()
+    const { chains } = useChainsStore()
+    const { setBalances, setLoading, setBalance } = useBalancesStore()
+    const { sourceChain, destinationChain } = useFormStore()
+    const { txStatus } = useTxExecutionStore()
 
-	const fetchChainBalance = useCallback(
-		async (chainId: number) => {
-			const client = getPublicClient(chainId)
-			const tokenAddress = TokenAddresses[chainId]
+    const fetchChainBalance = useCallback(
+        async (chainId: number): Promise<Balance> => {
+            const client = getPublicClient(chainId)
+            const tokenAddress = TokenAddresses[chainId]
 
-			if (!tokenAddress) {
-				console.warn(`No token address for chain ${chainId}`)
-				return { chainId, balance: '0', symbol: SYMBOL, decimals: DECIMALS }
-			}
+            if (!tokenAddress) {
+                return { balance: '0', symbol: SYMBOL, decimals: DECIMALS }
+            }
 
-			try {
-				const balance = await client.readContract({
-					address: tokenAddress as Address,
-					abi: erc20Abi,
-					functionName: 'balanceOf',
-					args: [address!],
-				})
-				return { chainId, balance: balance.toString(), symbol: SYMBOL, decimals: DECIMALS }
-			} catch (error) {
-				console.error(`Chain ${chainId} balance fetch failed:`, error)
-				return { chainId, balance: '0', symbol: SYMBOL, decimals: DECIMALS }
-			}
-		},
-		[address],
-	)
+            try {
+                const balance = await client.readContract({
+                    address: tokenAddress as Address,
+                    abi: erc20Abi,
+                    functionName: 'balanceOf',
+                    args: [address!],
+                })
+                return { balance: balance.toString(), symbol: SYMBOL, decimals: DECIMALS }
+            } catch (error) {
+                console.error(`Chain ${chainId} balance fetch failed:`, error)
+                return { balance: '0', symbol: SYMBOL, decimals: DECIMALS }
+            }
+        },
+        [address],
+    )
 
-	const fetchAllBalances = useCallback(async () => {
-		if (!address) return []
-		return Promise.all(Object.values(chains).map(c => fetchChainBalance(Number(c.id))))
-	}, [address, chains, fetchChainBalance])
+    const fetchAllBalances = useCallback(async (): Promise<[number, Balance][]> => {
+        if (!address) return []
+        
+        const promises = Object.values(chains).map(async c => {
+            const balance = await fetchChainBalance(Number(c.id))
+            return [Number(c.id), balance] as [number, Balance]
+        })
+        
+        const results = await Promise.allSettled(promises)
+        return results
+            .filter(r => r.status === 'fulfilled')
+            .map(r => (r as PromiseFulfilledResult<[number, Balance]>).value)
+    }, [address, chains, fetchChainBalance])
 
-	const refetchChains = useCallback(
-		async (chainIds: number[]) => {
-			if (!address) return
+    const refetchChains = useCallback(
+        async (chainIds: number[]) => {
+            if (!address) return
 
-			const results = await Promise.all(
-				chainIds.map(id =>
-					fetchChainBalance(id).catch(error => {
-						console.error(`Failed refetch for chain ${id}:`, error)
-						return null
-					}),
-				),
-			)
+            const results = await Promise.all(
+                chainIds.map(async id => {
+                    try {
+                        const balance = await fetchChainBalance(id)
+                        return [id, balance] as [number, Balance]
+                    } catch (error) {
+                        console.error(`Failed refetch for chain ${id}:`, error)
+                        return null
+                    }
+                }),
+            )
 
-			results.forEach(result => {
-				if (result) setBalance(result.chainId, result)
-			})
-		},
-		[address, fetchChainBalance, setBalance],
-	)
+            results.forEach(result => {
+                if (result) setBalance(result[0], result[1])
+            })
+        },
+        [address, fetchChainBalance, setBalance],
+    )
 
-	const { data, isLoading, refetch } = useQuery({
-		queryKey: ['balances', address],
-		queryFn: fetchAllBalances,
-		enabled: !!address,
-	})
+    const { data, isLoading } = useQuery({
+        queryKey: ['balances', address],
+        queryFn: fetchAllBalances,
+        enabled: !!address,
+    })
 
-	useEffect(() => {
-		if (data) {
-			const bulkUpdate = data.reduce(
-				(acc, curr) => {
-					acc[curr.chainId] = curr
-					return acc
-				},
-				{} as Record<number, Balance>,
-			)
-			setBalances(bulkUpdate)
-		}
-	}, [data, setBalances])
+    useEffect(() => {
+        if (data) {
+            const bulkUpdate = data.reduce(
+                (acc, [chainId, balance]) => {
+                    acc[chainId] = balance
+                    return acc
+                },
+                {} as Record<number, Balance>,
+            )
+            setBalances(bulkUpdate)
+        }
+    }, [data, setBalances])
 
-	useEffect(() => {
-		if (txStatus === Status.SUCCESS) refetchChains([Number(sourceChain?.id), Number(destinationChain?.id)])
-	}, [txStatus, refetch])
+    useEffect(() => {
+        if (
+            txStatus === Status.SUCCESS &&
+            sourceChain?.id &&
+            destinationChain?.id
+        ) {
+            refetchChains([Number(sourceChain.id), Number(destinationChain.id)])
+        }
+    }, [txStatus, sourceChain?.id, destinationChain?.id, refetchChains])
 
-	
-	useEffect(() => {
-		setLoading(isLoading)
-	}, [isLoading, setLoading])
+    useEffect(() => {
+        setLoading(isLoading)
+    }, [isLoading, setLoading])
 
-	return { refetch, refetchChains, isLoading }
+    return { refetchChains, isLoading }
 }
