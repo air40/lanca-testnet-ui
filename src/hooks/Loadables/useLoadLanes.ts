@@ -90,10 +90,11 @@ export const useLoadLanes = () => {
 		queryKey: ['ccip-lanes', sourceChain?.id],
 		queryFn: fetchLanes,
 		enabled: queryEnabled,
-		staleTime: 60 * 60 * 1000, // 1 hour
-		gcTime: 24 * 60 * 60 * 1000, // 24 hours
+		staleTime: 60 * 60 * 1000,
+		gcTime: 24 * 60 * 60 * 1000,
 		refetchOnWindowFocus: false,
 		refetchOnReconnect: false,
+		refetchOnMount: false
 	})
 
 	useEffect(() => {
