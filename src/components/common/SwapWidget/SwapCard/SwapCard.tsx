@@ -1,5 +1,5 @@
 import type { FC } from 'react'
-import { useMemo, useCallback, memo } from 'react'
+import { useMemo, useCallback, useState, memo } from 'react'
 import { Button } from '@concero/ui-kit'
 import { useGetRoute } from '@/hooks/useGetRoute'
 import { useExecuteRoute } from '@/hooks/useExecuteRoute'
@@ -19,18 +19,25 @@ export const SwapCard: FC = memo(() => {
 	const route = useGetRoute()
 	const executeRoute = useExecuteRoute(route)
 
+	const [isExecuting, setIsExecuting] = useState<boolean>(false);
+
 	const isDisabled = useMemo(
 		() => isConnected && (!!error || !fromAmount || fromAmount === '0' || fromAmount === ''),
 		[error, fromAmount, isConnected],
 	)
 
-	const handleClick = useCallback(() => {
-		if (!isConnected) {
-			open()
-		} else {
-			executeRoute()
+	const handleClick = useCallback(async () => {
+	if (!isConnected) {
+		open();
+	} else {
+		setIsExecuting(true);
+		try {
+		await executeRoute();
+		} finally {
+		setIsExecuting(false);
 		}
-	}, [executeRoute, isConnected, open])
+	}
+	}, [executeRoute, isConnected, open]);
 
 	return (
 		<div className="swap_card_wrapper">
@@ -39,7 +46,7 @@ export const SwapCard: FC = memo(() => {
 					variant="primary"
 					size="l"
 					isDisabled={isDisabled}
-					isLoading={isConnected && txStatus === Status.PENDING}
+  					isLoading={isExecuting || (isConnected && txStatus === Status.PENDING)}
 					className="swap_card_button"
 					isFull
 					onClick={handleClick}
