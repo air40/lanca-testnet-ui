@@ -43,8 +43,7 @@ import {
 	abstractTestnet,
 	// oasisTestnet,
 	sonicBlazeTestnet,
-	seismicDevnet,
-	gnosis,
+	seismicDevnet
 } from '@reown/appkit/networks'
 
 const ERROR_FORBIDDEN = 403;
@@ -525,15 +524,15 @@ export const transports = {
 
 	/// BNB TESTNET ///
 	[bscTestnet.id]: createTransport([
-		'https://endpoints.omniatech.io/v1/bsc/testnet/public',
-		'https://public.stackup.sh/api/v1/node/bsc-testnet',
-		'https://data-seed-prebsc-1-s1.bnbchain.org:8545',
+		'https://bsc-testnet.public.blastapi.io',
+		'https://bsc-testnet-rpc.publicnode.com',
+		'https://bnb-testnet.api.onfinality.io/public',
 		'https://bsc-testnet.drpc.org',
 	]),
 
 	//// BOTANIX TESTNET ////
 	[botanixTestnet.id]: createTransport([
-		'https://https://rpc.ankr.com/botanix_testnet.botanixlabs.dev',
+		'https://rpc.ankr.com/botanix_testnet',
 		'https://node.botanixlabs.dev',
 	]),
 
@@ -831,7 +830,6 @@ export const transports = {
 	//// ASTAR SHIBUYA ////
 	[astarShibuya.id]: createTransport([
 		'https://shibuya-rpc.dwellir.com',
-		'https://shibuya.public.blastapi.io',
 		'https://evm.shibuya.astar.network'
 	]),
 
