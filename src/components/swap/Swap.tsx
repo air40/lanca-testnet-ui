@@ -9,7 +9,9 @@ import { GasWidget } from '../common/GasWidget/GasWidget'
 import { useTxProcess } from '@/hooks/useTxProcess'
 import { Status } from '@lanca/sdk'
 import { ModalManager } from '../common/ModalManager/ModalManager'
+import { RewardsNotification } from '../common/RewardsNotification/RewardsNotification'
 import './Swap.pcss'
+
 
 export const Swap: FC = () => {
 	const { isConnecting } = useAccount()
@@ -35,6 +37,7 @@ export const Swap: FC = () => {
 			)}
 
 			{content}
+			<RewardsNotification/>
 			<ModalManager />
 		</div>
 	)
