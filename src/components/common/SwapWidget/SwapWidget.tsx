@@ -8,6 +8,7 @@ import { useTxExecutionStore } from '@/stores/tx-execution/useTxExecutionStore'
 import { Status } from '@lanca/sdk'
 import { RewardWidget } from '../RewardWidget/RewardWidget'
 import './SwapWidget.pcss'
+import { RewardsNotification } from '../RewardsNotification/RewardsNotification'
 
 export const SwapWidget: FC = memo(() => {
 	const { txStatus } = useTxExecutionStore()
@@ -35,6 +36,7 @@ export const SwapWidget: FC = memo(() => {
 		<div className="swap_widget" data-testid="swap-widget">
 			{Card}
 			{txStatus === Status.SUCCESS && <RewardWidget />}
+			<RewardsNotification />
 		</div>
 	)
 })
