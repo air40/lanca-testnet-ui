@@ -7,8 +7,8 @@ import { useGetChains } from '@/hooks/useGetChains'
 import { ErrorIcon } from '@/assets/icons/error'
 import { Button, Spinner } from '@concero/ui-kit'
 import { useFaucet } from '@/hooks/useFacuet'
-import './FaucetModal.pcss'
 import { useClaimedFaucets } from '@/hooks/useClaimedFaucets'
+import './FaucetModal.pcss'
 
 type FaucetModalProps = {
 	title: string

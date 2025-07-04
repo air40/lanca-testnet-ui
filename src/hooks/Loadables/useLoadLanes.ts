@@ -94,7 +94,7 @@ export const useLoadLanes = () => {
 		gcTime: 24 * 60 * 60 * 1000,
 		refetchOnWindowFocus: false,
 		refetchOnReconnect: false,
-		refetchOnMount: false
+		refetchOnMount: false,
 	})
 
 	useEffect(() => {
