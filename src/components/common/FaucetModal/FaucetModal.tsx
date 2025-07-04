@@ -10,7 +10,6 @@ import { useFaucet } from '@/hooks/useFacuet'
 import { useClaimedFaucets } from '@/hooks/useClaimedFaucets'
 import './FaucetModal.pcss'
 
-
 type FaucetModalProps = {
 	title: string
 	isOpen: boolean

@@ -19,7 +19,7 @@ export const SwapCard: FC = memo(() => {
 	const route = useGetRoute()
 	const executeRoute = useExecuteRoute(route)
 
-	const [isExecuting, setIsExecuting] = useState<boolean>(false);
+	const [isExecuting, setIsExecuting] = useState<boolean>(false)
 
 	const isDisabled = useMemo(
 		() => isConnected && (!!error || !fromAmount || fromAmount === '0' || fromAmount === ''),
@@ -27,17 +27,17 @@ export const SwapCard: FC = memo(() => {
 	)
 
 	const handleClick = useCallback(async () => {
-	if (!isConnected) {
-		open();
-	} else {
-		setIsExecuting(true);
-		try {
-		await executeRoute();
-		} finally {
-		setIsExecuting(false);
+		if (!isConnected) {
+			open()
+		} else {
+			setIsExecuting(true)
+			try {
+				await executeRoute()
+			} finally {
+				setIsExecuting(false)
+			}
 		}
-	}
-	}, [executeRoute, isConnected, open]);
+	}, [executeRoute, isConnected, open])
 
 	return (
 		<div className="swap_card_wrapper">
@@ -46,7 +46,7 @@ export const SwapCard: FC = memo(() => {
 					variant="primary"
 					size="l"
 					isDisabled={isDisabled}
-  					isLoading={isExecuting || (isConnected && txStatus === Status.PENDING)}
+					isLoading={isExecuting || (isConnected && txStatus === Status.PENDING)}
 					className="swap_card_button"
 					isFull
 					onClick={handleClick}

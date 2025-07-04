@@ -10,7 +10,6 @@ import { Status } from '@lanca/sdk'
 import { ModalManager } from '../common/ModalManager/ModalManager'
 import './Swap.pcss'
 
-
 export const Swap: FC = () => {
 	const { isConnecting } = useAccount()
 	const { txStatus } = useTxProcess()

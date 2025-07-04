@@ -156,7 +156,7 @@ export const chainLogos: Record<number, string> = {
 	81: '/Chains/81.svg',
 
 	//// XO MARKET CHAIN ////
-	1000101: '/Chains/1000101.svg', 
+	1000101: '/Chains/1000101.svg',
 }
 
 export const chainLogosDisabled: Record<number, string> = {
@@ -317,7 +317,7 @@ export const chainLogosDisabled: Record<number, string> = {
 	81: '',
 
 	//// XO MARKET CHAIN ////
-	1000101: '', 
+	1000101: '',
 }
 
 export const chainCCIP: Record<number, { isCCIP: boolean }> = {
@@ -478,7 +478,7 @@ export const chainCCIP: Record<number, { isCCIP: boolean }> = {
 	81: { isCCIP: true },
 
 	//// XO MARKET CHAIN ////
-	1000101: { isCCIP: false }, 
+	1000101: { isCCIP: false },
 }
 
 export const chainSelectors: Record<number, bigint> = {
@@ -639,7 +639,7 @@ export const chainSelectors: Record<number, bigint> = {
 	81: 6955638871347136141n,
 
 	//// XO MARKET CHAIN ////
-	1000101: 12983201633334648746n, 
+	1000101: 12983201633334648746n,
 }
 
 export const hastCEROFaucet: Record<number, { hastCEROFaucet: boolean }> = {
@@ -800,7 +800,7 @@ export const hastCEROFaucet: Record<number, { hastCEROFaucet: boolean }> = {
 	81: { hastCEROFaucet: false },
 
 	//// XO MARKET CHAIN ////
-	1000101: { hastCEROFaucet: false }, 
+	1000101: { hastCEROFaucet: false },
 }
 
 export const chainNames: Record<number, string> = {
@@ -961,5 +961,5 @@ export const chainNames: Record<number, string> = {
 	81: 'Shibuya',
 
 	//// XO MARKET CHAIN ////
-	1000101: 'XO Market', 
+	1000101: 'XO Market',
 }

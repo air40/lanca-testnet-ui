@@ -12,7 +12,7 @@ const initialState = {
 	executionTime: '',
 	srcHash: null,
 	dstHash: null,
-	error: null, // Added error field
+	error: null,
 }
 
 const computeTxStatus = (steps: { ALLOWANCE: Status; BRIDGE: Status }): Status => {
