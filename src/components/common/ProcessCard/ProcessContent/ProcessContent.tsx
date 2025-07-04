@@ -22,7 +22,7 @@ const trackedEvents = {
 export const ProcessContent: FC = memo((): JSX.Element | null => {
 	const { txStatus, currentStep, executionTime } = useTxProcess()
 	const { sourceChain, destinationChain, fromTokenAddress, toTokenAddress } = useFormStore()
-	const { srcHash, dstHash } = useTxExecutionStore()
+	const { srcHash, dstHash, error } = useTxExecutionStore()
 	const { isCCIPLane } = useIsCCIPLane()
 	const { trackEvent: tracker } = useTrackEvent()
 
@@ -37,19 +37,6 @@ export const ProcessContent: FC = memo((): JSX.Element | null => {
 	const content = useMemo(() => {
 		switch (txStatus) {
 			case Status.FAILED:
-				trackEvent('FAILED', {
-					...BridgeEvents.FAILED,
-					data: {
-						srcChainId: sourceChain?.id,
-						srcChainName: sourceChain?.name,
-						dstChainId: destinationChain?.id,
-						dstChainName: destinationChain?.name,
-						fromToken: fromTokenAddress,
-						toToken: toTokenAddress,
-						isCCIPLane,
-						srcHash,
-					},
-				})
 				return <Failure />
 
 			case Status.REJECTED:
@@ -94,7 +81,7 @@ export const ProcessContent: FC = memo((): JSX.Element | null => {
 			default:
 				return null
 		}
-	}, [txStatus, currentStep])
+	}, [txStatus, currentStep, error])
 
 	return (
 		<div className="process_content" data-testid="process-content">

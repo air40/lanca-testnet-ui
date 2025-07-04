@@ -1,5 +1,4 @@
 import type { FC } from 'react'
-import { lazy } from 'react'
 import { SwapWidget } from '../common/SwapWidget/SwapWidget'
 import { useAccount } from 'wagmi'
 import { ScreenLoader } from '../common/ScreenLoader/ScreenLoader'

@@ -156,7 +156,7 @@ export const TokenAddresses: Record<string, string> = {
 	'81': '0x24Cdd159418f847F501DE02D30c87C180046200f',
 
 	//// OX MARKET TESTNET ////
-	'1000101': '0xe040812bFB023f53AE928647635a863d8309C7ec'
+	'1000101': '0xe040812bFB023f53AE928647635a863d8309C7ec',
 } as const
 
 export const ContractAddresses: Record<string, string> = {
@@ -317,5 +317,5 @@ export const ContractAddresses: Record<string, string> = {
 	'81': '0x73b8Bbbb33f6F7aC8D0b5d1f27685a6106783328',
 
 	//// OX MARKET TESTNET ////
-	'1000101': '0x2BdfD3b25AD6f2796BFD44039b29f6BAA41e9B3c'
+	'1000101': '0x2BdfD3b25AD6f2796BFD44039b29f6BAA41e9B3c',
 }

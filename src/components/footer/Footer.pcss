@@ -74,7 +74,25 @@
 }
 
 /*Mobile 375-744px*/
-@media only screen and (max-width: 744px) {
+@media only screen and (min-width: 641px) and (max-width: 1024px) {
+	.swap-footer {
+		flex-direction: column;
+		align-items: center;
+		gap: var(--space-4);
+	}
+
+	.swap-footer .footer-item {
+		width: 100%;
+		max-width: 280px;
+		min-width: unset;
+	}
+
+	.swap-footer .footer-item__actions {
+		justify-content: center;
+	}
+}
+
+@media only screen and (max-width: 640px) {
 	.swap-footer {
 		flex-direction: column;
 		align-items: center;
