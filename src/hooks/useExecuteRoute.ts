@@ -32,23 +32,31 @@ export const useExecuteRoute = (route: IRouteType | null) => {
 			// @ts-ignore
 			return await sdk.executeRoute(route, client, configRef.current)
 		} catch (error: unknown) {
-			trackEvent({
-				...BridgeEvents.FAILED,
-				data: {
-					srcChainId: sourceChain?.id,
-					srcChainName: sourceChain?.name,
-					dstChainId: destinationChain?.id,
-					dstChainName: destinationChain?.name,
-					fromToken: fromTokenAddress,
-					toToken: toTokenAddress,
-					isCCIPLane,
-					srcHash,
-					error: {
-						category: (typeof error === 'object' && error !== null && 'category' in error) ? (error as any).category : 'Unknown',
-						message: (typeof error === 'object' && error !== null && 'message' in error) ? (error as any).message : 'An error occurred while executing the route',
-					}
-				},
-			})
+			const errorMessage =
+				typeof error === 'object' && error !== null && 'message' in error ? (error as any).message : ''
+
+			if (!errorMessage.includes('User rejected the request')) {
+				trackEvent({
+					...BridgeEvents.FAILED,
+					data: {
+						srcChainId: sourceChain?.id,
+						srcChainName: sourceChain?.name,
+						dstChainId: destinationChain?.id,
+						dstChainName: destinationChain?.name,
+						fromToken: fromTokenAddress,
+						toToken: toTokenAddress,
+						isCCIPLane,
+						srcHash,
+						error: {
+							category:
+								typeof error === 'object' && error !== null && 'category' in error
+									? (error as any).category
+									: 'Unknown',
+							message: errorMessage || 'An error occurred while executing the route',
+						},
+					},
+				})
+			}
 			throw error
 		}
 	}, [route, sdk, updateHandler, setError])

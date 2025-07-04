@@ -7,8 +7,8 @@ import { ProcessCard } from '../ProcessCard/ProcessCard'
 import { useTxExecutionStore } from '@/stores/tx-execution/useTxExecutionStore'
 import { Status } from '@lanca/sdk'
 import { RewardWidget } from '../RewardWidget/RewardWidget'
-import './SwapWidget.pcss'
 import { RewardsNotification } from '../RewardsNotification/RewardsNotification'
+import './SwapWidget.pcss'
 
 export const SwapWidget: FC = memo(() => {
 	const { txStatus } = useTxExecutionStore()
