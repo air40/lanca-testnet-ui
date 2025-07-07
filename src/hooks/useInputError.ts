@@ -34,7 +34,16 @@ export const useInputError = () => {
 		} catch {
 			return true
 		}
-	}, [gas, isGasLoading, fromNativeBalanceLoading, fromBalanceLoading, chainId, balanceData.nativeBal, setError, setFromAmount])
+	}, [
+		gas,
+		isGasLoading,
+		fromNativeBalanceLoading,
+		fromBalanceLoading,
+		chainId,
+		balanceData.nativeBal,
+		setError,
+		setFromAmount,
+	])
 
 	const checkAmount = useCallback(
 		(val: string): boolean => {

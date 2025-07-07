@@ -11,8 +11,8 @@ import './DestinationCard.pcss'
 
 export const DestinationCard: FC = memo((): JSX.Element => {
 	const { destinationChain } = useFormStore()
-	const { toBalance, toBalanceLoading: isLoading} = useBalancesStore()
- 	const { openDstAssetModal } = useModalStore()
+	const { toBalance, toBalanceLoading: isLoading } = useBalancesStore()
+	const { openDstAssetModal } = useModalStore()
 
 	const handleOpenModal = useCallback(() => {
 		openDstAssetModal()

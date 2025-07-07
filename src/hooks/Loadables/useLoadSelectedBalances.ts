@@ -9,6 +9,7 @@ import { getPublicClient } from '@/utils/client'
 import { TokenAddresses } from '@/configuration/addresses'
 import { useTxExecutionStore } from '@/stores/tx-execution/useTxExecutionStore'
 import { useFormStore } from '@/stores/form/useFormStore'
+import { BalanceType } from '@/stores/balances/types'
 
 const SYMBOL = 'tCERO' as const
 const DECIMALS = 18 as const
@@ -21,7 +22,7 @@ const DEFAULT_BALANCE: Balance = {
 
 export const useLoadSelectedBalances = () => {
 	const { address } = useAccount()
-	const { setFromBalance, setFromBalanceLoading, setToBalance, setToBalanceLoading } = useBalancesStore()
+	const { setValue, setLoading } = useBalancesStore()
 	const { sourceChain, destinationChain } = useFormStore()
 	const { txStatus } = useTxExecutionStore()
 
@@ -66,55 +67,46 @@ export const useLoadSelectedBalances = () => {
 	const {
 		data: fromBalanceData,
 		isLoading: fromBalanceLoading,
-		refetch: refetchFromBalance,
+		refetch: refetchFromBalance
 	}: UseQueryResult<string> = useQuery({
 		queryKey: ['fromBalance', address, sourceChain?.id],
 		queryFn: () => fetchBalance(sourceChain?.id ? Number(sourceChain.id) : undefined),
 		enabled: Boolean(address && sourceChain?.id),
 		staleTime: 30_000,
+		retry: 2,
+		refetchOnWindowFocus: false,
 	})
 
 	const {
 		data: toBalanceData,
 		isLoading: toBalanceLoading,
-		refetch: refetchToBalance,
+		refetch: refetchToBalance
 	}: UseQueryResult<string> = useQuery({
 		queryKey: ['toBalance', address, destinationChain?.id],
 		queryFn: () => fetchBalance(destinationChain?.id ? Number(destinationChain.id) : undefined),
 		enabled: Boolean(address && destinationChain?.id),
 		staleTime: 30_000,
+		retry: 2,
+		refetchOnWindowFocus: false,
 	})
 
 	useEffect(() => {
-		setFromBalance(fromBalanceData ?? '0')
-	}, [fromBalanceData, setFromBalance])
+		setValue(BalanceType.From, fromBalanceData ?? '0')
+		setLoading(BalanceType.From, fromBalanceLoading)
+	}, [fromBalanceData, fromBalanceLoading, setValue, setLoading])
 
 	useEffect(() => {
-		setToBalance(toBalanceData ?? '0')
-	}, [toBalanceData, setToBalance])
-
-	useEffect(() => {
-		setFromBalanceLoading(fromBalanceLoading)
-	}, [fromBalanceLoading, setFromBalanceLoading])
-
-	useEffect(() => {
-		setToBalanceLoading(toBalanceLoading)
-	}, [toBalanceLoading, setToBalanceLoading])
+		setValue(BalanceType.To, toBalanceData ?? '0')
+		setLoading(BalanceType.To, toBalanceLoading)
+	}, [toBalanceData, toBalanceLoading, setValue, setLoading])
 
 	useEffect(() => {
 		if (txStatus === Status.SUCCESS) {
-			refetchFromBalance()
-			refetchToBalance()
+			const timeout = setTimeout(() => {
+				refetchFromBalance()
+				refetchToBalance()
+			}, 300)
+			return () => clearTimeout(timeout)
 		}
 	}, [txStatus, refetchFromBalance, refetchToBalance])
-
-	return useMemo(
-		() => ({
-			refetchFromBalance,
-			refetchToBalance,
-			fromBalanceLoading,
-			toBalanceLoading,
-		}),
-		[refetchFromBalance, refetchToBalance, fromBalanceLoading, toBalanceLoading],
-	)
 }

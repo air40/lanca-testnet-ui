@@ -19,7 +19,7 @@ const COLORS = {
 export const TokenWidget: FC = memo(() => {
 	const { isConnected } = useAccount()
 	const { sourceChain } = useFormStore()
-	const { fromBalance, fromBalanceLoading: isLoading} = useBalancesStore()
+	const { fromBalance, fromBalanceLoading: isLoading } = useBalancesStore()
 	const { openFaucetModal } = useModalStore()
 
 	const rawAmount = useMemo(() => {

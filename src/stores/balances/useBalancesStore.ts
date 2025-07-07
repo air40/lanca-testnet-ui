@@ -1,29 +1,34 @@
 import { useContext } from 'react'
 import { BalancesContext } from './BalancesContext'
+import { shallow } from 'zustand/shallow'
+import { BalanceType } from './types'
 
 export const useBalancesStore = () => {
 	const useStore = useContext(BalancesContext)
 	if (!useStore) {
-		throw new Error(`You forgot to wrap your component in <BalancesStoreProvider>.`)
+		throw new Error('You forgot to wrap your component in <BalancesStoreProvider>.')
 	}
 
-	const balances = useStore(state => state.balances)
-	const isLoading = useStore(state => state.isLoading)
-	const fromBalance = useStore(state => state.fromBalance)
-	const fromBalanceLoading = useStore(state => state.fromBalanceLoading)
-	const fromNativeBalance = useStore(state => state.fromNativeBalance)
-	const fromNativeBalanceLoading = useStore(state => state.fromNativeBalanceLoading)
-	const toBalance = useStore(state => state.toBalance)
-	const toBalanceLoading = useStore(state => state.toBalanceLoading)
-	const setBalance = useStore(state => state.setBalance)
-	const setBalances = useStore(state => state.setBalances)
-	const setLoading = useStore(state => state.setLoading)
-	const setFromBalance = useStore(state => state.setFromBalance)
-	const setFromBalanceLoading = useStore(state => state.setFromBalanceLoading)
-	const setFromNativeBalance = useStore(state => state.setFromNativeBalance)
-	const setFromNativeBalanceLoading = useStore(state => state.setFromNativeBalanceLoading)
-	const setToBalance = useStore(state => state.setToBalance)
-	const setToBalanceLoading = useStore(state => state.setToBalanceLoading)
+	const { balances, loading, values, setBalance, setBalances, setLoading, setValue } = useStore(
+		state => ({
+			balances: state.balances,
+			loading: state.loading,
+			values: state.values,
+			setBalance: state.setBalance,
+			setBalances: state.setBalances,
+			setLoading: state.setLoading,
+			setValue: state.setValue,
+		}),
+		shallow,
+	)
+
+	const isLoading = loading.global
+	const fromBalance = values[BalanceType.From]
+	const fromBalanceLoading = loading[BalanceType.From]
+	const fromNativeBalance = values[BalanceType.FromNative]
+	const fromNativeBalanceLoading = loading[BalanceType.FromNative]
+	const toBalance = values[BalanceType.To]
+	const toBalanceLoading = loading[BalanceType.To]
 
 	return {
 		balances,
@@ -37,11 +42,6 @@ export const useBalancesStore = () => {
 		setBalance,
 		setBalances,
 		setLoading,
-		setFromBalance,
-		setFromBalanceLoading,
-		setFromNativeBalance,
-		setFromNativeBalanceLoading,
-		setToBalance,
-		setToBalanceLoading,
+		setValue,
 	}
 }

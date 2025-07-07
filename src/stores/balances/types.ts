@@ -1,6 +1,12 @@
 import type { UseBoundStoreWithEqualityFn } from 'zustand/traditional'
 import type { StoreApi } from 'zustand/vanilla'
 
+export enum BalanceType {
+	From = 'from',
+	FromNative = 'fromNative',
+	To = 'to',
+}
+
 export type Balance = {
 	balance: string
 	symbol: string
@@ -9,22 +15,24 @@ export type Balance = {
 
 export type BalancesState = {
 	balances: Record<number, Balance>
-	isLoading: boolean
-	fromBalance: string
-	fromBalanceLoading: boolean
-	fromNativeBalance: string
-	fromNativeBalanceLoading: boolean
-	toBalance: string
-	toBalanceLoading: boolean
-	setBalance: (chain: number, balance: Balance) => void
-	setBalances: (balances: Record<number, Balance>) => void
-	setLoading: (isLoading: boolean) => void
-	setFromBalance: (balance: string) => void
-	setFromBalanceLoading: (loading: boolean) => void
-	setFromNativeBalance: (balance: string) => void
-	setFromNativeBalanceLoading: (loading: boolean) => void
-	setToBalance: (balance: string) => void
-	setToBalanceLoading: (loading: boolean) => void
+	loading: {
+		global: boolean
+		[BalanceType.From]: boolean
+		[BalanceType.FromNative]: boolean
+		[BalanceType.To]: boolean
+	}
+	values: {
+		[BalanceType.From]: string
+		[BalanceType.FromNative]: string
+		[BalanceType.To]: string
+	}
 }
 
-export type BalancesStore = UseBoundStoreWithEqualityFn<StoreApi<BalancesState>>
+export type BalancesActions = {
+	setBalance: (chain: number, balance: Balance) => void
+	setBalances: (balances: Record<number, Balance>) => void
+	setLoading: (type: BalanceType | 'global', value: boolean) => void
+	setValue: (type: BalanceType, value: string) => void
+}
+
+export type BalancesStore = UseBoundStoreWithEqualityFn<StoreApi<BalancesState & BalancesActions>>
