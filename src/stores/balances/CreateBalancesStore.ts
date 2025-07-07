@@ -5,8 +5,13 @@ export const CreateBalancesStore = () =>
 	createWithEqualityFn<BalancesState>(
 		set => ({
 			balances: {},
-			nativeBalances: {},
 			isLoading: false,
+			fromBalance: '0',
+			fromBalanceLoading: false,
+			fromNativeBalance: '0',
+			fromNativeBalanceLoading: false,
+			toBalance: '0',
+			toBalanceLoading: false,
 			setBalance: (chain, balance) =>
 				set(state => ({
 					balances: {
@@ -14,16 +19,14 @@ export const CreateBalancesStore = () =>
 						[chain]: balance,
 					},
 				})),
-			setNativeBalance: (chain, nativeBalance) =>
-				set(state => ({
-					nativeBalances: {
-						...state.nativeBalances,
-						[chain]: nativeBalance,
-					},
-				})),
 			setBalances: balances => set({ balances }),
-			setNativeBalances: nativeBalances => set({ nativeBalances }),
 			setLoading: isLoading => set({ isLoading }),
+			setFromBalance: fromBalance => set({ fromBalance }),
+			setFromBalanceLoading: fromBalanceLoading => set({ fromBalanceLoading }),
+			setFromNativeBalance: fromNativeBalance => set({ fromNativeBalance }),
+			setFromNativeBalanceLoading: fromNativeBalanceLoading => set({ fromNativeBalanceLoading }),
+			setToBalance: toBalance => set({ toBalance }),
+			setToBalanceLoading: toBalanceLoading => set({ toBalanceLoading }),
 		}),
 		Object.is,
 	)

@@ -8,22 +8,40 @@ export const useBalancesStore = () => {
 	}
 
 	const balances = useStore(state => state.balances)
-	const nativeBalances = useStore(state => state.nativeBalances)
 	const isLoading = useStore(state => state.isLoading)
+	const fromBalance = useStore(state => state.fromBalance)
+	const fromBalanceLoading = useStore(state => state.fromBalanceLoading)
+	const fromNativeBalance = useStore(state => state.fromNativeBalance)
+	const fromNativeBalanceLoading = useStore(state => state.fromNativeBalanceLoading)
+	const toBalance = useStore(state => state.toBalance)
+	const toBalanceLoading = useStore(state => state.toBalanceLoading)
 	const setBalance = useStore(state => state.setBalance)
-	const setNativeBalance = useStore(state => state.setNativeBalance)
 	const setBalances = useStore(state => state.setBalances)
-	const setNativeBalances = useStore(state => state.setNativeBalances)
 	const setLoading = useStore(state => state.setLoading)
+	const setFromBalance = useStore(state => state.setFromBalance)
+	const setFromBalanceLoading = useStore(state => state.setFromBalanceLoading)
+	const setFromNativeBalance = useStore(state => state.setFromNativeBalance)
+	const setFromNativeBalanceLoading = useStore(state => state.setFromNativeBalanceLoading)
+	const setToBalance = useStore(state => state.setToBalance)
+	const setToBalanceLoading = useStore(state => state.setToBalanceLoading)
 
 	return {
 		balances,
-		nativeBalances,
 		isLoading,
+		fromBalance,
+		fromBalanceLoading,
+		fromNativeBalance,
+		fromNativeBalanceLoading,
+		toBalance,
+		toBalanceLoading,
 		setBalance,
-		setNativeBalance,
 		setBalances,
-		setNativeBalances,
 		setLoading,
+		setFromBalance,
+		setFromBalanceLoading,
+		setFromNativeBalance,
+		setFromNativeBalanceLoading,
+		setToBalance,
+		setToBalanceLoading,
 	}
 }

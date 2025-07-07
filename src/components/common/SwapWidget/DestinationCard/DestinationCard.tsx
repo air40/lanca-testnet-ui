@@ -11,19 +11,19 @@ import './DestinationCard.pcss'
 
 export const DestinationCard: FC = memo((): JSX.Element => {
 	const { destinationChain } = useFormStore()
-	const { balances, isLoading } = useBalancesStore()
-	const { openDstAssetModal } = useModalStore()
+	const { toBalance, toBalanceLoading: isLoading} = useBalancesStore()
+ 	const { openDstAssetModal } = useModalStore()
 
 	const handleOpenModal = useCallback(() => {
 		openDstAssetModal()
 	}, [openDstAssetModal])
 
 	const token = useMemo(() => {
-		if (!destinationChain || !balances[Number(destinationChain.id)]) {
+		if (!destinationChain || !toBalance) {
 			return { balance: '0', decimals: 18, symbol: 'tCERO' }
 		}
-		return balances[Number(destinationChain.id)]
-	}, [destinationChain, balances])
+		return { balance: toBalance, decimals: 18, symbol: 'tCERO' }
+	}, [destinationChain, toBalance])
 
 	return (
 		<div className="destination_card_wrapper">

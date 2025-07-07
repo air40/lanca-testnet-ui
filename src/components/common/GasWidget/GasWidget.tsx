@@ -21,15 +21,15 @@ const COLORS = {
 export const GasWidget: FC = memo(() => {
 	const { isConnected } = useAccount()
 	const { sourceChain } = useFormStore()
-	const { nativeBalances, isLoading } = useBalancesStore()
+	const { fromNativeBalance, fromNativeBalanceLoading: isLoading } = useBalancesStore()
 	const { trackEvent } = useTrackEvent()
 
 	const rawAmount = useMemo(() => {
-		if (!sourceChain || !nativeBalances[Number(sourceChain.id)]) {
+		if (!sourceChain || !fromNativeBalance) {
 			return '0'
 		}
-		return nativeBalances[Number(sourceChain.id)].balance
-	}, [sourceChain, nativeBalances])
+		return fromNativeBalance
+	}, [sourceChain, fromNativeBalance])
 
 	const gas = useMemo(
 		() => formatTokenAmount(rawAmount, sourceChain?.decimals || 18),
@@ -92,5 +92,3 @@ export const GasWidget: FC = memo(() => {
 		</div>
 	)
 })
-
-GasWidget.displayName = 'GasWidget'
