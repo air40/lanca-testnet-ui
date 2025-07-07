@@ -6,20 +6,20 @@ import { useEstimateGas } from './useEstimateGas'
 export const useInputError = () => {
 	const { gas, isLoading: isGasLoading } = useEstimateGas()
 	const { fromAmount, setFromAmount, setError, sourceChain } = useFormStore()
-	const { nativeBalances, balances, isLoading: isBalanceLoading } = useBalancesStore()
+	const { fromNativeBalance, fromBalance, fromBalanceLoading, fromNativeBalanceLoading } = useBalancesStore()
 
 	const chainId = useMemo(() => (sourceChain?.id ? Number(sourceChain.id) : null), [sourceChain])
 
 	const balanceData = useMemo(() => {
 		if (!chainId) return { nativeBal: '0', tokenBal: '0' }
 		return {
-			nativeBal: nativeBalances?.[chainId]?.balance || '0',
-			tokenBal: balances?.[chainId]?.balance || '0',
+			nativeBal: fromNativeBalance || '0',
+			tokenBal: fromBalance || '0',
 		}
-	}, [chainId, nativeBalances, balances])
+	}, [chainId, fromNativeBalance, fromBalance])
 
 	const checkGas = useCallback((): boolean => {
-		if (isGasLoading || isBalanceLoading || !chainId) return true
+		if (isGasLoading || fromNativeBalanceLoading || fromBalanceLoading || !chainId) return true
 
 		try {
 			const gasCost = BigInt(gas || '0')
@@ -34,12 +34,21 @@ export const useInputError = () => {
 		} catch {
 			return true
 		}
-	}, [gas, isGasLoading, isBalanceLoading, chainId, balanceData.nativeBal, setError, setFromAmount])
+	}, [
+		gas,
+		isGasLoading,
+		fromNativeBalanceLoading,
+		fromBalanceLoading,
+		chainId,
+		balanceData.nativeBal,
+		setError,
+		setFromAmount,
+	])
 
 	const checkAmount = useCallback(
 		(val: string): boolean => {
 			if (!val || val === '0') return true
-			if (isBalanceLoading || !chainId) return true
+			if (fromBalanceLoading || fromNativeBalanceLoading || !chainId) return true
 
 			try {
 				const inAmount = BigInt(val)
@@ -55,7 +64,7 @@ export const useInputError = () => {
 				return true
 			}
 		},
-		[isBalanceLoading, chainId, balanceData.tokenBal, setError, setFromAmount],
+		[fromBalanceLoading, fromNativeBalanceLoading, chainId, balanceData.tokenBal, setError, setFromAmount],
 	)
 
 	const validate = useCallback(
@@ -80,6 +89,6 @@ export const useInputError = () => {
 		validate,
 		checkGas,
 		checkAmount,
-		isLoading: isGasLoading || isBalanceLoading,
+		isLoading: isGasLoading || fromNativeBalanceLoading || fromBalanceLoading,
 	}
 }

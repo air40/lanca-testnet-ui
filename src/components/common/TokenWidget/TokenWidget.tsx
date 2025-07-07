@@ -19,15 +19,15 @@ const COLORS = {
 export const TokenWidget: FC = memo(() => {
 	const { isConnected } = useAccount()
 	const { sourceChain } = useFormStore()
-	const { balances, isLoading } = useBalancesStore()
+	const { fromBalance, fromBalanceLoading: isLoading } = useBalancesStore()
 	const { openFaucetModal } = useModalStore()
 
 	const rawAmount = useMemo(() => {
-		if (!sourceChain || !balances[Number(sourceChain.id)]) {
+		if (!sourceChain || !fromBalance) {
 			return '0'
 		}
-		return balances[Number(sourceChain.id)].balance
-	}, [sourceChain, balances])
+		return fromBalance
+	}, [sourceChain, fromBalance])
 
 	const nativeToken = useMemo(
 		() => formatTokenAmount(rawAmount, sourceChain?.decimals || 18),

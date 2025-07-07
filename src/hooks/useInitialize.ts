@@ -1,13 +1,15 @@
 import { useLoadBalances } from './Loadables/useLoadBalances'
 import { useLoadLanes } from './Loadables/useLoadLanes'
-import { useLoadNativeBalances } from './Loadables/useLoadNativeBalances'
+import { useLoadSelectedBalances } from './Loadables/useLoadSelectedBalances'
+import { useLoadNativeBalance } from './Loadables/useLoadNativeBalance'
 import { useLoadPosthogInstance } from './Loadables/useLoadPosthogInstance'
 import { useLoadTxExecutionTime } from './Loadables/useLoadTxExecutionTime'
 
 export const InitializeLoadables = (): null => {
 	useLoadPosthogInstance()
+	useLoadSelectedBalances()
 	useLoadBalances()
-	useLoadNativeBalances()
+	useLoadNativeBalance()
 	useLoadTxExecutionTime()
 	useLoadLanes()
 	return null

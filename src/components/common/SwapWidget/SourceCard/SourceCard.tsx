@@ -11,7 +11,7 @@ import './SourceCard.pcss'
 
 export const SourceCard: FC = memo((): JSX.Element => {
 	const { sourceChain, error } = useFormStore()
-	const { balances, isLoading } = useBalancesStore()
+	const { fromBalance, fromBalanceLoading: isLoading } = useBalancesStore()
 	const { openSrcAssetModal } = useModalStore()
 
 	const handleOpenModal = useCallback(() => {
@@ -19,11 +19,11 @@ export const SourceCard: FC = memo((): JSX.Element => {
 	}, [openSrcAssetModal])
 
 	const token = useMemo(() => {
-		if (!sourceChain || !balances[Number(sourceChain.id)]) {
+		if (!sourceChain || !fromBalance) {
 			return { balance: '0', decimals: 18, symbol: 'tCERO' }
 		}
-		return balances[Number(sourceChain.id)]
-	}, [sourceChain, balances])
+		return { balance: fromBalance, decimals: 18, symbol: 'tCERO' }
+	}, [sourceChain, fromBalance])
 
 	return (
 		<div className="source_card_wrapper">

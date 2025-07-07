@@ -1,29 +1,47 @@
 import { useContext } from 'react'
 import { BalancesContext } from './BalancesContext'
+import { shallow } from 'zustand/shallow'
+import { BalanceType } from './types'
 
 export const useBalancesStore = () => {
 	const useStore = useContext(BalancesContext)
 	if (!useStore) {
-		throw new Error(`You forgot to wrap your component in <BalancesStoreProvider>.`)
+		throw new Error('You forgot to wrap your component in <BalancesStoreProvider>.')
 	}
 
-	const balances = useStore(state => state.balances)
-	const nativeBalances = useStore(state => state.nativeBalances)
-	const isLoading = useStore(state => state.isLoading)
-	const setBalance = useStore(state => state.setBalance)
-	const setNativeBalance = useStore(state => state.setNativeBalance)
-	const setBalances = useStore(state => state.setBalances)
-	const setNativeBalances = useStore(state => state.setNativeBalances)
-	const setLoading = useStore(state => state.setLoading)
+	const { balances, loading, values, setBalance, setBalances, setLoading, setValue } = useStore(
+		state => ({
+			balances: state.balances,
+			loading: state.loading,
+			values: state.values,
+			setBalance: state.setBalance,
+			setBalances: state.setBalances,
+			setLoading: state.setLoading,
+			setValue: state.setValue,
+		}),
+		shallow,
+	)
+
+	const isLoading = loading.global
+	const fromBalance = values[BalanceType.From]
+	const fromBalanceLoading = loading[BalanceType.From]
+	const fromNativeBalance = values[BalanceType.FromNative]
+	const fromNativeBalanceLoading = loading[BalanceType.FromNative]
+	const toBalance = values[BalanceType.To]
+	const toBalanceLoading = loading[BalanceType.To]
 
 	return {
 		balances,
-		nativeBalances,
 		isLoading,
+		fromBalance,
+		fromBalanceLoading,
+		fromNativeBalance,
+		fromNativeBalanceLoading,
+		toBalance,
+		toBalanceLoading,
 		setBalance,
-		setNativeBalance,
 		setBalances,
-		setNativeBalances,
 		setLoading,
+		setValue,
 	}
 }
