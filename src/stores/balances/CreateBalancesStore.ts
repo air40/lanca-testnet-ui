@@ -1,29 +1,43 @@
-import type { BalancesState } from './types'
 import { createWithEqualityFn } from 'zustand/traditional'
+import type { BalancesState, BalancesActions, Balance, BalanceType } from './types'
 
 export const CreateBalancesStore = () =>
-	createWithEqualityFn<BalancesState>(
+	createWithEqualityFn<BalancesState & BalancesActions>(
 		set => ({
 			balances: {},
-			nativeBalances: {},
-			isLoading: false,
-			setBalance: (chain, balance) =>
+			loading: {
+				global: false,
+				from: false,
+				fromNative: false,
+				to: false,
+			},
+			values: {
+				from: '0',
+				fromNative: '0',
+				to: '0',
+			},
+			setBalance: (chain: number, balance: Balance) =>
 				set(state => ({
 					balances: {
 						...state.balances,
 						[chain]: balance,
 					},
 				})),
-			setNativeBalance: (chain, nativeBalance) =>
+			setBalances: (balances: Record<number, Balance>) => set({ balances }),
+			setLoading: (type: BalanceType | 'global', value: boolean) =>
 				set(state => ({
-					nativeBalances: {
-						...state.nativeBalances,
-						[chain]: nativeBalance,
+					loading: {
+						...state.loading,
+						[type]: value,
 					},
 				})),
-			setBalances: balances => set({ balances }),
-			setNativeBalances: nativeBalances => set({ nativeBalances }),
-			setLoading: isLoading => set({ isLoading }),
+			setValue: (type: BalanceType, value: string) =>
+				set(state => ({
+					values: {
+						...state.values,
+						[type]: value,
+					},
+				})),
 		}),
 		Object.is,
 	)

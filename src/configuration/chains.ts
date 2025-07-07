@@ -556,6 +556,7 @@ export const transports = {
 	[hashkeyTestnet.id]: createTransport([
 		'https://hashkeychain-testnet.alt.technology',
 		'https://hashkey-testnet.drpc.org',
+
 	]),
 
 	//// INK SEPOLIA ////
@@ -641,7 +642,6 @@ export const transports = {
 
 	//// UNICHAIN SEPOLIA ////
 	[unichainSepolia.id]: createTransport([
-		'https://sepolia.unichain.org',
 		'https://unichain-sepolia-rpc.publicnode.com',
 		'https://sepolia.unichain.org',
 		'https://unichain-sepolia.drpc.org',
@@ -656,9 +656,8 @@ export const transports = {
 
 	//// ZIRCUIT TESTNET ////
 	[zircuitTestnet.id]: createTransport([
-		'https://testnet.zircuit.com',
-		'https://zircuit1-testnet.p2pify.com',
-		'https://zircuit1-testnet.liquify.com',
+		'https://zircuit-testnet.drpc.org',
+		'https://testnet.zircuit.com'
 	]),
 
 	//// BERACHAIN BEPOLIA ////
