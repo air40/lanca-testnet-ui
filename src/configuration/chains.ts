@@ -168,21 +168,21 @@ const b2Testnet = defineChain({
 	testnet: true,
 })
 
-const xoMarketTestnet = defineChain({
-	id: 1000101,
-	name: 'XO Market Testnet',
-	nativeCurrency: {
-		decimals: 18,
-		name: 'ETH',
-		symbol: 'ETH',
-	},
-	rpcUrls: {
-		default: {
-			http: ['https://dev-testnet-rpc.xo.market'],
-		},
-	},
-	testnet: true,
-})
+// const xoMarketTestnet = defineChain({
+// 	id: 1000101,
+// 	name: 'XO Market Testnet',
+// 	nativeCurrency: {
+// 		decimals: 18,
+// 		name: 'ETH',
+// 		symbol: 'ETH',
+// 	},
+// 	rpcUrls: {
+// 		default: {
+// 			http: ['https://dev-testnet-rpc.xo.market'],
+// 		},
+// 	},
+// 	testnet: true,
+// })
 
 // const taikoHekla = defineChain({
 // 	id: 167009,
@@ -468,7 +468,7 @@ export const chains: [AppKitNetwork, ...AppKitNetwork[]] = [
 	astarShibuya,
 
 	//// XO MARKET TESTNET ////
-	xoMarketTestnet,
+	// xoMarketTestnet,
 ]
 
 export const transports = {
@@ -789,5 +789,5 @@ export const transports = {
 	[astarShibuya.id]: createTransport(['https://shibuya-rpc.dwellir.com', 'https://evm.shibuya.astar.network']),
 
 	//// XO MARKET TESTNET ////
-	[xoMarketTestnet.id]: createTransport(['https://dev-testnet-rpc.xo.market', 'https://dev-testnet-rpc.xo.market']),
+	// [xoMarketTestnet.id]: createTransport(['https://dev-testnet-rpc.xo.market', 'https://dev-testnet-rpc.xo.market']),
 }
