@@ -51,6 +51,7 @@ const ERROR_TIMEOUT = 408
 const ERROR_TOO_MANY_REQUESTS = 429
 const ERROR_SERVER_MIN = 500
 const ERROR_SERVER_MAX = 599
+const ERROR_BAD_REQUEST = 400
 
 const httpOptions = {
 	onFetchResponse(response: Response) {
@@ -59,6 +60,7 @@ const httpOptions = {
 			if (
 				(status >= ERROR_SERVER_MIN && status <= ERROR_SERVER_MAX) ||
 				status === ERROR_TOO_MANY_REQUESTS ||
+				status === ERROR_BAD_REQUEST ||
 				status === ERROR_FORBIDDEN ||
 				status === ERROR_TIMEOUT
 			) {
@@ -217,9 +219,9 @@ const pulsechainTestnet = defineChain({
 	rpcUrls: {
 		default: {
 			http: [
-				'https://pulsechain-testnet-v4.rpc.thirdweb.com/',
+				'https://rpc-testnet-pulsechain.g4mm4.io',
 				'https://pulsechain-testnet.publicnode.com',
-				'https://rpc.v2.testnet.pulsechain.com/',
+				'https://rpc.v4.testnet.pulsechain.com',
 			],
 		},
 	},
@@ -298,17 +300,20 @@ export const astarShibuya = defineChain({
 })
 
 const fallbackOptions = {
-	retryCount: 5,
-	retryDelay: 15000,
-	timeout: 30000,
+	retryCount: 1,
+	retryDelay: 2500,
+	timeout: 1000,
 }
 
 const createTransport = (urls: string[]) => {
-	return fallback(
-		urls.map(url => http(url, httpOptions)),
-		fallbackOptions,
-	)
+  return fallback(
+    urls.map(url => http(url, httpOptions)),
+    {
+      ...fallbackOptions,
+    }
+  )
 }
+
 
 export const chains: [AppKitNetwork, ...AppKitNetwork[]] = [
 	//// APECHAIN CURTIS ////
@@ -656,8 +661,9 @@ export const transports = {
 
 	//// ZIRCUIT TESTNET ////
 	[zircuitTestnet.id]: createTransport([
+		'https://testnet.zircuit.com',
 		'https://zircuit-testnet.drpc.org',
-		'https://testnet.zircuit.com'
+		'https://zircuit1-testnet.liquify.com',
 	]),
 
 	//// BERACHAIN BEPOLIA ////
@@ -778,12 +784,12 @@ export const transports = {
 	//// SONIC BLAZE TESTNET ////
 	[sonicBlazeTestnet.id]: createTransport([
 		'https://rpc.blaze.soniclabs.com',
-		'https://rpc.ankr.com/sonic_blaze_testnet',
+		'https://sonic-blaze-rpc.publicnode.com',
 		'https://rpc.blaze.soniclabs.com',
 	]),
 
 	//// SEISMIC DEVNET ////
-	[seismicDevnet.id]: createTransport(['https://node-2.seismicdev.net/rpc', 'https://node-2.seismicdev.net/rpc']),
+	[seismicDevnet.id]: createTransport(['https://node-2.seismicdev.net/rpc']),
 
 	//// ASTAR SHIBUYA ////
 	[astarShibuya.id]: createTransport(['https://shibuya-rpc.dwellir.com', 'https://evm.shibuya.astar.network']),
