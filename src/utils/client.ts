@@ -1,6 +1,7 @@
 import { createPublicClient } from 'viem'
 import { createWalletClient } from 'viem'
 import { chains, transports } from '../configuration/chains'
+import type { PublicClient } from 'viem'
 
 /**
  * Gets a public client for the specified chain ID.
@@ -13,7 +14,7 @@ import { chains, transports } from '../configuration/chains'
  * @throws Will throw an error if the chain ID is unsupported or if the transport is not configured.
  */
 
-const clients: Record<number, ReturnType<typeof createPublicClient>> = {}
+const clients: Record<number, PublicClient> = {}
 
 export const getPublicClient = (chainId: number) => {
 	if (clients[chainId]) {
